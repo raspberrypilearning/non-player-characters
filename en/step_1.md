@@ -5,7 +5,7 @@ Create 3D non-player characters to interact with, avoid and collect from.
 This project follows on from [Star collector](https://projects.raspberrypi.org/en/projects/star-collector/0){:target=blank}. You can use the Unity scene that you created in that project as the basis for this project. We’ve also provided a starter project that you can use.
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
-A <span style="color: #0faeb0">**Non-player character (NPC)**</span> is a character that is not controlled by the person game. NPCs can be setup for the player to interact with, avoid, compete with, or are simply used to populate the game world.
+A <span style="color: #0faeb0">**Non-player character (NPC)**</span> is a character that is not controlled by the person playing the game. NPCs can be setup for the player to interact with, avoid, compete with, or are simply used to populate the game world.
 </p>
 
 You will:

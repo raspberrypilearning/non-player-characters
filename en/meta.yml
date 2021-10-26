@@ -8,7 +8,7 @@ last_tested: "2021-03-26"
 steps:
   - title: Introduction
   - title: Gamemaster NPC
-  - title: Patrol NPC
+  - title: NPC Patrol 
   - title: Random movement NPC
   - title: Follower NPC
   - title: Giver NPC

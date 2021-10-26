@@ -1,4 +1,4 @@
-## Step title
+## Gamemaster NPC
 
 <div style="display: flex; flex-wrap: wrap">
 <div style="flex-basis: 200px; flex-grow: 1; margin-right: 15px;">
@@ -91,14 +91,14 @@ Click on 'Add Component' and add a 'Box Collider' so that the Player cannot walk
 --- /task ---
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
-<span style="color: #0faeb0">**Parenting**</span> in Unity is when a **Parent GameObject** has one or more **Child GameObjects** that move, rotate and scale with it. This is really useful for positioning Child GameOjects in relation to their Parent GameObject. A parent GameObject can have many Child GameObjects but a Child GameObject can have only one Parent GameObject.
+<span style="color: #0faeb0">**Parenting**</span> in Unity is when a **parent GameObject** has one or more **child GameObjects** that move, rotate and scale with it. This is really useful for positioning children in relation to their parent. A parent can have many Child GameObjects but a child can have only one parent.
 </p>
 
-The Gamemaster will use `UI` **Child GameObject** to display the game instructions and have a button to press to start the timer. These Child GameObjects will only be displayed when the Player is close enough to talk to the Gamemaster and the game is not already in progress.  
+The Gamemaster will use `UI` **child GameObject** to display the game instructions and have a button to press to start the timer. These child GameObjects will only be displayed when the Player is close enough to talk to the Gamemaster and the game is not already in progress.  
 
 --- task ---
 
-Right-click on the Gamemaster in the Hierarchy window and from `UI` select `Text - TextMeshPro` to create text that is a Child GameObject of the Gamemaster. This will also automatically create a canvas for the text to sit on. 
+Right-click on the Gamemaster in the Hierarchy window and from `UI` select `Text - TextMeshPro` to create text that is a child GameObject of the Gamemaster. This will also automatically create a canvas for the text to sit on. 
 
 ![The Hierarchy window showing new text child GameObject. The new text GameObject is indented as it has been created as a child object of the Gamemaster. ](images/text-child-hierarchy.png)
 

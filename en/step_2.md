@@ -156,7 +156,7 @@ This Box collider will trigger the canvas with message and button to be shown so
 
 --- task ---
 
-In the Project window, navigate to the 'My Scripts' folder. Right-click and create a new `C# Script`. Name the script `NPCText`.
+In the Project window, navigate to the 'My Scripts' folder. Right-click and create a new 'C# Script'. Name the script `NPCText`.
 
 --- /task ---
 

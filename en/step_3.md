@@ -1,78 +1,86 @@
-## NPC Patrol
+## Starting the game
 
 <div style="display: flex; flex-wrap: wrap">
 <div style="flex-basis: 200px; flex-grow: 1; margin-right: 15px;">
-Patrolling NPCs can be used to slow players down. Changing their path, size, position, and speed can alter the game difficulty. 
+Create an NPC to set the scene and start the game timer.
 </div>
 <div>
-![A U-shaped set of walls with a star inside and an animated dog patrolling the entrance to make it harder to reach the star quickly.](images/dog-run.gif){:width="300px"}
+![Image of the Game view showing the NPC, player and text introduction with ready button.](images/time-button.gif){:width="300px"}
 </div>
 </div>
 
+At the moment the canvas is always visible not just enabled when the Player is interacting with the Gamemaster. 
+
 --- task ---
 
-Open the 'Models' folder in the Project window and add a 'Dog' to your scene. 
+Select your Gamemaster GameObject and click on 'Add Component' in the Inspector window then add a second 'Box Collider'. 
 
-Use the transform and rotation tools or the 'Transform' component to position the dog in a good position for patrolling and getting in the way of the Player reaching a star. 
+This Box collider will trigger the canvas with message and button to be shown so needs to be bigger than the Box Collider that stops the Player walking into the Gamemaster:
 
-**Tip:** To see your map in a top-down view Right click where it says ‘Persp’ in the top right of the Scene view and choose ‘Top’. To return to the normal view, right-click on Top and choose ‘Free’.
+![The Inspector window showing two colliders. The new collider has 'IsTrigger' checked and the size X=2, y=1, z=2 so that it is bigger than the previously added collider.](images/both-colliders-properties.png)
 
-![The Inspector Transform component with position x = -4, y = 0, and z = 9.5. Rotation is set to y = 90.](images/transform-dog.png)
-
-![The top down Scene view showing a dog positioned near to a star that is enclosed by walls.](images/position-dog.png)
+![The Scene view showing Gamemaster with two box colliders. One bigger than the other.](images/two-colliders.png)
 
 --- /task ---
 
 --- task ---
 
-With the Dog selected go to the Inspector window and 'Add Component'. Choose the 'Character Controller'. Position and size the controller so it covers the whole of your Dog.
-
-**Tip:** Select the Dog GameObject in the Hierarchy window and press 'shift' + 'f' to focus on the Dog in the Scene view. 
-
-![The Character Controller component with Center positioned x=0, y=1 and z=0, radius = 1 and Height = 2.](images/char-coll-dog.png)
-
-![The Scene view showing the Character Controller is the right size to cover the body of the Dog.](images/scene-coll-dog.png)
+In the Project window, navigate to the 'My Scripts' folder. Right-click and create a new 'C# Script'. Name the script `NPCText`.
 
 --- /task ---
 
 --- task ---
 
-Open the 'My scripts' folder in the Project window and right-click to create a new 'C# Script'. Name the script `PatrolController`.
-
---- /task ---
-
---- task ---
-
-Open the 'PatrolController' script and create a patrolSpeed variable. Create another two public variables for the minPosition and maxPosition of the patrol space.
+Double click on the NPCText script to open it in your script editor. Add code to use the TMPro namespace:
 
 ```
-    public float patrolSpeed = 3.0F;
-    public float minPosition = -4.0F;
-    public float maxPosition = 4.0F;
+using UnityEngine;
+using TMPro; 
 ```
 
 --- /task ---
 
 --- task ---
 
-Add code to the `Update` method so the Dog moves foward until the maxPosition is reached then turns `180` degrees and move forward again until the minimum positon is reached. 
+Create a public Canvas variable called `canvas` and add code to disable the canvas at the start:
+
+```
+    public Canvas canvas;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        canvas.enabled = false;
+    }
+```
+
+--- /task ---
+
+--- task ---
+
+Add two new methods. The first to enable the canvas when the Player is in the collider. The second to diable the canvas when the player has moved away:
 
 ```
 void Update()
     {
-        CharacterController controller = GetComponent<CharacterController>();
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
-        controller.SimpleMove(forward * patrolSpeed);
+        
+    }
 
-        if (transform.position.x < maxPosition)
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
         {
-            transform.Rotate(0, 180, 0);
+            canvas.enabled = true;
         }
+    }
 
-        if (transform.position.x > minPosition)
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
         {
-            transform.Rotate(0, 180, 0);
+            canvas.enabled = false;
         }
+    }
 ```
 
 Save your script and return to the Unity editor.
@@ -81,68 +89,177 @@ Save your script and return to the Unity editor.
 
 --- task ---
 
-Drag the 'PatrolController' script to the Inspector window for the Dog.
+Select the Gamemaster and drag the 'NPCText' script to the Inspector window. Drag your Canvas child GameObject from the Hierarchy window to the 'Canvas' variable field in the Inspector window Script component.
 
 --- /task ---
 
 --- task ---
 
-**Test:** Play your game and check that the Dog makes it harder to reach a star quickly. 
-
-Track the movement of the Dog, if the patrol length is not right for your scene you can adjust the 'Min Position' and 'Max Position' in the Inspector whilst the game is playing. 
-
-**Tip:** Remember that variables edited in Playmode are not saved after exiting Playmode so make a note of the positions you like best then exit playmode and go back to your script to update the values in your minPosition and maxPosition variables. Save your script then return to the Unity editor. 
-
-![Game view showing the Player waiting for the dog to pass before collecting the star then waiting for the dog to pass before exiting the enclosed star hiding place.](images/dog-patrol-game.gif)
+**Test:** Play your minigame, walk upto the Gamemaster and move away again. The canvas appears when the Player triggers the Gamemaster collider and disappears with the Player moves away.
 
 --- /task ---
 
-Now that the position and path of the patrolling dog is decided it's time to make things more realistic with animation.
+The button looks great but needs to trigger an event when it is pressed.
 
 --- task ---
 
-In the Project window, navigate to the 'Animation' folder. Right-click and got to 'Create' then select 'Animation Controller' name your new animation controller 'PatrolRun'.
+Open the 'NPCText' script and create two new public variables called 'IsReady' and 'ButtonTime':
 
-![The Animation folder in the Project window with new PatrolRun animator added alongside the IdleWalk animator from Explore a 3D world.](images/patrol-animator.png)
-
---- /task ---
-
---- task ---
-
-Double click on the 'PatrolRun' animation controller to open it in the Animator window. 
-
-The patrol dog will have just one animation that will run repeatedly. From the animation folder in the Project window, drag the 'Dog_Run' animation up to the Animator window. 
-
-![The animator window with Base Layer open and a black grid showing 'Entry' in green linked by transition arrow to 'Dog_Run' in orange.](images/dog-run-animator.png)
-
-**Tip:** If you can't see all of the boxes in the Animator window you can click on the black grid then press the 'a' key to refocus the window. Then pan left and right using 'alt' + left mouse button or zoom in and out using the 'atl' key + right mouse button. 
+```
+    public Canvas canvas;
+    public bool IsReady = false;
+    public float ButtonTime = 0.0f;
+```
 
 --- /task ---
 
 --- task ---
 
-From the Hierarchy window, select the Dog GameObject then go to the Inspector window 'Animator' component. Click on the circle next to 'Controller' and select 'PatrolRun' to link your animation controller.
+Create a public method called `PlayerReady` to set the game conditions when the Player has clicked the 'Ready' button. 
 
-![The Animator component with circle for top 'Controller' property highlighter. PatrolRun is shown in the field.](images/dog-animator-component.png)
+The time the button was pressed needs to be captured so you can work out how long the game has been in play:
 
+```
+ public void PlayerReady()
+    {
+        IsReady = true;
+        ButtonTime = Time.time;
+        canvas.enabled = false;
+    }
+```
+
+Save your script and return to the Unity editor.
 
 --- /task ---
 
 --- task ---
 
-**Test:** Play your game to see the patrol dog run up and down across the patrol path.
+From the Hierarchy window, select the Button GameObject then go to the Inspector window 'On Click ()' property and click on the '+'. 
 
-![The game view showing dog with running animation patrolling back and forth.](images/dog-run.gif)
+Click on the circle for the field underneath 'Runtime' and choose `Gamemaster`. In the 'Function' dropdown select 'NPCText.PlayerReady' to join your new method to the Button's click event. 
+
+![The OnClick component for the Button in the Inspector window with values 'Runtime' , 'Gamemaster' and 'NPCText.PlayerReady' in the 3 fields.](images/on-click-inspector.png)
 
 --- /task ---
 
 --- task ---
 
-**Test:** Tweak your patrol dog until you are happy with the path, and animation. To change the difficulty level you can alter the 'Scale' to make a bigger or smaller dog.
+**Test:** Play your minigame. The button disables the canvas but the time counts up from the second the game begins. 
 
-![The 'Transform' component for the dog showing X, Y and Z valus of '2' each.](images/scale-dog.png)
+--- /task ---
 
-![A large dog that is scaled by '2' on each access making it harder to reach the star.](images/huge-dog.png)
+--- task ---
+Open your StarPlayer script to see the code that controls the time displayed. Create a new public variable for your NPCText script.  
+```
+    public TMP_Text timerText;
+    public NPCText npc;
+```
+
+--- /task ---
+
+--- task ---
+
+Amend the code in your `Update` method to only update the time if the button has been pressed and stars are less than three.
+
+Time.time starts when the game begins. Minus the ButtonTime from Time.time to display the elapsed time since the button was pressed.
+
+```
+void Update()
+    {
+        starText.SetText("Stars: " + stars);
+
+        if (npc.IsReady == true && stars < 3)
+        {
+            timerText.SetText("Time: " + Mathf.Round(Time.time - npc.ButtonTime));
+               
+        }
+    }
+```
+
+Save your script and return to the Unity editor.
+
+--- /task ---
+
+--- task ---
+
+Select the 'Player' and go to the 'Star Player (script)' compenent. Click on the circle next to 'Npc' and choose the 'Gamemaster' GameObject. 
+
+![The Inspector window with 'Gamemaster' showing in the 'Npc' field for the Star Player script.](images/Npc-variable.png)
+
+--- /task ---
+
+--- task ---
+
+**Test:** Play your minigame. Check that the time doesn't start until the button has been pressed. What happens if you go back to the Gamemaster a second time? 
+
+--- /task ---
+
+--- task ---
+
+Open your NPCText script and amend the condition in OnTriggerEnter to only run if the player collides and the button hasn't been pressed. 
+
+```
+void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player" && IsReady == false)
+        {
+            canvas.enabled = true;
+        }
+    }
+```
+![The Game view with time starting after button has been clicked. The button doesn't appear when the Player returns to the Gamemaster.](images/time-button.gif)
+
+--- /task ---
+
+--- task ---
+
+**Test:** Play your minigame again. Are there any other ways a Player could cheat? 
+
+At the moment the stars are active when the game begins so the Player could collect the stars before going to the Gamemaster - this would mean a very quick time taken to complete the game!
+
+--- /task ---
+
+--- task ---
+
+Open your 'NPCText' script and create three new GameObject variables:
+
+```
+public GameObject star1;
+public GameObject star2;
+public GameObject star3;
+```
+
+Set the GameObjects to inactive when the game starts:
+
+```
+    void Start()
+    {
+        canvas.enabled = false;
+        star1.SetActive(false);
+        star2.SetActive(false);
+        star3.SetActive(false);
+    }
+```
+
+Set the GameObject to active once the Player has clicked the ready button:
+
+```
+public void PlayerReady()
+    {
+        Ready = true;
+        canvas.enabled = false;
+        star1.SetActive(true);
+        star2.SetActive(true);
+        star3.SetActive(true);
+        startTime = Time.time;
+    }
+```
+
+--- /task ---
+
+--- task ---
+
+**Test:** Play your minigame again. Notice that the stars do not appear until the Player has clicked on the 'Ready' button. 
 
 --- /task ---
 

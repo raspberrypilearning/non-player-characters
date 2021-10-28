@@ -1,11 +1,11 @@
-## Starting the game
+## Controlling the game
 
 <div style="display: flex; flex-wrap: wrap">
 <div style="flex-basis: 200px; flex-grow: 1; margin-right: 15px;">
 Use the button to start the timer and activate the stars.
 </div>
 <div>
-![Image of the Game view showing the NPC, player and text introduction with ready button.](images/time-button.gif){:width="300px"}
+![Image of the Game view showing the NPC, player and text introduction with ready button.](images/control-game.gif){:width="300px"}
 </div>
 </div>
 

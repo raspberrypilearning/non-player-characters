@@ -37,7 +37,7 @@ With the Dog selected go to the Inspector window and 'Add Component'. Choose the
 
 --- task ---
 
-Go to the 'Tag' property for the Dog and 'Add Tag'. Click on the '+' and call the new tag 'Enemy'.
+Go to the 'Tag' property for the Dog and 'Add Tag'. Click on the '+' and call the new tag 'Enemy'. GameObjects with an 'Enemy' tag will be characters that get in the way and slow the Player down.
 
 Click on the Dog again in the Hierarchy window and use the Tag dropdown box to select 'Enemy' from the list.
 

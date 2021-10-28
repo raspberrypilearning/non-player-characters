@@ -9,6 +9,13 @@ Summary or upgrade project task
 </div>
 </div>
 
+Update notes
++ Use the 'Enemy' tag to write code that ends the game if the enemies touch the Player. 
++ Use Random.range to make a patrolling NPC move in a random path.
++ Add sound effects to the characters when their events are triggered.
++ Add more allies with different GameObjects that help in over ways. Destroy enemies, Protect the plyer, remove walls.
+
+
 --- collapse ---
 
 ---

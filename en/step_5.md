@@ -82,7 +82,7 @@ Drag the 'FollowController' script to the Dog in the Inspector window. Click on 
 Open the 'FollowController' script and create an IsFollowing variable set to `false`. 
 
 ```
-public bool isFollowing = false;
+public bool IsFollowing = false;
 ```
 
 Add a method that triggers when the Player collides with the Dog. This method will set 'IsFollowing' to `true`:
@@ -92,7 +92,7 @@ Add a method that triggers when the Player collides with the Dog. This method wi
     {
         if (other.gameObject.tag == "Player")
         {
-            isFollowing = true;
+            IsFollowing = true;
         }
     }
 ```
@@ -116,7 +116,7 @@ Add code to the `Update` menthod to move the Dog towards the Player. The Dog sho
 ```
     transform.LookAt(Player.transform);
 
-    if (isFollowing == true)
+    if (IsFollowing == true)
     {
 
         if (Vector3.Distance(Player.transform.position, transform.position) > followDistance)
@@ -176,7 +176,7 @@ Go to the 'Parameters' tab and click on the dropdown arrow next to the '+'. Choo
 
 --- task ---
 
-Open the 'FollowController' script and create an animator variable. Add code to the 'Start' method to set 'isRunning' to false:
+Open the 'FollowController' script and create an animator variable. Add code to the 'Start' method to set 'IsRunning' to false:
 
 ```
     public bool isFollowing = false;
@@ -186,7 +186,7 @@ Open the 'FollowController' script and create an animator variable. Add code to 
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
-        anim.SetBool("isRunning", false);
+        anim.SetBool("IsRunning", false);
     }
 
 ```
@@ -195,21 +195,21 @@ Open the 'FollowController' script and create an animator variable. Add code to 
 
 --- task ---
 
-Update the 'if (isFollowing)' code to walk when following is true and the Dog is far enough away from the Player to move.
+Update the 'if (IsFollowing)' code to walk when following is true and the Dog is far enough away from the Player to move.
 
 ```
-    if (isFollowing)
+    if (IsFollowing == true)
     {
 
         if (Vector3.Distance(Player.transform.position, transform.position) > followDistance)
         {
-            anim.SetBool("isRunning", true);
+            anim.SetBool("IsRunning", true);
             transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, followSpeed);
         }
 
         else
         {
-            anim.SetBool("isRunning", false);
+            anim.SetBool("IsRunning", false);
         }
     }
 ```
@@ -228,9 +228,29 @@ In the Inspector window for that transition, go to the Conditions component and 
 
 ![The Inspector with Conditions showing 'IsRunning' in the left box and 'true' in the right box.](images/condition-istrue.png)
 
-Do the same again for the transition arrow from Dog_Run to Dog_Idle but this time add condition 'IsRunning' is 'false'
+Uncheck the 'Has Exit Time' box so that the animation transitions straight away:
+
+![The Has Exit Time box unchecked.](images/exit-time.png)
+
+--- /task ---
+
+--- task ---
+
+Select the transition arrow from Dog_Run to Dog_Idle and follow the same steps. Uncheck the 'Has Exit Time' box but this time add the condition 'IsRunning' is 'false':
 
 ![The Inspector with Conditions showing 'IsRunning' in the left box and 'true' in the right box.](images/condition-isfalse.png)
+
+--- /task ---
+
+--- task ---
+
+**Test:** Play your minigame and watch what happens in the animator as you collide with and run from the Dog. 
+
+**Tip:** To see the animation effect better whilst testing in playmode: 
++ click on the Dog in the Hierarchy window and then go to the Follow Controller script in the inspector window. Slow the Dog 'Follow Speed' to `0.1`. 
++ click on the Player in the Hierarchy window and then go to Main Camera child GameObject. In the inspector window change the 'z' position of the camera to `-10`.
+
+![Playmode showing the animator window changing states between idle and run matching the Game view showing the dog waiting behind the Player nd running to catch up.](images/dog-anim-test.gif)
 
 --- /task ---
 

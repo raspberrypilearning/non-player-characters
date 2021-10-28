@@ -5,7 +5,7 @@
 Allies are characters that help the Player by giving them clues, and items; or by increasing or decreasing game variables and objects.
 </div>
 <div>
-Image, gif or video showing what they will achieve by the end of the step. ![A shield on a Rat ally that disappears when the Player collides and a Player shield activating at the same time.](images/player-shield.gif.png){:width="300px"}
+Image, gif or video showing what they will achieve by the end of the step. ![A shield on a Rat ally that disappears when the Player collides and a Player shield activating at the same time.](images/player-shield.gif){:width="300px"}
 </div>
 </div>
 
@@ -124,6 +124,7 @@ Create public GameObject and Canvas variables and add code to activate the GameO
 
 Add code to change the two variables when the Player collides with the Ally. This will remove the shield GameObject and enable the canvas with text message:
 
+```
 void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -132,6 +133,7 @@ void OnTriggerEnter(Collider other)
             canvas.enabled = true;
         }
     }
+```
 
 --- /task ---
 
@@ -163,7 +165,7 @@ From the Hierarchy window drag the Shield child GameObject of the Rat to the 'Tu
 
 **Test:** Play your minigame. The shield should appear on the Rat until the Player collides, the Rat will then lose the shield and a message will pop up. When the Player moves away the Rat and message will disappear.
 
-![The Player approaching the Rat with shield. The shield disappears and the text message appears on screen when the Player collides..](images/pass-turbo.png)
+![The Player approaching the Rat with shield. The shield disappears and the text message appears on screen when the Player collides..](images/pass-turbo.gif)
 
 --- /task ---
 

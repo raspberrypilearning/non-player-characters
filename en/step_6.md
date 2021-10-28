@@ -5,7 +5,7 @@
 Allies are characters that help the Player by giving them clues, and items; or by increasing or decreasing game variables and objects.
 </div>
 <div>
-Image, gif or video showing what they will achieve by the end of the step. ![A shield on a Rat ally that disappears when the Player collides and a Player shield activating at the same time.](images/player-shield.gif){:width="300px"}
+![A shield on a Rat ally that disappears when the Player collides and a Player shield activating at the same time.](images/player-shield.gif){:width="300px"}
 </div>
 </div>
 
@@ -270,7 +270,7 @@ From the Hierarchy window drag the Shield child GameObject of the Player to the 
 
 **Test:** Play your minigame and watch the Shield look like it transfers to the Player when the Plyaer collides with the Ally. 
 
-![The shield on the Rat disappears when the Player collides and the Player shield activates at the same time.](images/player-shield.gif)
+![The shield on the Rat disappears when the Player collides and the Player shield activates at the same time.](images/player-shield.gif){:width="400px"}
 
 --- /task ---
 

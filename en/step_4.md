@@ -37,6 +37,16 @@ With the Dog selected go to the Inspector window and 'Add Component'. Choose the
 
 --- task ---
 
+Go to the 'Tag' property for the Dog and 'Add Tag'. Click on the '+' and call the new tag 'Enemy'.
+
+Click on the Dog again in the Hierarchy window and use the Tag dropdown box to select 'Enemy' from the list.
+
+![The Dog tagged as an Enemy at the top of the Inspector window.](images/tag-dog.png)
+
+--- /task ---
+
+--- task ---
+
 Open the 'My scripts' folder in the Project window and right-click to create a new 'C# Script'. Name the script `PatrolController`.
 
 --- /task ---

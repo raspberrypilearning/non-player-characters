@@ -39,6 +39,14 @@ This Box collider will use 'IsTrigger' to make the Dog  follow the Player if the
 
 --- task ---
 
+Go to the 'Tag' property for the Dog and use the Tag dropdown box to select 'Enemy' from the list.
+
+![The Dog tagged as an Enemy at the top of the Inspector window.](images/tag-dog1.png)
+
+--- /task ---
+
+--- task ---
+
 In the Projects window, navigate to the 'My Scripts' folder and create a new C# Script called `FollowController`. 
 
 --- /task ---

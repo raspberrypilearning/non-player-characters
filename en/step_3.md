@@ -2,14 +2,14 @@
 
 <div style="display: flex; flex-wrap: wrap">
 <div style="flex-basis: 200px; flex-grow: 1; margin-right: 15px;">
-Use the button to start the timer and activate the stars.
+It's not fair if the timer starts before the player is ready! The button will allow the player to start the timer and activate the stars.
 </div>
 <div>
 ![Image of the Game view showing the NPC, player and text introduction with ready button.](images/control-game.gif){:width="300px"}
 </div>
 </div>
 
-At the moment the canvas is always visible not just enabled when the Player is interacting with the Gamemaster. 
+At the moment the canvas is always visible. It should only be enabled when the Player is interacting with the Gamemaster. 
 
 --- task ---
 
@@ -31,7 +31,7 @@ In the Project window, navigate to the 'My Scripts' folder. Right-click and crea
 
 --- task ---
 
-Double click on the NPCText script to open it in your script editor. Add code to use the TMPro namespace:
+Double click on the NPCText script to open it in your script editor. Add code to use TMPro:
 
 ```
 using UnityEngine;
@@ -89,7 +89,7 @@ Save your script and return to the Unity editor.
 
 --- task ---
 
-Select the Gamemaster and drag the 'NPCText' script to the Inspector window. Drag your Canvas child GameObject from the Hierarchy window to the 'Canvas' variable field in the Inspector window Script component.
+Select the **Gamemaster** and drag the 'NPCText' script to the Inspector window. Drag your **Canvas** child GameObject from the Hierarchy window to the 'Canvas' variable field in the Inspector window Script component.
 
 --- /task ---
 
@@ -117,7 +117,7 @@ Open the 'NPCText' script and create two new public variables called 'IsReady' a
 
 Create a public method called `PlayerReady` to set the game conditions when the Player has clicked the 'Ready' button. 
 
-The time the button was pressed needs to be captured so you can work out how long the game has been in play:
+The time the button was pressed needs to be stored so you can work out how long the game has been in play:
 
 ```
  public void PlayerReady()
@@ -136,7 +136,7 @@ Save your script and return to the Unity editor.
 
 From the Hierarchy window, select the Button GameObject then go to the Inspector window 'On Click ()' property and click on the '+'. 
 
-Click on the circle for the field underneath 'Runtime' and choose `Gamemaster`. In the 'Function' dropdown select 'NPCText.PlayerReady' to join your new method to the Button's click event. 
+Click on the circle for the field underneath 'Runtime', click on 'Scene' and choose `Gamemaster`. In the 'Function' dropdown select 'NPCText.PlayerReady' to join your new method to the Button's click event. 
 
 ![The OnClick component for the Button in the Inspector window with values 'Runtime' , 'Gamemaster' and 'NPCText.PlayerReady' in the 3 fields.](images/on-click-inspector.png)
 
@@ -144,12 +144,12 @@ Click on the circle for the field underneath 'Runtime' and choose `Gamemaster`. 
 
 --- task ---
 
-**Test:** Play your minigame. The button disables the canvas but the time counts up from the second the game begins. 
+**Test:** Play your minigame. The button disables the canvas but the time still counts up from the second the game begins. 
 
 --- /task ---
 
 --- task ---
-Open your StarPlayer script to see the code that controls the time displayed. Create a new public variable for your NPCText script.  
+Open your **StarPlayer** script to see the code that controls the time displayed. Create a new public variable for your NPCText script.  
 ```
     public TMP_Text timerText;
     public NPCText npc;
@@ -159,7 +159,7 @@ Open your StarPlayer script to see the code that controls the time displayed. Cr
 
 --- task ---
 
-Amend the code in your `Update` method to only update the time if the button has been pressed and stars are less than three.
+Change the code in your `Update` method to only update the time if the button has been pressed and stars are less than three.
 
 Time.time starts when the game begins. Minus the ButtonTime from Time.time to display the elapsed time since the button was pressed.
 
@@ -170,8 +170,7 @@ void Update()
 
         if (npc.IsReady == true && stars < 3)
         {
-            timerText.SetText("Time: " + Mathf.Round(Time.time - npc.ButtonTime));
-               
+            timerText.SetText("Time: " + Mathf.Round(Time.time - npc.ButtonTime));              
         }
     }
 ```
@@ -218,6 +217,8 @@ void OnTriggerEnter(Collider other)
 At the moment the stars are active when the game begins so the Player could collect the stars before going to the Gamemaster - this would mean a very quick time taken to complete the game!
 
 --- /task ---
+
+<mark>It might be worth showing them how to loop over all GameObjects with the same tag instead?</mark>
 
 --- task ---
 

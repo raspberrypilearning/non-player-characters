@@ -25,6 +25,7 @@ If you are not able to open your project you can download, unzip and open this N
 
 --- /collapse ---
 
+<mark>Add starter project when available.</mark>
 --- /task ---
 
 --- task ---
@@ -33,7 +34,7 @@ Right click on the ‘Star collector’ scene in the Hierarchy and ‘Save Scene
 
 This creates a new Scene file in the Projects Window. Scenes in a project can share Assets including Scripts.
 
-Your project now contains two scenes but you will only work on one scene at a time.
+Your project now contains three scenes but you will only work on one scene at a time.
 
 --- /task ---
 
@@ -70,6 +71,10 @@ To make your Gamemaster face toward the Player, change the Y Rotation to `180`:
 
 --- /task ---
 
+<p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
+<span style="color: #0faeb0">**Parenting**</span> in Unity is when a **parent GameObject** has one or more **child GameObjects** that move, rotate and scale with it. This is really useful for positioning children in relation to their parent. A parent can have many Child GameObjects but a child can have only one parent. 
+</p>
+
 --- task ---
 
 The Gamemaster GameObject has several child GameObjects enabled that represent costumes for the character. 
@@ -88,11 +93,9 @@ Choose which costumes to keep enabled and which to disable by unchecking the box
 
 Click on 'Add Component' and add a 'Box Collider' so that the Player cannot walk through the Gamemaster.
 
---- /task ---
+<mark>Do we need to adjust the settings?</mark>
 
-<p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
-<span style="color: #0faeb0">**Parenting**</span> in Unity is when a **parent GameObject** has one or more **child GameObjects** that move, rotate and scale with it. This is really useful for positioning children in relation to their parent. A parent can have many Child GameObjects but a child can have only one parent.
-</p>
+--- /task ---
 
 The Gamemaster will use `UI` **child GameObject** to display the game instructions and have a button to press to start the timer. These child GameObjects will only be displayed when the Player is close enough to talk to the Gamemaster and the game is not already in progress.  
 
@@ -102,11 +105,13 @@ Right-click on the Gamemaster in the Hierarchy window and from `UI` select `Text
 
 ![The Hierarchy window showing new text child GameObject. The new text GameObject is indented as it has been created as a child object of the Gamemaster. ](images/text-child-hierarchy.png)
 
+**Tip:** If you accidentally create the object at the top level, or as a child of the wrong GameObject, you can drag it to the Gamemaster gameObject in the Hierarchy.
+
 --- /task ---
 
 --- task ---
 
-From the Hierarchy window, select the `Text (TMP)` GameObject. In the 'Text Input' component, add a message to explain your minigame. You should include the message `Press 'ready' to start the timer.` as there will be a button to press to start the minigame. 
+From the Hierarchy window, select the `Text (TMP)` GameObject. In the 'Text Input' component, add a message to explain your minigame. Include the message `Press 'Ready' to start the timer.`  
 
 Put a checkmark in the 'Auto Size' property so that the text resizes to fit the message to the screen of the player:
 
@@ -121,6 +126,8 @@ Use the `Rect Transform` component in the Inspector window to anchor the text to
 ![The Inspector window with anchor popup menu showing bottom left and Pos X=200, Pos Y=30, Pos Z=0, Width=380 and Height=50.](images/gamemaster-text-transform.png)
 
 --- /task ---
+
+<mark>We could mention clicking 2D and dragging to position in the Scene view? Perhaps in a collapse.</mark>
 
 --- task ---
 

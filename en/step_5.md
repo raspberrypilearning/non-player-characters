@@ -27,7 +27,15 @@ With the Dog selected go to the Inspector window and 'Add Component'. Choose the
 
 --- task ---
 
-Go to the 'Add Component' button again and add a 'Box Collider' to the Dog. 
+Click on 'Add Component' and add a 'Box Collider' to the Dog so that the Player cannot walk through, or climb on top of, the Dog.  Change the Y 'Center' and 'Size':
+
+![The Box Collider component with change from default to Center Y = 1 and size Y = 2.](images/box-collider.png)
+
+--- /task ---
+
+--- task ---
+
+Go to the 'Add Component' button again and add a second 'Box Collider' to the Dog. 
 
 This Box collider will use 'IsTrigger' to make the Dog  follow the Player if the Player gets close enough to draw the Dog's attention. This Box collider needs to be big enough that the Player can't easily sneak past:
 
@@ -109,27 +117,34 @@ Add a method that triggers when the Player collides with the Dog. This method wi
 
 --- task ---
 
-Create two new variables to set the mechanics of the follow action:
+Create three new variables to set the mechanics of the follow action:
 
 ```
     public float followSpeed = 3f;
-    public float followDistance = 4f;
+    public float followDistance = 1f;
+    private Vector3 moveDirection = Vector3.zero;
 ```
 
 --- /task ---
 
 --- task ---
 
-Add code to the `Update` menthod to move the Dog towards the Player. The Dog should only move if at a distance from the Player so that the Dog doesn't try to move into the same space as the player
+Add code to the `Update` menthod to move the Dog towards the Player using `SimpleMove`. 
+
+Subtracting the Follower's position vector from the Player's position vector  with `Player.transform.position - transform.position` gives the direction and distance between them. The `Vector3.Normalize` Method turns this into a single unit vector which can be used with `SimpleMove`. 
+
+The Dog should only move if at a distance from the Player so that the Dog doesn't try to move into the same space as the player.
+
 ```
     transform.LookAt(Player.transform);
 
     if (IsFollowing == true)
     {
-
         if (Vector3.Distance(Player.transform.position, transform.position) > followDistance)
         {
-            transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, followSpeed);
+            CharacterController controller = GetComponent<CharacterController>();                
+            var moveDirection = Vector3.Normalize(Player.transform.position - transform.position);
+            controller.SimpleMove(moveDirection * followSpeed);          
         }
     }
 ```
@@ -184,6 +199,30 @@ Go to the 'Parameters' tab and click on the dropdown arrow next to the '+'. Choo
 
 --- task ---
 
+Go to the Animator window and click on the transition arrow from Dog_Idle to Dog_Run: 
+
+![The Animator window with transiton arrow pointing from Dog_Idle to Dog_Run coloured in blue to show it has been selected.](images/select-transition-out.png)
+
+In the Inspector window for that transition, go to the Conditions component and click on the '+'. The condition should read 'IsRunning' 'true':
+
+![The Inspector with Conditions showing 'IsRunning' in the left box and 'true' in the right box.](images/condition-istrue.png)
+
+Uncheck the 'Has Exit Time' box so that the animation transitions straight away:
+
+![The Has Exit Time box unchecked.](images/exit-time.png)
+
+--- /task ---
+
+--- task ---
+
+Select the transition arrow from Dog_Run to Dog_Idle and follow the same steps. Uncheck the 'Has Exit Time' box but this time add the condition 'IsRunning' is 'false':
+
+![The Inspector with Conditions showing 'IsRunning' in the left box and 'true' in the right box.](images/condition-isfalse.png)
+
+--- /task ---
+
+--- task ---
+
 Open the 'FollowController' script and create an animator variable. Add code to the 'Start' method to set 'IsRunning' to false:
 
 ```
@@ -208,11 +247,12 @@ Update the 'if (IsFollowing)' code to walk when following is true and the Dog is
 ```
     if (IsFollowing == true)
     {
-
         if (Vector3.Distance(Player.transform.position, transform.position) > followDistance)
         {
             anim.SetBool("IsRunning", true);
-            transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, followSpeed);
+            CharacterController controller = GetComponent<CharacterController>();                
+            var moveDirection = Vector3.Normalize(Player.transform.position - transform.position);
+            controller.SimpleMove(moveDirection * followSpeed);          
         }
 
         else
@@ -223,30 +263,6 @@ Update the 'if (IsFollowing)' code to walk when following is true and the Dog is
 ```
 
 Save your script and return to the Unity editor.
-
---- /task ---
-
---- task ---
-
-Go to the Animator window and click on the transition arrow from Dog_Idle to Dog_Run: 
-
-![The Animator window with transiton arrow pointing from Dog_Idle to Dog_Run coloured in blue to show it has been selected.](images/select-transition-out.png)
-
-In the Inspector window for that transition, go to the Conditions component and click on the '+'. The condition should read 'IsRunning' 'true':
-
-![The Inspector with Conditions showing 'IsRunning' in the left box and 'true' in the right box.](images/condition-istrue.png)
-
-Uncheck the 'Has Exit Time' box so that the animation transitions straight away:
-
-![The Has Exit Time box unchecked.](images/exit-time.png)
-
---- /task ---
-
---- task ---
-
-Select the transition arrow from Dog_Run to Dog_Idle and follow the same steps. Uncheck the 'Has Exit Time' box but this time add the condition 'IsRunning' is 'false':
-
-![The Inspector with Conditions showing 'IsRunning' in the left box and 'true' in the right box.](images/condition-isfalse.png)
 
 --- /task ---
 

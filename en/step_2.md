@@ -91,9 +91,9 @@ Choose which costumes to keep enabled and which to disable by unchecking the box
 
 --- task ---
 
-Click on 'Add Component' and add a 'Box Collider' so that the Player cannot walk through the Gamemaster.
+Click on 'Add Component' and add a 'Box Collider' so that the Player cannot walk through, or climb on top of, the Gamemaster. Change the Y 'Center' and 'Size':
 
-<mark>Do we need to adjust the settings?</mark>
+![The Box Collider component with change from default to Center Y = 1 and size Y = 2.](images/box-collider.png)
 
 --- /task ---
 
@@ -101,7 +101,7 @@ The Gamemaster will use `UI` **child GameObject** to display the game instructio
 
 --- task ---
 
-Right-click on the Gamemaster in the Hierarchy window and from `UI` select `Text - TextMeshPro` to create text that is a child GameObject of the Gamemaster. This will also automatically create a canvas for the text to sit on. 
+Right-click on the Gamemaster in the Hierarchy window and from `UI` select `Text - TextMeshPro` to create text that is a child GameObject of the Gamemaster. This will also automatically create a canvas for the text to sit on: 
 
 ![The Hierarchy window showing new text child GameObject. The new text GameObject is indented as it has been created as a child object of the Gamemaster. ](images/text-child-hierarchy.png)
 

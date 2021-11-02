@@ -136,7 +136,7 @@ Save your script and return to the Unity editor.
 
 From the Hierarchy window, select the Button GameObject then go to the Inspector window 'On Click ()' property and click on the '+'. 
 
-Click on the circle for the field underneath 'Runtime', click on 'Scene' and choose `Gamemaster`. In the 'Function' dropdown select 'NPCText.PlayerReady' to join your new method to the Button's click event. 
+Click on the circle for the field underneath 'Runtime', click on 'Scene' and choose `Gamemaster`. In the 'Function' dropdown select 'NPCText.PlayerReady' to join your new method to the Button's click event: 
 
 ![The OnClick component for the Button in the Inspector window with values 'Runtime' , 'Gamemaster' and 'NPCText.PlayerReady' in the 3 fields.](images/on-click-inspector.png)
 
@@ -149,7 +149,8 @@ Click on the circle for the field underneath 'Runtime', click on 'Scene' and cho
 --- /task ---
 
 --- task ---
-Open your **StarPlayer** script to see the code that controls the time displayed. Create a new public variable for your NPCText script.  
+Open your **StarPlayer** script to see the code that controls the time displayed. Create a new public variable for your NPCText script:  
+
 ```
     public TMP_Text timerText;
     public NPCText npc;
@@ -161,7 +162,7 @@ Open your **StarPlayer** script to see the code that controls the time displayed
 
 Change the code in your `Update` method to only update the time if the button has been pressed and stars are less than three.
 
-Time.time starts when the game begins. Minus the ButtonTime from Time.time to display the elapsed time since the button was pressed.
+Time.time starts when the game begins. Minus the ButtonTime from Time.time to display the elapsed time since the button was pressed:
 
 ```
 void Update()
@@ -181,7 +182,7 @@ Save your script and return to the Unity editor.
 
 --- task ---
 
-Select the 'Player' and go to the 'Star Player (script)' compenent. Click on the circle next to 'Npc' and choose the 'Gamemaster' GameObject. 
+Select the 'Player' and go to the 'Star Player (script)' compenent. Click on the circle next to 'Npc' and choose the 'Gamemaster' GameObject: 
 
 ![The Inspector window with 'Gamemaster' showing in the 'Npc' field for the Star Player script.](images/Npc-variable.png)
 
@@ -195,7 +196,7 @@ Select the 'Player' and go to the 'Star Player (script)' compenent. Click on the
 
 --- task ---
 
-Open your NPCText script and amend the condition in OnTriggerEnter to only run if the player collides and the button hasn't been pressed. 
+Open your NPCText script and amend the condition in OnTriggerEnter to only run if the player collides and the button hasn't been pressed: 
 
 ```
 void OnTriggerEnter(Collider other)
@@ -218,41 +219,59 @@ At the moment the stars are active when the game begins so the Player could coll
 
 --- /task ---
 
-<mark>It might be worth showing them how to loop over all GameObjects with the same tag instead?</mark>
+You can use Tags to identify objects that you want to treat in the same way. 
+
+--- task ---
+Select one of your Star GameObjects and click 'Add Tag' in the Inspector. Create a new tag called 'Star'. 
+
+Select all of the Star GameObjects in the Hierarchy by holding down 'Ctrl' and then clicking on each of them. 
+
+Set the tag to 'Star' in the Inspector to set the tag for all of the Stars.
+
+--- /task ---
+
+In C#, you can store multiple objects of the same type in an **Array** variable. An array variable has Left and right square brackets `[]` after the type, so `GameObject[] stars;` stores multiple Star GameObjects. 
 
 --- task ---
 
-Open your 'NPCText' script and create three new GameObject variables:
+Open your 'NPCText' script and new variable to store your Star GameObjects:
 
 ```
-public GameObject star1;
-public GameObject star2;
-public GameObject star3;
+GameObject[] stars; 
 ```
 
-Set the GameObjects to inactive when the game starts:
+--- /task ---
+
+You can use a `for` loop to perform the same action on each item in an array. 
+
+--- task ---
+
+Find the Star GameObjects and set them to inactive when the game starts:
 
 ```
     void Start()
     {
         canvas.enabled = false;
-        star1.SetActive(false);
-        star2.SetActive(false);
-        star3.SetActive(false);
+        stars = GameObject.FindGameObjectsWithTag("Star");
+        foreach (var star in stars) 
+        {
+            star.SetActive(false);
+        }
     }
 ```
 
-Set the GameObject to active once the Player has clicked the ready button:
+Set the stars to active once the Player has clicked the ready button:
 
 ```
-public void PlayerReady()
+    public void PlayerReady()
     {
-        Ready = true;
+       IsReady = true;
+        ButtonTime = Time.time;
         canvas.enabled = false;
-        star1.SetActive(true);
-        star2.SetActive(true);
-        star3.SetActive(true);
-        startTime = Time.time;
+        foreach (var star in stars) 
+        {
+            star.SetActive(true);
+        }      
     }
 ```
 
@@ -261,6 +280,8 @@ public void PlayerReady()
 --- task ---
 
 **Test:** Play your minigame again. Notice that the stars do not appear until the Player has clicked on the 'Ready' button. 
+
+**Debug:** Make sure every star has the 'Star' tag. 
 
 --- /task ---
 

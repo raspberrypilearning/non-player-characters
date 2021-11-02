@@ -28,5 +28,5 @@ Play the minigame below. What are the roles of each NPC? How does their movement
 --- /no-print ---
 
 --- print-only ---
-![Completed project](images/showcase_static.png)
+![The Scene view with a top-down angle showing the scene with Player character, Gamemaster, 2 enemy dogs and an ally rat. There are wall obstacles and 3 stars to collect. The Player and Rat have shields on them.](images/showcase_static.png)
 --- /print-only ---

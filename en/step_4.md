@@ -37,9 +37,27 @@ With the Dog selected go to the Inspector window and 'Add Component'. Choose the
 
 --- task ---
 
-Go to the 'Tag' property for the Dog and 'Add Tag'. Click on the '+' and call the new tag 'Enemy'. GameObjects with an 'Enemy' tag will be characters that get in the way and slow the Player down.
+Click on 'Add Component' and add a 'Box Collider' to the Dog so that the Player cannot walk through, or climb on top of, the Dog. Change the Y 'Center' and 'Size':
 
-Click on the Dog again in the Hierarchy window and use the Tag dropdown box to select 'Enemy' from the list.
+![The Box Collider component with change from default to Center Y = 1 and size Y = 2.](images/box-collider.png)
+
+--- /task ---
+
+--- task ---
+
+As both the Dog and the Player will be moving you will need to add a Box collider to the Player so that the Dog cannot climb on top of the Player.
+
+Select the 'Player' GameObject from the Hierarchy window then click 'Add Component' and add a 'Box Collider'.  Change the Y 'Center' and 'Size':
+
+![The Box Collider component with change from default to Center Y = 1 and size Y = 2.](images/box-collider.png)
+
+--- /task ---
+
+--- task ---
+
+Go to the 'Tag' property at the top of the Inspector window and 'Add Tag'. Click on the '+' and call the new tag 'Enemy'. GameObjects with an 'Enemy' tag will be characters that get in the way and slow the Player down.
+
+Click on the Dog GameObject in the Hierarchy window and use the Tag dropdown box to select 'Enemy' from the list.
 
 ![The Dog tagged as an Enemy at the top of the Inspector window.](images/tag-dog.png)
 

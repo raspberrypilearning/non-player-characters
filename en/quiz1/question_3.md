@@ -5,49 +5,65 @@
 legend: Question 3 of 3
 ---
 
-In a project, the Player picks up a 'clover' and carries it as they move. 
+In a project, an Ally give the Player a 'clover' GameObject. 
 
-How could you set this up so that the clover's position moves in relation to the Player? 
+The Ally's script has two GameObjects:
++ clover - a child GameObject on the Ally
++ playerClover - a child GameObject on the Player
 
-<mark>Too similar to the child game object question in the previous. Maybe show the code for SetActive and which would swap the clover from the Ally to the Player?</mark>
-
-A script has two GameObjects:
-+ Turbo - a child GameObject on the 
-+ PlayerTurbo
-
-W
+Which code should be added to the Ally's `OnTriggerEnter` method make the clover appear to move from the Ally to the Player?
 
 --- choices ---
 
-- ( ) Drag the clover to the same position as the Character in Scene view
+- ( ) 
+
+```
+clover.SetActive(true);
+playerClover.SetActive(false);
+```
 
   --- feedback ---
 
-  No, though this will position the clover at the Player's current position it won't move the clover as the Player moves. 
+  No, this code will make the clover appear on Ally and not on the Player. 
 
   --- /feedback ---
 
-- ( ) Add the clover as a component of the Player in the Inspector window
+- ( ) 
+
+```
+clover.SetActive(false);
+playerClover.SetActive(false);
+```
 
   --- feedback ---
 
-  No, GameObjects cannot be added as components of other GameObjects.  
+  No, `SetActive(false)` will hide a GameObject, but you don't want both clovers hidden.
 
   --- /feedback ---
 
-- ( ) Place the clover in the same folder as the Player in the Project window
+- (x) 
+
+```
+clover.SetActive(false);
+playerClover.SetActive(true);
+```
 
   --- feedback ---
 
-  No. Though it's useful to have your models stored together in your Project file structure, this will not impact how they move in the Scene. 
+  Yes, this code will hide the clover on the Ally and show the clover that is a child of the Player. 
 
   --- /feedback ---
 
-- (x) Add the clover as a child GameObject of the Player in the Hierarchy window
+- ( ) 
+
+```
+turbo.SetActive(true);
+playerClover.SetActive(true);
+```
 
   --- feedback ---
 
-  That's right, a **parent GameObject** can have **child GameObjects** that move, rotate and scale with it. This is really useful for positioning and moving children in relation to their parent.
+  No, `SetActive(true)` will show a GameObject, but you don't want both clovers visible.
 
   --- /feedback ---
 

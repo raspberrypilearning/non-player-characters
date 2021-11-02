@@ -5,8 +5,9 @@
 legend: Question 2 of 3
 ---
 
-Canvases are GameObjects used to add a Graphical User Interface to projects. Which of these elements could be added to a canvas to provide user interaction? 
+Canvases are GameObjects used to add a Graphical User Interface to projects. 
 
+Which of these GameObjects are user interface (UI) objects?
 
 --- choices ---
 
@@ -38,7 +39,7 @@ Canvases are GameObjects used to add a Graphical User Interface to projects. Whi
 
   --- feedback ---
 
-  No, the Canvas is an container for 2D GameObjects. 
+  No, not all of these are UI GameObjects. 
 
   --- /feedback ---
 

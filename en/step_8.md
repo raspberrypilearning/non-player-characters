@@ -1,20 +1,13 @@
 ## Upgrade your project
 
-<div style="display: flex; flex-wrap: wrap">
-<div style="flex-basis: 200px; flex-grow: 1; margin-right: 15px;">
-Summary or upgrade project task
-</div>
-<div>
-![](images/image.png){:width="300px"}
-</div>
-</div>
+Well done you have finished your minigame. Now think about ways you could upgrade your game to change the difficulty, add other collectables and NPCs, or develop the world with extra scenery. You could ask people to play your game and watch them play or ask them for feedback. 
 
-Update notes
-+ Use the 'Enemy' tag to write code that ends the game if the enemies touch the Player. 
-+ Use Random.range to make a patrolling NPC move in a random path.
+You could:
++ Use the 'Enemy' tag to write code that ends the game or adds time penalties if the enemies touch the Player. 
 + Add sound effects to the characters when their events are triggered.
-+ Add more allies with different GameObjects that help in over ways. Destroy enemies, Protect the plyer, remove walls.
++ Add more allies with child GameObjects that help in other ways such as: destroying enemies, protecting the player, or removing walls.
 
+<mark> Add example images of extended projects here</mark>
 
 --- collapse ---
 

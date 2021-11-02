@@ -1,26 +1,24 @@
 ## Introduction
 
-Add characters to interact with 
+Create 3D non-player characters to interact with, avoid and collect from. 
 
-<mark>Boxout (wherever wanted/needed) </mark>
+This project follows on from [Star collector](https://projects.raspberrypi.org/en/projects/star-collector/0){:target=blank}. You can use the Unity scene that you created in that project as the basis for this project. We’ve also provided a starter project that you can use.
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
-<span style="color: #0faeb0">**Term**</span> description of term or interesting phrase.
+A <span style="color: #0faeb0">**Non-player character (NPC)**</span> is a character that is not controlled by the person playing the game. NPCs can be setup for the player to interact with, avoid, compete with, or are simply used to populate the game world.
 </p>
 
-<mark>Objectives in language that learners will understand</mark>
-
 You will:
-+ Add non-player characters (NPCs) and get them moving
++ Add non-player characters (NPCs) with animation and movement
 + Interact with NPCs using simple dialog and buttons
-+ Use child game objects to allow players to hold other objects
++ Use child GameObjects to allow players to hold other GameObjects
 
 --- no-print ---
 --- task ---
 ### Try it
 <div style="display: flex; flex-wrap: wrap">
 <div style="flex-basis: 175px; flex-grow: 1">  
-Description of what to do or think about when looking at the example.
+Play the minigame below. What are the roles of each NPC? How does their movement differ?
 </div>
 <div class="scratch-preview" style="margin-left: 15px;">
   <iframe allowtransparency="true" width="485" height="402" src="https://scratch.mit.edu/projects/embed/485673032/?autostart=false" frameborder="0"></iframe>
@@ -30,5 +28,5 @@ Description of what to do or think about when looking at the example.
 --- /no-print ---
 
 --- print-only ---
-![Completed project](images/showcase_static.png)
+![The Scene view with a top-down angle showing the scene with Player character, Gamemaster, 2 enemy dogs and an ally rat. There are wall obstacles and 3 stars to collect. The Player and Rat have shields on them.](images/showcase_static.png)
 --- /print-only ---

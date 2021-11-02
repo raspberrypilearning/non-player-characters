@@ -5,37 +5,41 @@
 legend: Question 2 of 3
 ---
 
-You made Pico say hello in a speech bubble.
+Canvases are GameObjects used to add a Graphical User Interface to projects. 
 
-```blocks3
-say [Hello!] for [2] secs
-```
-
-Where would you go to find this block?
+Which of these GameObjects are user interface (UI) objects?
 
 --- choices ---
 
-- (x) 
+- (x) Buttons and Text
 
   --- feedback ---
+
+  That's right, Buttons and Text are both examples of UI GameObjects. 
 
   --- /feedback ---
 
-- ( ) 
+- ( ) Cubes and Planes
 
   --- feedback ---
+
+  No, Cubes and Planes are examples of 3D GameObjects.
 
   --- /feedback ---
 
-- ( ) 
+- ( ) Cameras 
 
   --- feedback ---
+
+  No, Cameras are GameObjects with a Camera component that set the view of a scene.
 
   --- /feedback ---
 
-- ( ) 
+- ( ) All the above
 
   --- feedback ---
+
+  No, not all of these are UI GameObjects. 
 
   --- /feedback ---
 

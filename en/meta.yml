@@ -1,6 +1,6 @@
-title: explore-project-template
+title: Non-player characters
 hero_image: images/banner.png
-description: explore-project-template description
+description: Create 3D non-player characters to interact with, avoid and collect power-ups from. 
 version: 4
 listed: false
 copyedit: false
@@ -8,10 +8,10 @@ last_tested: "2021-03-26"
 steps:
   - title: Introduction
   - title: Gamemaster NPC
-  - title: Patrol NPC
-  - title: Random movement NPC
+  - title: Controlling the game
+  - title: NPC Patrol 
   - title: Follower NPC
-  - title: Giver NPC
+  - title: NPC Allies
   - title: Reflection
     knowledge_quiz:
       path: quiz1

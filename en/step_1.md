@@ -9,7 +9,7 @@ A <span style="color: #0faeb0">**Non-player character (NPC)**</span> is a charac
 </p>
 
 You will:
-+ Add non-player characters (NPCs) and get them moving
++ Add non-player characters (NPCs) with animation and movement
 + Interact with NPCs using simple dialog and buttons
 + Use child GameObjects to allow players to hold other GameObjects
 

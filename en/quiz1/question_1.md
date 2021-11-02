@@ -16,7 +16,9 @@ legend: Question 1 of 3
 
 A project has a script to always get an NPC moving towards the Player but when you play the project the NPC moves straight ahead from their original position. 
 
-What line of code should you add to your 'Update' Method to make the NPC move in the direction you want:
+<mark>LookAt just changes the direction the player is facing.</mark>
+
+Which line of code should you add to your 'Update' Method to make the NPC move in the direction you want:
 
 ```
   public float followSpeed = 3f;
@@ -25,10 +27,8 @@ What line of code should you add to your 'Update' Method to make the NPC move in
 
   void Update()
     {
-
         if (Vector3.Distance(Player.transform.position, transform.position) > followDistance)
-        {
-            
+        {            
             CharacterController controller = GetComponent<CharacterController>();                
             var moveDirection = Vector3.Normalize(Player.transform.position - transform.position);
             controller.SimpleMove(moveDirection * followSpeed);          

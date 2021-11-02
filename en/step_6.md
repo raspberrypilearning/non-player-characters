@@ -139,6 +139,7 @@ Create public GameObject and Canvas variables and add code to activate the turbo
 ```
     public GameObject turbo;
     public GameObject PlayerTurbo;
+    public PlayerController player;
     public Canvas canvas;
 
     // Start is called before the first frame update
@@ -163,8 +164,8 @@ void OnTriggerEnter(Collider other)
         {
             turbo.SetActive(false);
             PlayerTurbo.SetActive(true);
-            PlayerTurbo.moveSpeed = 6.0f;
-            PlayerTurbo.rotateSpeed = 6.0f;
+            player.moveSpeed = 6.0f;
+            player.rotateSpeed = 6.0f;
             canvas.enabled = true;
         }
     }
@@ -190,7 +191,7 @@ Save your script and return to the Unity editor.
 
 Click on the Rat and drag the 'AllyController' scrpt from the Project window to the Inspector window. 
 
-From the Hierarchy window drag the Shield child GameObject of the Rat to the 'Turbo' property, the Shield child GameObject of the Player to the 'Player Turbo' property and the 'Canvas' child GameObject to the 'Canvas' property:
+From the Hierarchy window drag the Shield child GameObject of the Rat to the 'Turbo' property, the Shield child GameObject of the Player to the 'Player Turbo' property, the Player GameObject to the 'Player' property and the Canvas child GameObject to the 'Canvas' property:
 
 ![The script component for Ally Controller showing Turbo populated with the Shield GameObject and Canvas populated with the Canvas GameObject.](images/script-objects.png)
 

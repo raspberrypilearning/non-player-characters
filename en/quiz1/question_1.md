@@ -14,58 +14,41 @@ Have fun!
 legend: Question 1 of 3
 ---
 
-A project has a script to always get an NPC moving towards the Player but when you play the project the NPC moves straight ahead from their original position. 
+An NPC has a script that uses the `SimpleMove` method in its `Update` method. 
 
-<mark>LookAt just changes the direction the player is facing.</mark>
-
-Which line of code should you add to your 'Update' Method to make the NPC move in the direction you want:
-
-```
-  public float followSpeed = 3f;
-  public float followDistance = 1f;
-  private Vector3 moveDirection = Vector3.zero;
-
-  void Update()
-    {
-        if (Vector3.Distance(Player.transform.position, transform.position) > followDistance)
-        {            
-            CharacterController controller = GetComponent<CharacterController>();                
-            var moveDirection = Vector3.Normalize(Player.transform.position - transform.position);
-            controller.SimpleMove(moveDirection * followSpeed);          
-        }
-```
+Which component needs to be added to the Player so it can use the `SimpleMove` method?
 
 --- choices ---
 
-- ( ) anim.SetBool("IsRunning", true);
+- ( ) A 'Script' component
 
   --- feedback ---
 
-  No, though animation is nice to have, the NPC will move without animation. Adding animation will not change the direction of the NPC.  
+  No, the NPC will need a Script component to control its movement, but that will not give it the `SimpleMove` method.  
 
   --- /feedback ---
 
-- ( ) Vector3 forward = transform.TransformDirection(Vector3.forward);
+- ( ) A 'Box Collider' component
 
   --- feedback ---
 
-  No, This is not needed as the `Vector3.Normalize` Method turns used with `SimpleMove` does this already.  
+  No, Box Colliders are used to control the Physics of a GameObject to prevent collision or as a trigger for a collision event.  
 
   --- /feedback ---
 
-- (x) transform.LookAt(Player.transform);
+- (x) A 'Character Controller' component
 
   --- feedback ---
 
-  That's right, adding this `LookAt` code to the Update method will make the NPC face the character when moving.  
+  That's right, adding the Character Controller component would allow the Player to use the `SimpleMove` method.  
 
   --- /feedback ---
 
-- ( ) OnTriggerEnter(Collider other)
+- ( ) An 'Animator' component
 
   --- feedback ---
 
-  No, 'OnTriggerEnter' is a seperate Method used to trigger an event only when GameObjects collide. 
+  An Animator component controls how the GameObject looks. It does not provide a `SimpleMove` method for moving around. 
 
   --- /feedback ---
 

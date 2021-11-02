@@ -9,6 +9,14 @@ In a project, the Player picks up a 'clover' and carries it as they move.
 
 How could you set this up so that the clover's position moves in relation to the Player? 
 
+<mark>Too similar to the child game object question in the previous. Maybe show the code for SetActive and which would swap the clover from the Ally to the Player?</mark>
+
+A script has two GameObjects:
++ Turbo - a child GameObject on the 
++ PlayerTurbo
+
+W
+
 --- choices ---
 
 - ( ) Drag the clover to the same position as the Character in Scene view

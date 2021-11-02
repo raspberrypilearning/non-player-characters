@@ -10,19 +10,19 @@ Canvases are GameObjects used to add a Graphical User Interface to projects. Whi
 
 --- choices ---
 
-- (x) Buttons and text
+- (x) Buttons and Text
 
   --- feedback ---
 
-  That's right, buttons and text are both examples of UI GameObjects. 
+  That's right, Buttons and Text are both examples of UI GameObjects. 
 
   --- /feedback ---
 
-- ( ) Cubes and planes
+- ( ) Cubes and Planes
 
   --- feedback ---
 
-  No, cubes and planes are examples of 3D GameObjects.
+  No, Cubes and Planes are examples of 3D GameObjects.
 
   --- /feedback ---
 
@@ -30,15 +30,15 @@ Canvases are GameObjects used to add a Graphical User Interface to projects. Whi
 
   --- feedback ---
 
-  No, cameras are GameObjects with Camera components that set the view of a scene.
+  No, Cameras are GameObjects with a Camera component that set the view of a scene.
 
   --- /feedback ---
 
-- ( ) Particle systems
+- ( ) All the above
 
   --- feedback ---
 
-  No, a Particle system GameObject has an Particle system component that adds effects to a space or other GameObject.
+  No, the Canvas is an container for 2D GameObjects. 
 
   --- /feedback ---
 

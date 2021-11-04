@@ -2,7 +2,7 @@
 
 <div style="display: flex; flex-wrap: wrap">
 <div style="flex-basis: 200px; flex-grow: 1; margin-right: 15px;">
-It's not fair if the timer starts before the player is ready! The button will allow the player to start the timer and activate the stars.
+It's not fair if the timer starts before the player is ready! The button will allow the player to start the timer AND activate the stars.
 </div>
 <div>
 ![Image of the Game view showing the NPC, player and text introduction with ready button.](images/control-game.gif){:width="300px"}

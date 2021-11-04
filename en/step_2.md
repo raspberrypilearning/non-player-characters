@@ -30,9 +30,9 @@ If you are not able to open your project you can download, unzip and open this N
 
 --- task ---
 
-Right click on the ‘Star collector’ scene in the Hierarchy and ‘Save Scene As’ `Non-player character`.
+Right click on the ‘Star collector’ scene in the Hierarchy window and ‘Save Scene As’ `Non-player character`.
 
-This creates a new Scene file in the Projects Window. Scenes in a project can share Assets including Scripts.
+This creates a new Scene file in the Projects window. Scenes in a project can share Assets including Scripts.
 
 Your project now contains three scenes but you will only work on one scene at a time.
 
@@ -40,7 +40,7 @@ Your project now contains three scenes but you will only work on one scene at a 
 
 --- task ---
 
-In the Project window, go to the 'Models' folder and drag a Cat or Raccoon character into the Scene view. 
+In the Project window, go to the 'Models' folder and drag a `Cat` or `Raccoon` character into the Scene view. 
 
 --- /task ---
 
@@ -91,21 +91,21 @@ Choose which costumes to keep enabled and which to disable by unchecking the box
 
 --- task ---
 
-Click on 'Add Component' and add a 'Box Collider' so that the Player cannot walk through, or climb on top of, the Gamemaster. Change the Y 'Center' and 'Size':
+Click on 'Add Component' and add a `Box Collider` so that the Player cannot walk through, or climb on top of, the Gamemaster. Change the Y 'Center' and 'Size':
 
 ![The Box Collider component with change from default to Center Y = 1 and size Y = 2.](images/box-collider.png)
 
 --- /task ---
 
-The Gamemaster will use `UI` **child GameObject** to display the game instructions and have a button to press to start the timer. These child GameObjects will only be displayed when the Player is close enough to talk to the Gamemaster and the game is not already in progress.  
+The Gamemaster will use `UI` **child GameObjects** to display the game instructions and a button to press to start the timer. These child GameObjects will only be displayed when the Player is close enough to talk to the Gamemaster and the game is not already in progress.  
 
 --- task ---
 
-Right-click on the Gamemaster in the Hierarchy window and from `UI` select `Text - TextMeshPro` to create text that is a child GameObject of the Gamemaster. This will also automatically create a canvas for the text to sit on: 
+Right-click on the Gamemaster in the Hierarchy window and from 'UI' select `Text - TextMeshPro` to create text that is a child GameObject of the Gamemaster. This will also automatically create a canvas for the text to sit on: 
 
 ![The Hierarchy window showing new text child GameObject. The new text GameObject is indented as it has been created as a child object of the Gamemaster. ](images/text-child-hierarchy.png)
 
-**Tip:** If you accidentally create the object at the top level, or as a child of the wrong GameObject, you can drag it to the Gamemaster gameObject in the Hierarchy.
+**Tip:** If you accidentally create the object at the top level, or as a child of the wrong GameObject, you can drag it to the Gamemaster gameObject in the Hierarchy window.
 
 --- /task ---
 
@@ -121,7 +121,7 @@ Put a checkmark in the 'Auto Size' property so that the text resizes to fit the 
 
 --- task ---
 
-Use the `Rect Transform` component in the Inspector window to anchor the text to the bottom left then change the Pos X & Pos Y coordinates, and the Width and Height:
+Use the 'Rect Transform' component in the Inspector window to anchor the text to the bottom left then change the Pos X & Pos Y coordinates, and the Width and Height:
 
 ![The Inspector window with anchor popup menu showing bottom left and Pos X=200, Pos Y=30, Pos Z=0, Width=380 and Height=50.](images/gamemaster-text-transform.png)
 
@@ -131,9 +131,9 @@ Use the `Rect Transform` component in the Inspector window to anchor the text to
 
 --- task ---
 
-From the Hierarchy window, right-click on the Gamemaster's 'Canvas' Child GameObject and from `UI` select `Button - TextMeshPro`. This creates a second UI GameObject for the Gamemaster.
+From the Hierarchy window, right-click on the Gamemaster's 'Canvas' Child GameObject and from 'UI' select `Button - TextMeshPro`. This creates a second UI GameObject for the Gamemaster.
 
-Click on the drop-down arrow next to the 'Button' GameObject and select the 'Text (TMP)' GameObject. This controls the text message shown on the button. Go to the Inspector window and change the Text Input property to `Ready`:
+Click on the drop-down arrow next to the 'Button' GameObject and select the 'Text (TMP)' GameObject. This controls the text message shown on the button. Go to the Inspector window and change the 'Text Input' property to `Ready`:
 
 ![The Hierarchy window showing the expanded hierarchy for the Gamemaster with new Button child GameObject of the canvas and the Text (TMP) child GameObject of the Button.](images/button-hierarchy.png)
 

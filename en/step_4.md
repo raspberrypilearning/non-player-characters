@@ -11,11 +11,11 @@ Patrolling NPCs can be used to slow players down. Changing their path, size, pos
 
 --- task ---
 
-Open the 'Models' folder in the Project window and add a 'Dog' to your scene. 
+Open the 'Models' folder in the Project window and add a `Dog` to your scene. 
 
-Use the transform and rotation tools or the 'Transform' component to position the dog in a good position for patrolling and getting in the way of the Player reaching a star. 
+Use the Transform and Rotation tools or the 'Transform' component to position the dog in a good position for patrolling - and to obstruct the Player reaching a star! 
 
-**Tip:** To see your map in a top-down view Right click where it says ‘Persp’ in the top right of the Scene view and choose ‘Top’. To return to the normal view, right-click on Top and choose ‘Free’.
+**Tip:** To see your map in a top-down view. Right-click where it says ‘Persp’ in the top right of the Scene view and choose ‘Top’. To return to the normal view, right-click on Top and choose ‘Free’.
 
 ![The Inspector Transform component with position x = -4, y = 0, and z = 9.5. Rotation is set to y = 90.](images/transform-dog.png)
 
@@ -25,9 +25,9 @@ Use the transform and rotation tools or the 'Transform' component to position th
 
 --- task ---
 
-With the Dog selected go to the Inspector window and 'Add Component'. Choose the 'Character Controller'. Position and size the controller so it covers the whole of your Dog.
+With the Dog selected go to the Inspector window and 'Add Component'. Choose the `Character Controller`. Position and size the controller so it covers the whole of your Dog.
 
-**Tip:** Select the Dog GameObject in the Hierarchy window and press 'shift' + 'f' to focus on the Dog in the Scene view. 
+**Tip:** Select the Dog GameObject in the Hierarchy window and press `shift` + `f` to focus on the Dog in the Scene view. 
 
 ![The Character Controller component with Center positioned x=0, y=1 and z=0, radius = 1 and Height = 2.](images/char-coll-dog.png)
 
@@ -37,7 +37,7 @@ With the Dog selected go to the Inspector window and 'Add Component'. Choose the
 
 --- task ---
 
-Click on 'Add Component' and add a 'Box Collider' to the Dog so that the Player cannot walk through, or climb on top of, the Dog. Change the Y 'Center' and 'Size':
+Click on 'Add Component' and add a `Box Collider` to the Dog so that the Player cannot walk through, or climb on top of, the Dog. Change the Y 'Center' and 'Size':
 
 ![The Box Collider component with change from default to Center Y = 1 and size Y = 2.](images/box-collider.png)
 
@@ -45,9 +45,9 @@ Click on 'Add Component' and add a 'Box Collider' to the Dog so that the Player 
 
 --- task ---
 
-As both the Dog and the Player will be moving you will need to add a Box collider to the Player so that the Dog cannot climb on top of the Player.
+As both the Dog and the Player will be moving you will need to add a 'Box collider' to the Player so that the Dog cannot climb on top of the Player.
 
-Select the 'Player' GameObject from the Hierarchy window then click 'Add Component' and add a 'Box Collider'.  Change the Y 'Center' and 'Size':
+Select the 'Player' GameObject from the Hierarchy window then click 'Add Component' and add a `Box Collider`.  Change the Y 'Center' and 'Size':
 
 ![The Box Collider component with change from default to Center Y = 1 and size Y = 2.](images/box-collider.png)
 
@@ -55,9 +55,9 @@ Select the 'Player' GameObject from the Hierarchy window then click 'Add Compone
 
 --- task ---
 
-Go to the 'Tag' property at the top of the Inspector window and 'Add Tag'. Click on the '+' and call the new tag 'Enemy'. GameObjects with an 'Enemy' tag will be characters that get in the way and slow the Player down.
+Go to the 'Tag' property at the top of the Inspector window and 'Add Tag'. Click on the '+' and call the new tag `Enemy`. GameObjects with an 'Enemy' tag will be characters that get in the way and slow the Player down.
 
-Click on the Dog GameObject in the Hierarchy window and use the Tag dropdown box to select 'Enemy' from the list.
+Click on the Dog GameObject in the Hierarchy window and use the Tag dropdown box to select `Enemy` from the list.
 
 ![The Dog tagged as an Enemy at the top of the Inspector window.](images/tag-dog.png)
 
@@ -83,7 +83,7 @@ Open the 'PatrolController' script and create a patrolSpeed variable. Create ano
 
 --- task ---
 
-Add code to the `Update` method so the Dog moves foward until the maxPosition is reached then turns `180` degrees and move forward again until the minimum positon is reached. 
+Add code to the `Update` method so the Dog moves foward until the maxPosition is reached then turns `180` degrees and moves forward again until the minimum positon is reached. 
 
 ```
 void Update()
@@ -129,7 +129,7 @@ Now that the position and path of the patrolling dog is decided it's time to mak
 
 --- task ---
 
-In the Project window, navigate to the 'Animation' folder. Right-click and got to 'Create' then select 'Animation Controller' name your new animation controller 'PatrolRun'.
+In the Project window, navigate to the 'Animation' folder. Right-click and go to 'Create' then select 'Animation Controller' name your new animation controller `PatrolRun`.
 
 ![The Animation folder in the Project window with new PatrolRun animator added alongside the IdleWalk animator from Explore a 3D world.](images/patrol-animator.png)
 

@@ -2,7 +2,7 @@
 
 <div style="display: flex; flex-wrap: wrap">
 <div style="flex-basis: 200px; flex-grow: 1; margin-right: 15px;">
-It's not fair if the timer starts before the player is ready! The button will allow the player to start the timer AND activate the stars.
+It's not fair if the time starts before the player is ready! The button will allow the player to start the time AND activate the stars.
 </div>
 <div>
 ![Image of the Game view showing the NPC, player and text introduction with ready button.](images/control-game.gif){:width="300px"}
@@ -17,7 +17,7 @@ Select your Gamemaster GameObject and click on 'Add Component' in the Inspector 
 
 This Box collider will trigger the canvas with message and button to be shown so needs to be bigger than the Box Collider that stops the Player walking into the Gamemaster:
 
-![The Inspector window showing two colliders. The new collider has 'IsTrigger' checked and the size X=2, y=1, z=2 so that it is bigger than the previously added collider.](images/both-colliders-properties.png)
+![The Inspector window showing two colliders. The new collider has Is Trigger checked and the size X=2, y=1, z=2 so that it is bigger than the previously added collider.](images/both-colliders-properties.png)
 
 ![The Scene view showing Gamemaster with two box colliders. One bigger than the other.](images/two-colliders.png)
 
@@ -25,7 +25,7 @@ This Box collider will trigger the canvas with message and button to be shown so
 
 --- task ---
 
-In the Project window, navigate to the 'My Scripts' folder. Right-click and create a new 'C# Script'. Name the script `NPCText`.
+With the Gamemaster GameObject selected, add a new Script componed and name it `NPCText`.
 
 --- /task ---
 
@@ -265,7 +265,7 @@ Set the stars to active once the Player has clicked the ready button:
 ```
     public void PlayerReady()
     {
-       IsReady = true;
+        isReady = true;
         ButtonTime = Time.time;
         canvas.enabled = false;
         foreach (var star in stars) 

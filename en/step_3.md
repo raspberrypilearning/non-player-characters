@@ -25,13 +25,15 @@ This Box collider will trigger the canvas with message and button to be shown so
 
 --- task ---
 
-With the Gamemaster GameObject selected, add a new Script componed and name it `NPCText`.
+With the Gamemaster GameObject selected, add a new Script component and name it `GamemasterController`.
+
+![The Inspector window with 'GamemasterController' script component.](images/gamemaster-script.png)
 
 --- /task ---
 
 --- task ---
 
-Double click on the NPCText script to open it in your script editor. Add code to use TMPro:
+Double click on the 'GamemasterController' script to open it in your script editor. Add code to use TMPro:
 
 ```
 using UnityEngine;
@@ -42,7 +44,7 @@ using TMPro;
 
 --- task ---
 
-Create a public Canvas variable called `canvas` and add code to disable the canvas at the start:
+Create a public Canvas variable called `canvas` and add code to make sure the canvas is disabled at the start:
 
 ```
     public Canvas canvas;
@@ -58,10 +60,10 @@ Create a public Canvas variable called `canvas` and add code to disable the canv
 
 --- task ---
 
-Add two new methods. The first to enable the canvas when the Player is in the collider. The second to diable the canvas when the player has moved away:
+Add two new methods. The first to enable the canvas when the Player is in the collider. The second to disable the canvas when the player has moved away:
 
 ```
-void Update()
+    void Update()
     {
         
     }
@@ -89,7 +91,9 @@ Save your script and return to the Unity editor.
 
 --- task ---
 
-Select the **Gamemaster** and drag the 'NPCText' script to the Inspector window. Drag your **Canvas** child GameObject from the Hierarchy window to the 'Canvas' variable field in the Inspector window Script component.
+Drag your 'Gamemaster' **Canvas** child GameObject from the Hierarchy window to the 'Canvas' variable field in the Inspector window Script component.
+
+![The script component in the Inspector window with the canvas showing in the Canvas variable.](images/canvas-script.png)
 
 --- /task ---
 
@@ -103,12 +107,12 @@ The button looks great but needs to trigger an event when it is pressed.
 
 --- task ---
 
-Open the 'NPCText' script and create two new public variables called 'IsReady' and 'ButtonTime':
+Open the 'GamemasterController' script and create two new public variables called 'gameStarted' and 'startTime':
 
 ```
     public Canvas canvas;
-    public bool IsReady = false;
-    public float ButtonTime = 0.0f;
+    public bool gameStarted = false;
+    public float startTime = 0.0f;
 ```
 
 --- /task ---
@@ -120,10 +124,10 @@ Create a public method called `PlayerReady` to set the game conditions when the 
 The time the button was pressed needs to be stored so you can work out how long the game has been in play:
 
 ```
- public void PlayerReady()
+    public void PlayerReady()
     {
-        IsReady = true;
-        ButtonTime = Time.time;
+        gameStarted = true;
+        startTime = Time.time; // time when the button is pressed
         canvas.enabled = false;
     }
 ```
@@ -134,11 +138,11 @@ Save your script and return to the Unity editor.
 
 --- task ---
 
-From the Hierarchy window, select the Button GameObject then go to the Inspector window 'On Click ()' property and click on the '+'. 
+From the Hierarchy window, select the 'Button' GameObject then go to the Inspector window 'On Click ()' property and click on the '+'. 
 
-Click on the circle for the field underneath 'Runtime', click on 'Scene' and choose `Gamemaster`. In the 'Function' dropdown select 'NPCText.PlayerReady' to join your new method to the Button's click event: 
+Drag the 'Gamemaster' GameObject from the Hierarchy window to the field underneath 'Runtime Only'. In the 'Function' dropdown select 'GamemasterController.PlayerReady' to join your new method to the Button's click event: 
 
-![The OnClick component for the Button in the Inspector window with values 'Runtime' , 'Gamemaster' and 'NPCText.PlayerReady' in the 3 fields.](images/on-click-inspector.png)
+![The OnClick component for the Button in the Inspector window with values 'Runtime Only' , 'Gamemaster' and 'GamemasterController.PlayerReady' in the 3 fields.](images/on-click-inspector.png)
 
 --- /task ---
 
@@ -146,14 +150,45 @@ Click on the circle for the field underneath 'Runtime', click on 'Scene' and cho
 
 **Test:** Play your minigame. The button disables the canvas but the time still counts up from the second the game begins. 
 
+Fix any errors that appear. 
+
+--- /task ---
+
+The player currently uses the 'StarPlayer' script from the last [Star Collector](https://projects.raspberrypi.org/en/projects/star-collector){:target=blank} project. 
+
+You now want to make changes to your player but you might want to go back to your Star Collector minigame at some point so it is important that the 'StarPlayer' remains the same. 
+
+Removing scripts and adding new scripts in their place to use in different scenes means that you can still open and play any of the scenes in your project at a future date. 
+
+--- task ---
+
+Go to the 'Player' GameObject's Star Player (Script) component and click on the three circles in the top-right then choose 'Remove Component'. 
+
 --- /task ---
 
 --- task ---
-Open your **StarPlayer** script to see the code that controls the time displayed. Create a new public variable for your NPCText script:  
+
+Find the 'Star Player' script in the Project window and highlight it then click ctrl-D (or Cmd-D) to duplicate your script. 
+
+Right-click on the duplicated script and rename as 'NPCPlayer'.
+
+--- /task ---
+
+--- task ---
+Open your **NPCPlayer** script to see the code that controls the time displayed. 
+
+Update the 'StarPlayer' class code to 'NPCPlayer' to match the name of the new script.
+
+Create a new public variable for your Gamemaster script:  
 
 ```
-    public TMP_Text timerText;
-    public NPCText npc;
+public class NPCPlayer : MonoBehaviour
+{
+    public int stars = 0; // an integer whole number
+    public TMP_Text starText;
+    public TMP_Text timeText;
+    public GamemasterController gamemaster;
+
 ```
 
 --- /task ---
@@ -162,16 +197,16 @@ Open your **StarPlayer** script to see the code that controls the time displayed
 
 Change the code in your `Update` method to only update the time if the button has been pressed and stars are less than three.
 
-Time.time starts when the game begins. Minus the ButtonTime from Time.time to display the elapsed time since the button was pressed:
+Time.time starts when the game begins. Minus the startTime from Time.time to display the elapsed time since the button was pressed:
 
 ```
 void Update()
     {
         starText.SetText("Stars: " + stars);
 
-        if (npc.IsReady == true && stars < 3)
+        if (gamemaster.gameStarted == true && stars < 3)
         {
-            timerText.SetText("Time: " + Mathf.Round(Time.time - npc.ButtonTime));              
+            timeText.SetText("Time: " + Mathf.Round(Time.time - gamemaster.startTime));              
         }
     }
 ```
@@ -182,9 +217,9 @@ Save your script and return to the Unity editor.
 
 --- task ---
 
-Select the 'Player' and go to the 'Star Player (script)' compenent. Click on the circle next to 'Npc' and choose the 'Gamemaster' GameObject: 
+Select the 'Player' and go to the 'Star Player (script)' component. Click on the circle next to 'Gamemaster' and choose the 'Gamemaster' GameObject: 
 
-![The Inspector window with 'Gamemaster' showing in the 'Npc' field for the Star Player script.](images/Npc-variable.png)
+![The Inspector window with 'Gamemaster' showing in the 'Gamemaster' field for the Star Player script.](images/Npc-variable.png)
 
 --- /task ---
 
@@ -196,7 +231,7 @@ Select the 'Player' and go to the 'Star Player (script)' compenent. Click on the
 
 --- task ---
 
-Open your NPCText script and amend the condition in OnTriggerEnter to only run if the player collides and the button hasn't been pressed: 
+Open your 'GamemasterController' script and amend the condition in OnTriggerEnter to only run if the player collides and the button hasn't been pressed: 
 
 ```
 void OnTriggerEnter(Collider other)

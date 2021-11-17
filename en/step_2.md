@@ -147,4 +147,13 @@ Click on the drop-down arrow next to the 'Button' GameObject and select the 'Tex
 
 --- /task ---
 
+--- task ---
+Select the Gamemaster's 'Canvas' and disable it by unchecking the box in the Inspector. 
+
+![The Inspector for the Gamemaster's Canvas showing the enable box unchecked.](images/disabled-canvas.png)
+
+This will means that you will still be able to focus on the 'Gamemaster' in the Scene view using 'F' (or 'Shift-F' from the Hierarchy). Your code will enable the canvas when it is needed. 
+
+--- /task ---
+
 --- save ---

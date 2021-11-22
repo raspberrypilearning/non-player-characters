@@ -39,7 +39,6 @@ Double click on the 'GamemasterController' script to open it in your script edit
 using UnityEngine;
 using TMPro; 
 ```
-
 --- /task ---
 
 --- task ---
@@ -47,12 +46,12 @@ using TMPro;
 Create a public Canvas variable called `canvas` and add code to make sure the canvas is disabled at the start:
 
 ```
-    public Canvas canvas;
+    public GameObject canvas;
 
     // Start is called before the first frame update
     void Start()
     {
-        canvas.enabled = false;
+        canvas.SetActive(false);
     }
 ```
 
@@ -70,17 +69,17 @@ Add two new methods. The first to enable the canvas when the Player is in the co
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            canvas.enabled = true;
+            canvas.SetActive(true);
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            canvas.enabled = false;
+            canvas.SetActive(false);
         }
     }
 ```
@@ -110,7 +109,7 @@ The button looks great but needs to trigger an event when it is pressed.
 Open the 'GamemasterController' script and create two new public variables called 'gameStarted' and 'startTime':
 
 ```
-    public Canvas canvas;
+    public GameObject canvas;
     public bool gameStarted = false;
     public float startTime = 0.0f;
 ```
@@ -128,7 +127,7 @@ The time the button was pressed needs to be stored so you can work out how long 
     {
         gameStarted = true;
         startTime = Time.time; // time when the button is pressed
-        canvas.enabled = false;
+        canvas.SetActive(false);
     }
 ```
 
@@ -154,35 +153,13 @@ Fix any errors that appear.
 
 --- /task ---
 
-The player currently uses the 'StarPlayer' script from the last [Star Collector](https://projects.raspberrypi.org/en/projects/star-collector){:target=blank} project. 
-
-You now want to make changes to your player but you might want to go back to your Star Collector minigame at some point so it is important that the 'StarPlayer' remains the same. 
-
-Removing scripts and adding new scripts in their place to use in different scenes means that you can still open and play any of the scenes in your project at a future date. 
-
 --- task ---
-
-Go to the 'Player' GameObject's Star Player (Script) component and click on the three circles in the top-right then choose 'Remove Component'. 
-
---- /task ---
-
---- task ---
-
-Find the 'Star Player' script in the Project window and highlight it then click ctrl-D (or Cmd-D) to duplicate your script. 
-
-Right-click on the duplicated script and rename as 'NPCPlayer'.
-
---- /task ---
-
---- task ---
-Open your **NPCPlayer** script to see the code that controls the time displayed. 
-
-Update the 'StarPlayer' class code to 'NPCPlayer' to match the name of the new script.
+Open your **StarPlayer** script to see the code that controls the time displayed. 
 
 Create a new public variable for your Gamemaster script:  
 
 ```
-public class NPCPlayer : MonoBehaviour
+public class StarPlayer : MonoBehaviour
 {
     public int stars = 0; // an integer whole number
     public TMP_Text starText;
@@ -236,9 +213,9 @@ Open your 'GamemasterController' script and amend the condition in OnTriggerEnte
 ```
 void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && IsReady == false)
+        if (other.CompareTag("Player") && isReady == false)
         {
-            canvas.enabled = true;
+            canvas.SetActive(true);
         }
     }
 ```
@@ -259,7 +236,7 @@ You can use Tags to identify objects that you want to treat in the same way.
 --- task ---
 Select one of your Star GameObjects and click 'Add Tag' in the Inspector. Create a new tag called 'Star'. 
 
-Select all of the Star GameObjects in the Hierarchy by holding down 'Ctrl' and then clicking on each of them. 
+Select all of the Star GameObjects in the Hierarchy by holding down 'Ctrl' (or 'Cmd) and then clicking on each of them. 
 
 Set the tag to 'Star' in the Inspector to set the tag for all of the Stars.
 
@@ -269,7 +246,7 @@ In C#, you can store multiple objects of the same type in an **Array** variable.
 
 --- task ---
 
-Open your 'NPCText' script and new variable to store your Star GameObjects:
+Open your 'StarPlayer' script and new variable to store your Star GameObjects:
 
 ```
 GameObject[] stars; 
@@ -286,7 +263,7 @@ Find the Star GameObjects and set them to inactive when the game starts:
 ```
     void Start()
     {
-        canvas.enabled = false;
+        canvas.SetActive(false);
         stars = GameObject.FindGameObjectsWithTag("Star");
         foreach (var star in stars) 
         {
@@ -301,8 +278,8 @@ Set the stars to active once the Player has clicked the ready button:
     public void PlayerReady()
     {
         isReady = true;
-        ButtonTime = Time.time;
-        canvas.enabled = false;
+        startTime = Time.time;
+        canvas.SetActive(false);
         foreach (var star in stars) 
         {
             star.SetActive(true);

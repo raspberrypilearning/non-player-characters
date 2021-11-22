@@ -98,7 +98,7 @@ Drag the 'FollowController' script to the Dog in the Inspector window. Click on 
 Open the 'FollowController' script and create an IsFollowing variable set to `false`. 
 
 ```
-public bool IsFollowing = false;
+public bool isFollowing = false;
 ```
 
 Add a method that triggers when the Player collides with the Dog. This method will set 'IsFollowing' to `true`:
@@ -106,9 +106,9 @@ Add a method that triggers when the Player collides with the Dog. This method wi
 ```
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            IsFollowing = true;
+            isFollowing = true;
         }
     }
 ```
@@ -121,15 +121,15 @@ Create three new variables to set the mechanics of the follow action:
 
 ```
     public float followSpeed = 3f;
-    public float followDistance = 1f;
-    private Vector3 moveDirection = Vector3.zero;
+    public float followDistance = 2f;
+    Vector3 moveDirection = Vector3.zero; // no movement
 ```
 
 --- /task ---
 
 --- task ---
 
-Add code to the `Update` menthod to move the Dog towards the Player using `SimpleMove`. 
+Add code to the `Update` method to move the Dog towards the Player using `SimpleMove`. 
 
 Subtracting the Follower's position vector from the Player's position vector  with `Player.transform.position - transform.position` gives the direction and distance between them. The `Vector3.Normalize` Method turns this into a single unit vector which can be used with `SimpleMove`. 
 
@@ -138,7 +138,7 @@ The Dog should only move if at a distance from the Player so that the Dog doesn'
 ```
     transform.LookAt(Player.transform);
 
-    if (IsFollowing == true)
+    if (isFollowing == true)
     {
         if (Vector3.Distance(Player.transform.position, transform.position) > followDistance)
         {
@@ -148,6 +148,8 @@ The Dog should only move if at a distance from the Player so that the Dog doesn'
         }
     }
 ```
+
+Save your script and return to the Unity editor.
 
 --- /task ---
 
@@ -191,9 +193,9 @@ Right-click on the 'Dog_Idle' animation and select 'Make Transition' this will c
 
 --- task ---
 
-Go to the 'Parameters' tab and click on the dropdown arrow next to the '+'. Choose 'bool' and name your new variable 'IsRunning'
+Go to the 'Parameters' tab and click on the dropdown arrow next to the '+'. Choose 'bool' and name your new variable 'isRunning'
 
-![THe Animator window with Parameters tab selected in the top left. The '+' button is extended with optin 'bool' selected and new parameter called 'IsRunning' appears in the list.](images/animator-parameters.png)
+![The Animator window with Parameters tab selected in the top left. The '+' button is extended with optin 'bool' selected and new parameter called 'IsRunning' appears in the list.](images/animator-parameters.png)
 
 --- /task ---
 
@@ -203,7 +205,7 @@ Go to the Animator window and click on the transition arrow from Dog_Idle to Dog
 
 ![The Animator window with transiton arrow pointing from Dog_Idle to Dog_Run coloured in blue to show it has been selected.](images/select-transition-out.png)
 
-In the Inspector window for that transition, go to the Conditions component and click on the '+'. The condition should read 'IsRunning' 'true':
+In the Inspector window for that transition, go to the Conditions component and click on the '+'. The condition should read 'isRunning' 'true':
 
 ![The Inspector with Conditions showing 'IsRunning' in the left box and 'true' in the right box.](images/condition-istrue.png)
 
@@ -215,7 +217,7 @@ Uncheck the 'Has Exit Time' box so that the animation transitions straight away:
 
 --- task ---
 
-Select the transition arrow from Dog_Run to Dog_Idle and follow the same steps. Uncheck the 'Has Exit Time' box but this time add the condition 'IsRunning' is 'false':
+Select the transition arrow from Dog_Run to Dog_Idle and follow the same steps. Uncheck the 'Has Exit Time' box but this time add the condition 'isRunning' is 'false':
 
 ![The Inspector with Conditions showing 'IsRunning' in the left box and 'true' in the right box.](images/condition-isfalse.png)
 
@@ -223,7 +225,7 @@ Select the transition arrow from Dog_Run to Dog_Idle and follow the same steps. 
 
 --- task ---
 
-Open the 'FollowController' script and create an animator variable. Add code to the 'Start' method to set 'IsRunning' to false:
+Open the 'FollowController' script and create an animator variable. Add code to the 'Start' method to set `isRunning` to false:
 
 ```
     public bool isFollowing = false;
@@ -233,7 +235,7 @@ Open the 'FollowController' script and create an animator variable. Add code to 
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
-        anim.SetBool("IsRunning", false);
+        anim.SetBool("isRunning", false);
     }
 
 ```
@@ -242,22 +244,21 @@ Open the 'FollowController' script and create an animator variable. Add code to 
 
 --- task ---
 
-Update the 'if (IsFollowing)' code to walk when following is true and the Dog is far enough away from the Player to move.
+Update the 'if (isFollowing)' code to walk when following is true and the Dog is far enough away from the Player to move.
 
 ```
-    if (IsFollowing == true)
+    if (isFollowing == true)
     {
         if (Vector3.Distance(Player.transform.position, transform.position) > followDistance)
         {
-            anim.SetBool("IsRunning", true);
+            anim.SetBool("isRunning", true);
             CharacterController controller = GetComponent<CharacterController>();                
             var moveDirection = Vector3.Normalize(Player.transform.position - transform.position);
             controller.SimpleMove(moveDirection * followSpeed);          
         }
-
         else
         {
-            anim.SetBool("IsRunning", false);
+            anim.SetBool("isRunning", false);
         }
     }
 ```
@@ -274,7 +275,7 @@ Save your script and return to the Unity editor.
 + click on the Dog in the Hierarchy window and then go to the Follow Controller script in the inspector window. Slow the Dog 'Follow Speed' to `0.1`. 
 + click on the Player in the Hierarchy window and then go to Main Camera child GameObject. In the inspector window change the 'z' position of the camera to `-10`.
 
-![Playmode showing the animator window changing states between idle and run matching the Game view showing the dog waiting behind the Player nd running to catch up.](images/dog-anim-test.gif)
+![Playmode showing the animator window changing states between idle and run matching the Game view showing the dog waiting behind the Player and running to catch up.](images/dog-anim-test.gif)
 
 --- /task ---
 

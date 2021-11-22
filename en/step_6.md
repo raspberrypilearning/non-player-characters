@@ -101,7 +101,7 @@ In the Inspector window for the new 'Text (TMP)' GameObject add 'Text Input' and
 
 Use the `Rect Transform` component in the Inspector window to anchor the text to the bottom left then change the Pos X & Pos Y coordinates:
 
-![The Rect Transform component with ancor to the bottom left selected and position X=120, Y=50 and Z=0.](images/rect-trans-rat.png)
+![The Rect Transform component with anchor to the bottom left selected and position X=120, Y=50 and Z=0.](images/rect-trans-rat.png)
 
 --- /task ---
 
@@ -111,9 +111,9 @@ The Rat will have the shield visible until the Player collides. The shield will 
 
 Go to the 'Add Component' button again and add a second 'Box Collider' to the Rat. 
 
-Check 'IsTrigger' and change the size so that it is bigger than the Character controller: 
+Check 'Is Trigger' and change the size so that it is bigger than the Character controller: 
 
-![The Box Collider with IsTrigger ticked and the size X=1.5, Y=1, Z=1.5](images/box-properties-rat.png)
+![The Box Collider with Is Trigger ticked and the size X=1.5, Y=1, Z=1.5](images/box-properties-rat.png)
 
 ![The Scene view with Rat showing a box collider larger than the characher controller.](images/rat-box-scene.png)
 
@@ -123,7 +123,7 @@ Check 'IsTrigger' and change the size so that it is bigger than the Character co
 
 In the Project window, navigate to the 'My Scripts' folder. Right-click and create a new 'C# Script'. Name the script `AllyController`.
 
-Double click on the NPCText script to open it in your script editor. Add code to use the TMPro namespace:
+Double click on the **NPCPlayer** script to open it in your script editor. Add code to use the TMPro namespace:
 
 ```
 using UnityEngine;
@@ -138,16 +138,16 @@ Create public GameObject and Canvas variables and add code to activate the turbo
 
 ```
     public GameObject turbo;
-    public GameObject PlayerTurbo;
+    public GameObject playerTurbo;
     public PlayerController player;
-    public Canvas canvas;
+    public GameObject canvas;
 
     // Start is called before the first frame update
     void Start()
     {
         turbo.SetActive(true);
-        PlayerTurbo.SetActive(false);
-        canvas.enabled = false;
+        playerTurbo.SetActive(false);
+        canvas.SetActive(false);
     }
 ```
 
@@ -160,13 +160,13 @@ Add code to enable the canvas and switch the turbo from the Ally to the Player a
 ```
 void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             turbo.SetActive(false);
             PlayerTurbo.SetActive(true);
             player.moveSpeed = 6.0f;
             player.rotateSpeed = 6.0f;
-            canvas.enabled = true;
+            canvas.SetActive(true);
         }
     }
 ```
@@ -179,10 +179,11 @@ Add code to remove the Rat once the Player moves away to continue the game:
 
 ```
 void OnTriggerExit(Collider other)
-    {
-        Destroy(gameObject);
-    }
+{
+    gameObject.SetActive(false);
+}
 ```
+
 Save your script and return to the Unity editor. 
 
 --- /task ---

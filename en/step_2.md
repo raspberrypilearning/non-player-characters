@@ -30,16 +30,6 @@ If you are not able to open your project you can download, unzip and open this N
 
 --- task ---
 
-Right click on the ‘Star Collector’ scene in the Hierarchy window and ‘Save Scene As’ `NPCs`.
-
-This creates a new Scene file in the Projects window. Scenes in a project can share Assets including Scripts.
-
-Your project now contains three scenes but you will only work on one scene at a time.
-
---- /task ---
-
---- task ---
-
 In the Project window, go to the 'Models' folder and drag a `Cat` or `Raccoon` character into the Scene view. 
 
 --- /task ---

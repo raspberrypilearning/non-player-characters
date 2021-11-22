@@ -29,7 +29,7 @@ With the Dog selected go to the Inspector window and 'Add Component'. Choose the
 
 **Tip:** Select the Dog GameObject in the Hierarchy window and press `shift` + `f` to focus on the Dog in the Scene view. 
 
-![The Character Controller component with Center positioned x=0, y=1 and z=0, radius = 1 and Height = 2.](images/char-coll-dog.png)
+![The Character Controller component with Center positioned x=0, y=0.5 and z=0, radius = 0.5 and Height = 2.](images/char-coll-dog.png)
 
 ![The Scene view showing the Character Controller is the right size to cover the body of the Dog.](images/scene-coll-dog.png)
 
@@ -37,7 +37,7 @@ With the Dog selected go to the Inspector window and 'Add Component'. Choose the
 
 --- task ---
 
-Click on 'Add Component' and add a `Box Collider` to the Dog so that the Player cannot walk through, or climb on top of, the Dog. Change the Y 'Center' and 'Size':
+Click on 'Add Component' and add a `Box Collider` to the **Dog** so that the Player cannot walk through, or climb on top of, the Dog. Change the Y 'Center' and 'Size':
 
 ![The Box Collider component with change from default to Center Y = 1 and size Y = 2.](images/box-collider.png)
 
@@ -45,7 +45,7 @@ Click on 'Add Component' and add a `Box Collider` to the Dog so that the Player 
 
 --- task ---
 
-As both the Dog and the Player will be moving you will need to add a 'Box collider' to the Player so that the Dog cannot climb on top of the Player.
+As both the Dog and the Player will be moving you will need to add a 'Box collider' to the **Player** so that the Dog cannot climb on top of the Player.
 
 Select the 'Player' GameObject from the Hierarchy window then click 'Add Component' and add a `Box Collider`.  Change the Y 'Center' and 'Size':
 
@@ -74,9 +74,9 @@ Open the 'My scripts' folder in the Project window and right-click to create a n
 Open the 'PatrolController' script and create a patrolSpeed variable. Create another two public variables for the minPosition and maxPosition of the patrol space.
 
 ```
-    public float patrolSpeed = 3.0F;
-    public float minPosition = -4.0F;
-    public float maxPosition = 4.0F;
+    public float patrolSpeed = 3.0f;
+    public float minPosition = -4.0f;
+    public float maxPosition = 4.0f;
 ```
 
 --- /task ---
@@ -92,16 +92,20 @@ void Update()
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         controller.SimpleMove(forward * patrolSpeed);
 
-        if (transform.position.x < maxPosition)
+        if (transform.position.x > maxPosition)
         {
             transform.Rotate(0, 180, 0);
+            transform.position = new Vector3(maxPosition, transform.position.y, transform.position.z);
         }
-
-        if (transform.position.x > minPosition)
+        else if (transform.position.x < minPosition)
         {
             transform.Rotate(0, 180, 0);
+            transform.position = new Vector3(minPosition, transform.position.y, transform.position.z);
         }
+    }
 ```
+
+Setting the `transform.position` makes sure the Dog isn't still past the limit when they turn around. If you don't do this you might find that the Dog 'glitches' back and forward. 
 
 Save your script and return to the Unity editor.
 

@@ -219,7 +219,7 @@ From the Hierarchy window drag:
 + the Shield child GameObject of the Rat to the 'Turbo' property, 
 + the Shield child GameObject of the Player to the 'Player Turbo' property
 + the Player GameObject to the 'Player' property and,
-+ the Canvas child GameObject to the 'Canvas' property.
++ the Canvas child GameObject of the Rat to the 'Canvas' property.
 
 ![The script component for Ally Controller showing Turbo populated with the Shield GameObject and Canvas populated with the Canvas GameObject.](images/script-objects.png)
 

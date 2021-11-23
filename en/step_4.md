@@ -29,7 +29,7 @@ With the Dog selected go to the Inspector window and 'Add Component'. Choose the
 
 **Tip:** Select the Dog GameObject in the Hierarchy window and press `shift` + `f` to focus on the Dog in the Scene view. 
 
-![The Character Controller component with Center positioned x=0, y=0.5 and z=0, radius = 0.5 and Height = 2.](images/char-coll-dog.png)
+![The Character Controller component with Center positioned x=0, y=0.5 and z=0, radius = 0.5 and Height = 1.](images/char-coll-dog.png)
 
 ![The Scene view showing the Character Controller is the right size to cover the body of the Dog.](images/scene-coll-dog.png)
 
@@ -39,7 +39,7 @@ With the Dog selected go to the Inspector window and 'Add Component'. Choose the
 
 Click on 'Add Component' and add a `Box Collider` to the **Dog** so that the Player cannot walk through, or climb on top of, the Dog. Change the Y 'Center' and 'Size':
 
-![The Box Collider component with change from default to Center Y = 1 and size Y = 2.](images/box-collider.png)
+![The Box Collider component with change from default to Center Y = 1 and size Y = 2. Change the Size X and Z values to 1.5.](images/box-collider.png)
 
 --- /task ---
 
@@ -49,23 +49,13 @@ As both the Dog and the Player will be moving you will need to add a 'Box collid
 
 Select the 'Player' GameObject from the Hierarchy window then click 'Add Component' and add a `Box Collider`.  Change the Y 'Center' and 'Size':
 
-![The Box Collider component with change from default to Center Y = 1 and size Y = 2.](images/box-collider.png)
+![The Box Collider component with change from default to Center Y = 1 and size Y = 2. Change the Size X and Z values to 1.5.](images/box-collider.png)
 
 --- /task ---
 
 --- task ---
 
-Go to the 'Tag' property at the top of the Inspector window and 'Add Tag'. Click on the '+' and call the new tag `Enemy`. GameObjects with an 'Enemy' tag will be characters that get in the way and slow the Player down.
-
-Click on the Dog GameObject in the Hierarchy window and use the Tag dropdown box to select `Enemy` from the list.
-
-![The Dog tagged as an Enemy at the top of the Inspector window.](images/tag-dog.png)
-
---- /task ---
-
---- task ---
-
-Open the 'My scripts' folder in the Project window and right-click to create a new 'C# Script'. Name the script `PatrolController`.
+With the Dog GameObject selected, add a new Script component and name it `PatrolController`.
 
 --- /task ---
 
@@ -108,12 +98,6 @@ void Update()
 Setting the `transform.position` makes sure the Dog isn't still past the limit when they turn around. If you don't do this you might find that the Dog 'glitches' back and forward. 
 
 Save your script and return to the Unity editor.
-
---- /task ---
-
---- task ---
-
-Drag the 'PatrolController' script to the Inspector window for the Dog.
 
 --- /task ---
 
@@ -175,6 +159,8 @@ From the Hierarchy window, select the Dog GameObject then go to the Inspector wi
 ![The 'Transform' component for the dog showing X, Y and Z valus of '2' each.](images/scale-dog.png)
 
 ![A large dog that is scaled by '2' on each access making it harder to reach the star.](images/huge-dog.png)
+
+Exit playmode. 
 
 --- /task ---
 

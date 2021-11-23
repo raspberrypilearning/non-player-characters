@@ -2,7 +2,7 @@
 
 <div style="display: flex; flex-wrap: wrap">
 <div style="flex-basis: 200px; flex-grow: 1; margin-right: 15px;">
-Allies are characters that help the Player by giving them clues, and items; or by increasing or decreasing game variables and objects.
+Allies are characters that help the Player by giving them clues or items; or by giving them abilities such as turbo speed.
 </div>
 <div>
 ![A shield on a Rat ally that disappears when the Player collides and a Player shield activating at the same time.](images/player-shield.gif){:width="300px"}
@@ -41,13 +41,16 @@ Using animation makes an NPC come to life.
 
 --- task ---
 
-In the Project window, navigate to the 'Animation' folder. Right-click and got to 'Create' then select 'Animation Controller' name your new animation controller 'AllyIdle'.
+In the Project window, navigate to the 'Animation' folder. Right-click and go to 'Create' then select 'Animation Controller' name your new animation controller 'AllyIdle'.
 
 Double click on the 'AllyIdle' animation controller to open it in the Animator window. 
 
-From the animation folder in the Project window, drag the 'Char_IdleHappy' animation up to the Animator window: 
+From the animation folder in the Project window, drag the 'Cat_IdleHappy' animation up to the Animator window: 
 
 ![The animator window with Base Layer open and a black grid showing 'Entry' in green linked by transition arrow to 'Cat_IdleHappy' in orange.](images/rat-idle-animator.png)
+
+
+**Tip:** You can use the Cat animations on the Rat and Raccoon because they are designed as 'humanoids'.  
 
 --- /task ---
 
@@ -67,6 +70,8 @@ From the Hierarchy window, select the Rat then go to the Inspector window 'Anima
 
 ![The game view showing Rat animating by swaying back and forth.](images/ally-anim.gif)
 
+Exit playmode. 
+
 --- /task ---
 
 A character with the 'Shield' model as a child gameObject would look like they have a special effect or power. In your minigame the shield will represent a turbo speed powerup. 
@@ -75,13 +80,27 @@ When the Player has the shield they will move and turn twice as fast - but with 
 
 --- task ---
 
-In the Project window, go to the 'Models' folder and find the 'Shield'. Drag the shield up to the Hierarchy window and position it at a child GameObject of the Rat: 
+In the Project window, go to the 'Models' folder and find the 'Shield'. Drag the shield up to the Hierarchy window and position it as a child GameObject of the Player: 
+
+![The Hierarchy window showing the Shield GameObject indented as a child underneath the Player GameObject.](images/shield-child-player.png)
+
+This will automaticaly add the Shield in the same position as the Player:
+
+![The Scene view with the Player showing a white shield surrounding it.](images/shield-scene-player.png){:width="300px"}
+
+You will use code to hide the shield until the player picks up the turbo power boost from the Ally NPC.
+
+--- /task ---
+
+--- task ---
+
+Also add a Shield as a child GameObject of the Rat: 
 
 ![The Hierarchy window showing the Shield GameObject indented as a childunderneath the Rat GameObject.](images/shield-child.png)
 
 This will automaticaly add the Shield in the same position as the Rat:
 
-![The Scene view with the Rat showing a white shield surrounding it.](images/shield-scene.png)
+![The Scene view with the Rat showing a white shield surrounding it.](images/shield-scene.png){:width="300px"}
 
 --- /task ---
 
@@ -103,6 +122,8 @@ Use the `Rect Transform` component in the Inspector window to anchor the text to
 
 ![The Rect Transform component with anchor to the bottom left selected and position X=120, Y=50 and Z=0.](images/rect-trans-rat.png)
 
+**Tip:** Click on the 'Game' tab to see what the text looks like in Game view.  
+
 --- /task ---
 
 The Rat will have the shield visible until the Player collides. The shield will then transfer to the Player and the Rat will disappear.
@@ -111,19 +132,18 @@ The Rat will have the shield visible until the Player collides. The shield will 
 
 Go to the 'Add Component' button again and add a second 'Box Collider' to the Rat. 
 
-Check 'Is Trigger' and change the size so that it is bigger than the Character controller: 
+Check 'Is Trigger' and change the size so that it is bigger than the first Box Collider: 
 
-![The Box Collider with Is Trigger ticked and the size X=1.5, Y=1, Z=1.5](images/box-properties-rat.png)
+![The Box Collider with Is Trigger ticked and the size X=1.5, Y=1, Z=1.5](images/both-colliders-properties.png)
 
 ![The Scene view with Rat showing a box collider larger than the characher controller.](images/rat-box-scene.png)
 
 --- /task ---
 
 --- task ---
+With the Ally rat GameObject selected, add a new Script component and name it `AllyController`.
 
-In the Project window, navigate to the 'My Scripts' folder. Right-click and create a new 'C# Script'. Name the script `AllyController`.
-
-Double click on the **NPCPlayer** script to open it in your script editor. Add code to use the TMPro namespace:
+Double click on the **AllyController** script to open it in your script editor. Add code to use the TMPro namespace:
 
 ```
 using UnityEngine;
@@ -134,11 +154,11 @@ using TMPro;
 
 --- task ---
 
-Create public GameObject and Canvas variables and add code to activate the turbo on the Ally and not the Player, and disable the canvas at the start:
+Create public GameObject and Canvas variables and add code to activate the turbo speed boost on the Ally and not the Player, and disable the canvas at the start:
 
 ```
-    public GameObject turbo;
-    public GameObject playerTurbo;
+    public GameObject turbo; // Turbo shield on NPC
+    public GameObject playerTurbo; // Turbo shield on Player
     public PlayerController player;
     public GameObject canvas;
 
@@ -163,9 +183,9 @@ void OnTriggerEnter(Collider other)
         if (other.CompareTag("Player"))
         {
             turbo.SetActive(false);
-            PlayerTurbo.SetActive(true);
-            player.moveSpeed = 6.0f;
-            player.rotateSpeed = 6.0f;
+            playerTurbo.SetActive(true);
+            player.moveSpeed *= 2;
+            player.rotateSpeed *= 2;
             canvas.SetActive(true);
         }
     }
@@ -180,7 +200,10 @@ Add code to remove the Rat once the Player moves away to continue the game:
 ```
 void OnTriggerExit(Collider other)
 {
-    gameObject.SetActive(false);
+    if (other.CompareTag("Player"))
+    {
+        gameObject.SetActive(false);
+    }
 }
 ```
 
@@ -190,9 +213,13 @@ Save your script and return to the Unity editor.
 
 --- task ---
 
-Click on the Rat and drag the 'AllyController' scrpt from the Project window to the Inspector window. 
+Find the 'AllyController' script in the Inspector window for the Ally rat. 
 
-From the Hierarchy window drag the Shield child GameObject of the Rat to the 'Turbo' property, the Shield child GameObject of the Player to the 'Player Turbo' property, the Player GameObject to the 'Player' property and the Canvas child GameObject to the 'Canvas' property:
+From the Hierarchy window drag:
++ the Shield child GameObject of the Rat to the 'Turbo' property, 
++ the Shield child GameObject of the Player to the 'Player Turbo' property
++ the Player GameObject to the 'Player' property and,
++ the Canvas child GameObject to the 'Canvas' property.
 
 ![The script component for Ally Controller showing Turbo populated with the Shield GameObject and Canvas populated with the Canvas GameObject.](images/script-objects.png)
 
@@ -210,6 +237,7 @@ Experiment with the values of Move Speed and Rotate Speed whilst in Playmode unt
 
 ![Script component in Inspector view showing Move Speed and Rotate Speed as 6.](images/running-6.png)
 
+Exit playmode. 
 --- /task ---
 
 --- save ---

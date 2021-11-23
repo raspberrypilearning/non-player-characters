@@ -83,7 +83,7 @@ Choose which costumes to keep enabled and which to disable by unchecking the box
 
 Select the 'Gamemaster' GameObject and click on 'Add Component'. Add a `Box Collider` so that the Player cannot walk through, or climb on top of, the Gamemaster. Change the Y 'Center' and 'Size':
 
-![The Box Collider component with change from default to Center Y = 1 and size Y = 2.](images/box-collider.png)
+![The Box Collider component with change from default to Center Y = 1 and size Y = 2.](images/box-collider-gamemaster.png)
 
 --- /task ---
 
@@ -134,6 +134,8 @@ Click on the drop-down arrow next to the 'Button' GameObject and select the 'Tex
 **Test:** Experiment with the 'Transform' properties of your message and button until you are happy with how they look in the Game view:
 
 ![The Game view showing message aligned to the bottom left with writing across 3 lines and the button aligned to the bottom right.](images/message-and-button.png)
+
+Exit playmode. 
 
 --- /task ---
 

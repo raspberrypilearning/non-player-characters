@@ -47,15 +47,7 @@ This Box collider will use 'IsTrigger' to make the Dog  follow the Player if the
 
 --- task ---
 
-Go to the 'Tag' property for the Dog and use the Tag dropdown box to select 'Enemy' from the list.
-
-![The Dog tagged as an Enemy at the top of the Inspector window.](images/tag-dog1.png)
-
---- /task ---
-
---- task ---
-
-In the Projects window, navigate to the 'My Scripts' folder and create a new C# Script called `FollowController`. 
+With the new Dog GameObject selected, add a new Script component and name it `FollowController`. 
 
 --- /task ---
 
@@ -79,7 +71,7 @@ Save your script and return to the Unity editor.
 
 --- task ---
 
-Drag the 'FollowController' script to the Dog in the Inspector window. Click on the circle next to 'Player' and select the Player GameObject from the menu:
+For the 'FollowController' script in the Inspector window. Click on the circle next to 'Player' and select the Player GameObject from the menu:
 
 ![The Follow Controller script component with Player GameObject.](images/script-comp.png)
 
@@ -90,6 +82,8 @@ Drag the 'FollowController' script to the Dog in the Inspector window. Click on 
 **Test:** Play your minigame. Make sure you can't walk through the Dog. Check that the Dog continuously rotates to face the Player.
 
 ![The Player running past the Dog, the Dog rotates to face the Player. The Player can't walk throguh the Dog.](images/dog-rotate-player.gif)
+
+Exit playmode. 
 
 --- /task ---
 
@@ -153,6 +147,13 @@ Save your script and return to the Unity editor.
 
 --- /task ---
 
+--- task ---
+**Test:** Play your scene and walk up to the Dog and then walk away. Check that the Dog follows you. 
+
+Exit playmode. 
+
+--- /task ---
+
 Animation Controllers can have more than one animation. The Follower Dog will need animations for when idle and when moving. 
 
 --- task ---
@@ -177,6 +178,8 @@ Double-click on the 'FollowerMove' controller to open it in the Animation window
 
 **Test:** Play your minigame and check that the Dog animates when idle. 
 
+Exit playmode. 
+
 --- /task ---
 
 The Dog needs a different animation for when it is moving. 
@@ -185,7 +188,7 @@ The Dog needs a different animation for when it is moving.
 
 Drag the 'Dog_Run' animation into the Animator window for the 'FollowerMove' controller. 
 
-Right-click on the 'Dog_Idle' animation and select 'Make Transition' this will create a transition from the idle animation to the run animation. Right-click on the 'Dog_Run' animation and select 'Make Transition' to also create a transition from the run animation to the idle animation. 
+Right-click on 'Dog_Idle' and select 'Make Transition' and connect the transition to 'Dog_Run'. Right-click on  'Dog_Run' and select 'Make Transition' and connect the transition to 'Dog_Idle' so you have transitions in both directions. 
 
 ![The animator window with new 'Dog_Run' grey box and arrows going between the idle and run boxes in both directions.](images/idle-run-animator.png)
 
@@ -195,7 +198,9 @@ Right-click on the 'Dog_Idle' animation and select 'Make Transition' this will c
 
 Go to the 'Parameters' tab and click on the dropdown arrow next to the '+'. Choose 'bool' and name your new variable 'isRunning'
 
-![The Animator window with Parameters tab selected in the top left. The '+' button is extended with optin 'bool' selected and new parameter called 'IsRunning' appears in the list.](images/animator-parameters.png)
+![The Animator window with Parameters tab selected in the top left. The '+' button is extended with optin 'bool' selected.](images/animator-parameters.png)
+
+![The Animator window with Parameters tab selected and new parameter called 'isRunning' appears in the list.](images/isRunning-param.png)
 
 --- /task ---
 
@@ -219,7 +224,9 @@ Uncheck the 'Has Exit Time' box so that the animation transitions straight away:
 
 Select the transition arrow from Dog_Run to Dog_Idle and follow the same steps. Uncheck the 'Has Exit Time' box but this time add the condition 'isRunning' is 'false':
 
-![The Inspector with Conditions showing 'IsRunning' in the left box and 'true' in the right box.](images/condition-isfalse.png)
+![The Has Exit Time box unchecked.](images/exit-time.png)
+
+![The Inspector with Conditions showing 'Is Running' in the left box and 'true' in the right box.](images/condition-isfalse.png)
 
 --- /task ---
 
@@ -228,7 +235,6 @@ Select the transition arrow from Dog_Run to Dog_Idle and follow the same steps. 
 Open the 'FollowController' script and create an animator variable. Add code to the 'Start' method to set `isRunning` to false:
 
 ```
-    public bool isFollowing = false;
     Animator anim;
 
     // Start is called before the first frame update
@@ -244,7 +250,7 @@ Open the 'FollowController' script and create an animator variable. Add code to 
 
 --- task ---
 
-Update the 'if (isFollowing)' code to walk when following is true and the Dog is far enough away from the Player to move.
+Update the `if (isFollowing)` code to control the animation:
 
 ```
     if (isFollowing == true)
@@ -276,6 +282,8 @@ Save your script and return to the Unity editor.
 + click on the Player in the Hierarchy window and then go to Main Camera child GameObject. In the inspector window change the 'z' position of the camera to `-10`.
 
 ![Playmode showing the animator window changing states between idle and run matching the Game view showing the dog waiting behind the Player and running to catch up.](images/dog-anim-test.gif)
+
+Exit playmode. 
 
 --- /task ---
 

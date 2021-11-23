@@ -100,6 +100,8 @@ Drag your 'Gamemaster' **Canvas** child GameObject from the Hierarchy window to 
 
 **Test:** Play your minigame, walk upto the Gamemaster and move away again. The canvas appears when the Player triggers the Gamemaster collider and disappears with the Player moves away.
 
+Exit playmode. 
+
 --- /task ---
 
 The button looks great but needs to trigger an event when it is pressed.
@@ -139,6 +141,8 @@ Save your script and return to the Unity editor.
 
 From the Hierarchy window, select the 'Button' GameObject then go to the Inspector window 'On Click ()' property and click on the '+'. 
 
+![The OnClick component for the Button in the Inspector window with '+' icon highlighted in the botton right corner.](images/add-on-click.png)
+
 Drag the 'Gamemaster' GameObject from the Hierarchy window to the field underneath 'Runtime Only'. In the 'Function' dropdown select 'GamemasterController.PlayerReady' to join your new method to the Button's click event: 
 
 ![The OnClick component for the Button in the Inspector window with values 'Runtime Only' , 'Gamemaster' and 'GamemasterController.PlayerReady' in the 3 fields.](images/on-click-inspector.png)
@@ -150,6 +154,8 @@ Drag the 'Gamemaster' GameObject from the Hierarchy window to the field undernea
 **Test:** Play your minigame. The button disables the canvas but the time still counts up from the second the game begins. 
 
 Fix any errors that appear. 
+
+Exit playmode. 
 
 --- /task ---
 
@@ -204,6 +210,7 @@ Select the 'Player' and go to the 'Star Player (script)' component. Click on the
 
 **Test:** Play your minigame. Check that the time doesn't start until the button has been pressed. What happens if you go back to the Gamemaster a second time? 
 
+Exit playmode. 
 --- /task ---
 
 --- task ---
@@ -229,6 +236,7 @@ void OnTriggerEnter(Collider other)
 
 At the moment the stars are active when the game begins so the Player could collect the stars before going to the Gamemaster - this would mean a very quick time taken to complete the game!
 
+Exit playmode. 
 --- /task ---
 
 You can use Tags to identify objects that you want to treat in the same way. 
@@ -246,7 +254,7 @@ In C#, you can store multiple objects of the same type in an **Array** variable.
 
 --- task ---
 
-Open your 'StarPlayer' script and new variable to store your Star GameObjects:
+Open your 'GamemasterController' script and new variable to store your Star GameObjects:
 
 ```
 GameObject[] stars; 
@@ -277,7 +285,7 @@ Set the stars to active once the Player has clicked the ready button:
 ```
     public void PlayerReady()
     {
-        isReady = true;
+        gameStarted = true;
         startTime = Time.time;
         canvas.SetActive(false);
         foreach (var star in stars) 
@@ -294,6 +302,8 @@ Set the stars to active once the Player has clicked the ready button:
 **Test:** Play your minigame again. Notice that the stars do not appear until the Player has clicked on the 'Ready' button. 
 
 **Debug:** Make sure every star has the 'Star' tag. 
+
+Exit playmode. 
 
 --- /task ---
 

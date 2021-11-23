@@ -14,9 +14,7 @@ Have fun!
 legend: Question 1 of 3
 ---
 
-An NPC has a script that uses the `SimpleMove` method in its `Update` method. 
-
-Which component needs to be added to the Player so it can use the `SimpleMove` method?
+Which component do you need to add to an NPC so it can use the `SimpleMove` method?
 
 --- choices ---
 

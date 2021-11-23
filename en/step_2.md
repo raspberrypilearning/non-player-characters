@@ -135,7 +135,7 @@ Press 'Shift + F' to focus on the text, and then zoom out a little to see the po
 
 You can now use the mouse to position and resize the text.
 
-![animation showing text box being movced and resizaed](images/transform-text.gif)
+![animation showing text box being moved and resized](images/transform-text.gif)
 
 --- /collapse ---
 

@@ -2,7 +2,7 @@
 
 <div style="display: flex; flex-wrap: wrap">
 <div style="flex-basis: 200px; flex-grow: 1; margin-right: 15px;">
-It's not fair if the timer starts before the player is ready! The button will allow the player to start the timer AND activate the stars.
+It's not fair if the time starts before the player is ready! The button will allow the player to start the time AND activate the stars.
 </div>
 <div>
 ![Image of the Game view showing the NPC, player and text introduction with ready button.](images/control-game.gif){:width="300px"}
@@ -17,7 +17,7 @@ Select your Gamemaster GameObject and click on 'Add Component' in the Inspector 
 
 This Box collider will trigger the canvas with message and button to be shown so needs to be bigger than the Box Collider that stops the Player walking into the Gamemaster:
 
-![The Inspector window showing two colliders. The new collider has 'IsTrigger' checked and the size X=2, y=1, z=2 so that it is bigger than the previously added collider.](images/both-colliders-properties.png)
+![The Inspector window showing two colliders. The new collider has Is Trigger checked and the size X=2, y=1, z=2 so that it is bigger than the previously added collider.](images/both-colliders-properties.png)
 
 ![The Scene view showing Gamemaster with two box colliders. One bigger than the other.](images/two-colliders.png)
 
@@ -25,32 +25,33 @@ This Box collider will trigger the canvas with message and button to be shown so
 
 --- task ---
 
-In the Project window, navigate to the 'My Scripts' folder. Right-click and create a new 'C# Script'. Name the script `NPCText`.
+With the Gamemaster GameObject selected, add a new Script component and name it `GamemasterController`.
+
+![The Inspector window with 'GamemasterController' script component.](images/gamemaster-script.png)
 
 --- /task ---
 
 --- task ---
 
-Double click on the NPCText script to open it in your script editor. Add code to use TMPro:
+Double click on the 'GamemasterController' script to open it in your script editor. Add code to use TMPro:
 
 ```
 using UnityEngine;
 using TMPro; 
 ```
-
 --- /task ---
 
 --- task ---
 
-Create a public Canvas variable called `canvas` and add code to disable the canvas at the start:
+Create a public Canvas variable called `canvas` and add code to make sure the canvas is disabled at the start:
 
 ```
-    public Canvas canvas;
+    public GameObject canvas;
 
     // Start is called before the first frame update
     void Start()
     {
-        canvas.enabled = false;
+        canvas.SetActive(false);
     }
 ```
 
@@ -58,27 +59,27 @@ Create a public Canvas variable called `canvas` and add code to disable the canv
 
 --- task ---
 
-Add two new methods. The first to enable the canvas when the Player is in the collider. The second to diable the canvas when the player has moved away:
+Add two new methods. The first to enable the canvas when the Player is in the collider. The second to disable the canvas when the player has moved away:
 
 ```
-void Update()
+    void Update()
     {
         
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            canvas.enabled = true;
+            canvas.SetActive(true);
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            canvas.enabled = false;
+            canvas.SetActive(false);
         }
     }
 ```
@@ -89,7 +90,9 @@ Save your script and return to the Unity editor.
 
 --- task ---
 
-Select the **Gamemaster** and drag the 'NPCText' script to the Inspector window. Drag your **Canvas** child GameObject from the Hierarchy window to the 'Canvas' variable field in the Inspector window Script component.
+Drag your 'Gamemaster' **Canvas** child GameObject from the Hierarchy window to the 'Canvas' variable field in the Inspector window Script component.
+
+![The script component in the Inspector window with the canvas showing in the Canvas variable.](images/canvas-script.png)
 
 --- /task ---
 
@@ -97,18 +100,20 @@ Select the **Gamemaster** and drag the 'NPCText' script to the Inspector window.
 
 **Test:** Play your minigame, walk upto the Gamemaster and move away again. The canvas appears when the Player triggers the Gamemaster collider and disappears with the Player moves away.
 
+Exit playmode. 
+
 --- /task ---
 
 The button looks great but needs to trigger an event when it is pressed.
 
 --- task ---
 
-Open the 'NPCText' script and create two new public variables called 'IsReady' and 'ButtonTime':
+Open the 'GamemasterController' script and create two new public variables called 'gameStarted' and 'startTime':
 
 ```
-    public Canvas canvas;
-    public bool IsReady = false;
-    public float ButtonTime = 0.0f;
+    public GameObject canvas;
+    public bool gameStarted = false;
+    public float startTime = 0.0f;
 ```
 
 --- /task ---
@@ -120,11 +125,11 @@ Create a public method called `PlayerReady` to set the game conditions when the 
 The time the button was pressed needs to be stored so you can work out how long the game has been in play:
 
 ```
- public void PlayerReady()
+    public void PlayerReady()
     {
-        IsReady = true;
-        ButtonTime = Time.time;
-        canvas.enabled = false;
+        gameStarted = true;
+        startTime = Time.time; // time when the button is pressed
+        canvas.SetActive(false);
     }
 ```
 
@@ -134,11 +139,13 @@ Save your script and return to the Unity editor.
 
 --- task ---
 
-From the Hierarchy window, select the Button GameObject then go to the Inspector window 'On Click ()' property and click on the '+'. 
+From the Hierarchy window, select the 'Button' GameObject then go to the Inspector window 'On Click ()' property and click on the '+'. 
 
-Click on the circle for the field underneath 'Runtime', click on 'Scene' and choose `Gamemaster`. In the 'Function' dropdown select 'NPCText.PlayerReady' to join your new method to the Button's click event: 
+![The OnClick component for the Button in the Inspector window with '+' icon highlighted in the botton right corner.](images/add-on-click.png)
 
-![The OnClick component for the Button in the Inspector window with values 'Runtime' , 'Gamemaster' and 'NPCText.PlayerReady' in the 3 fields.](images/on-click-inspector.png)
+Drag the 'Gamemaster' GameObject from the Hierarchy window to the field underneath 'Runtime Only'. In the 'Function' dropdown select 'GamemasterController.PlayerReady' to join your new method to the Button's click event: 
+
+![The OnClick component for the Button in the Inspector window with values 'Runtime Only' , 'Gamemaster' and 'GamemasterController.PlayerReady' in the 3 fields.](images/on-click-inspector.png)
 
 --- /task ---
 
@@ -146,14 +153,25 @@ Click on the circle for the field underneath 'Runtime', click on 'Scene' and cho
 
 **Test:** Play your minigame. The button disables the canvas but the time still counts up from the second the game begins. 
 
+Fix any errors that appear. 
+
+Exit playmode. 
+
 --- /task ---
 
 --- task ---
-Open your **StarPlayer** script to see the code that controls the time displayed. Create a new public variable for your NPCText script:  
+Open your **StarPlayer** script to see the code that controls the time displayed. 
+
+Create a new public variable for your Gamemaster script:  
 
 ```
-    public TMP_Text timerText;
-    public NPCText npc;
+public class StarPlayer : MonoBehaviour
+{
+    public int stars = 0; // an integer whole number
+    public TMP_Text starText;
+    public TMP_Text timeText;
+    public GamemasterController gamemaster;
+
 ```
 
 --- /task ---
@@ -162,16 +180,16 @@ Open your **StarPlayer** script to see the code that controls the time displayed
 
 Change the code in your `Update` method to only update the time if the button has been pressed and stars are less than three.
 
-Time.time starts when the game begins. Minus the ButtonTime from Time.time to display the elapsed time since the button was pressed:
+Time.time starts when the game begins. Minus the startTime from Time.time to display the elapsed time since the button was pressed:
 
 ```
 void Update()
     {
         starText.SetText("Stars: " + stars);
 
-        if (npc.IsReady == true && stars < 3)
+        if (gamemaster.gameStarted == true && stars < 3)
         {
-            timerText.SetText("Time: " + Mathf.Round(Time.time - npc.ButtonTime));              
+            timeText.SetText("Time: " + Mathf.Round(Time.time - gamemaster.startTime));              
         }
     }
 ```
@@ -182,9 +200,9 @@ Save your script and return to the Unity editor.
 
 --- task ---
 
-Select the 'Player' and go to the 'Star Player (script)' compenent. Click on the circle next to 'Npc' and choose the 'Gamemaster' GameObject: 
+Select the 'Player' and go to the 'Star Player (script)' component. Click on the circle next to 'Gamemaster' and choose the 'Gamemaster' GameObject: 
 
-![The Inspector window with 'Gamemaster' showing in the 'Npc' field for the Star Player script.](images/Npc-variable.png)
+![The Inspector window with 'Gamemaster' showing in the 'Gamemaster' field for the Star Player script.](images/Npc-variable.png)
 
 --- /task ---
 
@@ -192,18 +210,19 @@ Select the 'Player' and go to the 'Star Player (script)' compenent. Click on the
 
 **Test:** Play your minigame. Check that the time doesn't start until the button has been pressed. What happens if you go back to the Gamemaster a second time? 
 
+Exit playmode. 
 --- /task ---
 
 --- task ---
 
-Open your NPCText script and amend the condition in OnTriggerEnter to only run if the player collides and the button hasn't been pressed: 
+Open your 'GamemasterController' script and amend the condition in OnTriggerEnter to only run if the player collides and the button hasn't been pressed: 
 
 ```
 void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && IsReady == false)
+        if (other.CompareTag("Player") && isReady == false)
         {
-            canvas.enabled = true;
+            canvas.SetActive(true);
         }
     }
 ```
@@ -217,6 +236,7 @@ void OnTriggerEnter(Collider other)
 
 At the moment the stars are active when the game begins so the Player could collect the stars before going to the Gamemaster - this would mean a very quick time taken to complete the game!
 
+Exit playmode. 
 --- /task ---
 
 You can use Tags to identify objects that you want to treat in the same way. 
@@ -224,7 +244,7 @@ You can use Tags to identify objects that you want to treat in the same way.
 --- task ---
 Select one of your Star GameObjects and click 'Add Tag' in the Inspector. Create a new tag called 'Star'. 
 
-Select all of the Star GameObjects in the Hierarchy by holding down 'Ctrl' and then clicking on each of them. 
+Select all of the Star GameObjects in the Hierarchy by holding down 'Ctrl' (or 'Cmd) and then clicking on each of them. 
 
 Set the tag to 'Star' in the Inspector to set the tag for all of the Stars.
 
@@ -234,7 +254,7 @@ In C#, you can store multiple objects of the same type in an **Array** variable.
 
 --- task ---
 
-Open your 'NPCText' script and new variable to store your Star GameObjects:
+Open your 'GamemasterController' script and new variable to store your Star GameObjects:
 
 ```
 GameObject[] stars; 
@@ -251,7 +271,7 @@ Find the Star GameObjects and set them to inactive when the game starts:
 ```
     void Start()
     {
-        canvas.enabled = false;
+        canvas.SetActive(false);
         stars = GameObject.FindGameObjectsWithTag("Star");
         foreach (var star in stars) 
         {
@@ -265,9 +285,9 @@ Set the stars to active once the Player has clicked the ready button:
 ```
     public void PlayerReady()
     {
-       IsReady = true;
-        ButtonTime = Time.time;
-        canvas.enabled = false;
+        gameStarted = true;
+        startTime = Time.time;
+        canvas.SetActive(false);
         foreach (var star in stars) 
         {
             star.SetActive(true);
@@ -282,6 +302,8 @@ Set the stars to active once the Player has clicked the ready button:
 **Test:** Play your minigame again. Notice that the stars do not appear until the Player has clicked on the 'Ready' button. 
 
 **Debug:** Make sure every star has the 'Star' tag. 
+
+Exit playmode. 
 
 --- /task ---
 

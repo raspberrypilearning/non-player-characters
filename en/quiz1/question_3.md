@@ -5,7 +5,7 @@
 legend: Question 3 of 3
 ---
 
-In a project, an Ally give the Player a 'clover' GameObject. 
+In a project, an Ally gives the Player a 'clover' GameObject. 
 
 The Ally's script has two GameObjects:
 + clover - a child GameObject on the Ally

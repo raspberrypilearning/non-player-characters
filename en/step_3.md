@@ -37,7 +37,7 @@ Double click on the 'GamemasterController' script to open it in your script edit
 
 --- code ---
 ---
-language: cs
+language: csharp
 filename: GamemasterController.cs
 line_numbers: true
 line_number_start: 1

@@ -53,17 +53,41 @@ With the new Dog GameObject selected, add a new Script component and name it `Fo
 
 --- task ---
 
-Double-click on the 'FollowController' script and create a public GameObject variabe. Add code to make the dog continuously look at the Player:
+Double-click on the 'FollowController' script and create a public GameObject variable. Add code so that the script can access the 'Player' attributes
 
-```
+--- code ---
+---
+language: cs
+filename: FollowController.cs
+line_numbers: true
+line_number_start: 5
+line_highlights: 7
+---
+public class FollowController : MonoBehaviour
+{
     public GameObject Player;
 
-    // Update is called once per frame
+--- /code ---
+
+--- /task ---
+
+--- task ---
+
+Add a line in the 'Update'method so that the dog will always look at the player:
+
+--- code ---
+---
+language: cs
+filename: FollowController.cs
+line_numbers: true
+line_number_start: 16
+line_highlights: 18
+---
     void Update()
     {
         transform.LookAt(Player.transform);
     }
-```
+--- /code ---
 
 Save your script and return to the Unity editor.
 
@@ -71,7 +95,9 @@ Save your script and return to the Unity editor.
 
 --- task ---
 
-For the 'FollowController' script in the Inspector window. Click on the circle next to 'Player' and select the Player GameObject from the menu:
+Click on your second dog in the Hierarchy and scroll down in the Inspector to see the 'FollowController' script in the window.
+
+Click on the circle next to 'Player' and select the Player GameObject from the menu:
 
 ![The Follow Controller script component with Player GameObject.](images/script-comp.png)
 
@@ -91,13 +117,35 @@ Exit playmode.
 
 Open the 'FollowController' script and create an IsFollowing variable set to `false`. 
 
-```
-public bool isFollowing = false;
-```
+--- code ---
+---
+language: csharp
+filename: FollowController.cs
+line_numbers: true
+line_number_start: 5
+line_highlights: 8
+---
+public class FollowController : MonoBehaviour
+{
+    public GameObject Player;
+    public bool isFollowing = false;
+--- /code ---
 
 Add a method that triggers when the Player collides with the Dog. This method will set 'IsFollowing' to `true`:
 
-```
+--- code ---
+---
+language: csharp
+filename: FollowController.cs
+line_numbers: true
+line_number_start: 5
+line_highlights: 10-16
+---
+public class FollowController : MonoBehaviour
+{
+    public GameObject Player;
+    public bool isFollowing = false;
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -105,7 +153,7 @@ Add a method that triggers when the Player collides with the Dog. This method wi
             isFollowing = true;
         }
     }
-```
+--- /code ---
 
 --- /task ---
 
@@ -113,11 +161,22 @@ Add a method that triggers when the Player collides with the Dog. This method wi
 
 Create three new variables to set the mechanics of the follow action:
 
-```
+--- code ---
+---
+language: csharp
+filename: FollowController.cs
+line_numbers: true
+line_number_start: 5
+line_highlights: 9-11
+---
+public class FollowController : MonoBehaviour
+{
+    public GameObject Player;
+    public bool isFollowing = false;
     public float followSpeed = 3f;
     public float followDistance = 2f;
     Vector3 moveDirection = Vector3.zero; // no movement
-```
+--- /code ---
 
 --- /task ---
 
@@ -129,26 +188,37 @@ Subtracting the Follower's position vector from the Player's position vector  wi
 
 The Dog should only move if at a distance from the Player so that the Dog doesn't try to move into the same space as the player.
 
-```
-    transform.LookAt(Player.transform);
-
-    if (isFollowing == true)
+--- code ---
+---
+language: csharp
+filename: FollowController.cs
+line_numbers: true
+line_number_start: 27
+line_highlights: 30-39
+---
+    void Update()
     {
-        if (Vector3.Distance(Player.transform.position, transform.position) > followDistance)
+        transform.LookAt(Player.transform);
+        if (isFollowing == true)
         {
-            CharacterController controller = GetComponent<CharacterController>();                
-            var moveDirection = Vector3.Normalize(Player.transform.position - transform.position);
-            controller.SimpleMove(moveDirection * followSpeed);          
+            if (Vector3.Distance(Player.transform.position, transform.position) > followDistance)
+            {
+                CharacterController controller = GetComponent<CharacterController>();
+                var moveDirection = Vector3.Normalize(Player.transform.position - transform.position);
+                controller.SimpleMove(moveDirection * followSpeed);
+            }
         }
     }
-```
+--- /code ---
 
 Save your script and return to the Unity editor.
 
 --- /task ---
 
 --- task ---
-**Test:** Play your scene and walk up to the Dog and then walk away. Check that the Dog follows you. 
+**Test:** Play your scene and walk up to the Dog so that you are close enough to trigger the event, then walk away. Check that the Dog follows you. 
+
+![dog follows player once it has entered bounding box](images/dog-follow.gif)
 
 Exit playmode. 
 
@@ -234,17 +304,22 @@ Select the transition arrow from Dog_Run to Dog_Idle and follow the same steps. 
 
 Open the 'FollowController' script and create an animator variable. Add code to the 'Start' method to set `isRunning` to false:
 
-```
+--- code ---
+---
+language: csharp
+filename: FollowerController.cs
+line_numbers: true
+line_number_start: 21
+line_highlights: 21, 25-26
+---
     Animator anim;
-
     // Start is called before the first frame update
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
         anim.SetBool("isRunning", false);
     }
-
-```
+--- /code ---
 
 --- /task ---
 
@@ -252,22 +327,33 @@ Open the 'FollowController' script and create an animator variable. Add code to 
 
 Update the `if (isFollowing)` code to control the animation:
 
-```
-    if (isFollowing == true)
+--- code ---
+---
+language: csharp
+filename: FollowerController.cs
+line_numbers: true
+line_number_start: 30
+line_highlights: 37, 42-45
+---
+    void Update()
     {
-        if (Vector3.Distance(Player.transform.position, transform.position) > followDistance)
+        transform.LookAt(Player.transform);
+        if (isFollowing == true)
         {
-            anim.SetBool("isRunning", true);
-            CharacterController controller = GetComponent<CharacterController>();                
-            var moveDirection = Vector3.Normalize(Player.transform.position - transform.position);
-            controller.SimpleMove(moveDirection * followSpeed);          
-        }
-        else
-        {
-            anim.SetBool("isRunning", false);
+            if (Vector3.Distance(Player.transform.position, transform.position) > followDistance)
+            {
+                anim.SetBool("isRunning", true);
+                CharacterController controller = GetComponent<CharacterController>();
+                var moveDirection = Vector3.Normalize(Player.transform.position - transform.position);
+                controller.SimpleMove(moveDirection * followSpeed);
+            }
+            else
+            {
+                anim.SetBool("isRunning", false);
+            }
         }
     }
-```
+--- /code ---
 
 Save your script and return to the Unity editor.
 

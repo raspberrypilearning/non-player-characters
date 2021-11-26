@@ -21,12 +21,15 @@ Launch the Unity hub and open the project you created for [Star collector](https
 title: I haven't got my Star collector project
 ---
 
-If you are not able to open your project you can download, unzip and open this Non-player character starter.
+If you are not able to open your project you can download, unzip and import this Non-player character assets pack.
+
+[rpf.io/p/en/non-player-characted-go](https://rpf.io/p/en/non-player-character-go)
 
 --- /collapse ---
 
-<mark>Add starter project when available.</mark>
 --- /task ---
+
+[[[unity-importing-a-package]]]
 
 --- task ---
 
@@ -117,7 +120,24 @@ Use the 'Rect Transform' component in the Inspector window to anchor the text to
 
 --- /task ---
 
-<mark>We could mention clicking 2D and dragging to position in the Scene view? Perhaps in a collapse.</mark>
+--- collapse ---
+---
+title: Positioning text with your mouse
+---
+
+You can position and size your text box using your mouse. Select your 'Text (TMP)' object in the Hierarchy. Then, while in 'Scene' view, click on '2D' in the toolbar.
+
+![tool bar with 2D selected](images/change-to-2d.png)
+
+Press 'Shift + F' to focus on the text, and then zoom out a little to see the position it will sit on the screen.
+
+![text positioned in 2d mode](images/text-2d.png)
+
+You can now use the mouse to position and resize the text.
+
+![animation showing text box being moved and resized](images/transform-text.gif)
+
+--- /collapse ---
 
 --- task ---
 

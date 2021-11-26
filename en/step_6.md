@@ -145,10 +145,19 @@ With the Ally rat GameObject selected, add a new Script component and name it `A
 
 Double click on the **AllyController** script to open it in your script editor. Add code to use the TMPro namespace:
 
-```
+--- code ---
+---
+language: csharp
+filename: AllyController.cs
+line_numbers: true
+line_number_start: 1
+line_highlights: 4
+---
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using TMPro; 
-```
+using TMPro;
+--- /code ---
 
 --- /task ---
 
@@ -156,7 +165,16 @@ using TMPro;
 
 Create public GameObject and Canvas variables and add code to activate the turbo speed boost on the Ally and not the Player, and disable the canvas at the start:
 
-```
+--- code ---
+---
+language: csharp
+filename: AllyController.cs
+line_numbers: true
+line_number_start: 6
+line_highlights: 8-11, 16-18
+---
+public class AllyController : MonoBehaviour
+{
     public GameObject turbo; // Turbo shield on NPC
     public GameObject playerTurbo; // Turbo shield on Player
     public PlayerController player;
@@ -169,7 +187,7 @@ Create public GameObject and Canvas variables and add code to activate the turbo
         playerTurbo.SetActive(false);
         canvas.SetActive(false);
     }
-```
+--- /code ---
 
 --- /task ---
 
@@ -177,8 +195,22 @@ Create public GameObject and Canvas variables and add code to activate the turbo
 
 Add code to enable the canvas and switch the turbo from the Ally to the Player and give the Player the turbo speedup:
 
-```
-void OnTriggerEnter(Collider other)
+--- code ---
+---
+language: csharp
+filename: AllyController.cs
+line_numbers: true
+line_number_start: 6
+line_highlights: 13-23
+---
+public class AllyController : MonoBehaviour
+{
+    public GameObject turbo; // Turbo shield on NPC
+    public GameObject playerTurbo; // Turbo shield on Player
+    public PlayerController player;
+    public GameObject canvas;
+
+    void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -189,7 +221,7 @@ void OnTriggerEnter(Collider other)
             canvas.SetActive(true);
         }
     }
-```
+--- /code ---
 
 --- /task ---
 
@@ -197,15 +229,22 @@ void OnTriggerEnter(Collider other)
 
 Add code to remove the Rat once the Player moves away to continue the game: 
 
-```
-void OnTriggerExit(Collider other)
-{
-    if (other.CompareTag("Player"))
+--- code ---
+---
+language: csharp
+filename: AllyController
+line_numbers: true
+line_number_start: 25 
+line_highlights: 25-31
+---
+    void OnTriggerExit(Collider other)
     {
-        gameObject.SetActive(false);
+        if (other.CompareTag("Player"))
+        {
+            gameObject.SetActive(false);
+        }
     }
-}
-```
+--- /code ---
 
 Save your script and return to the Unity editor. 
 
@@ -213,7 +252,7 @@ Save your script and return to the Unity editor.
 
 --- task ---
 
-Find the 'AllyController' script in the Inspector window for the Ally rat. 
+Click on the Rat in the Hierarchy and find the 'AllyController' script in the Inspector window. 
 
 From the Hierarchy window drag:
 + the Shield child GameObject of the Rat to the 'Turbo' property, 
@@ -227,7 +266,9 @@ From the Hierarchy window drag:
 
 --- task ---
 
-**Test:** Run your minigame and make sure the Player speeds up when the turbo has been applied. 
+**Test:** Run your minigame and make sure the Player speeds up when the turbo has been applied.
+
+![A shield on a Rat ally that disappears when the Player collides and a Player shield activating at the same time.](images/player-shield.gif)
 
 Experiment with the values of Move Speed and Rotate Speed whilst in Playmode until you have the turbo effect you want - remember any changes you make here will not be saved when you exit playmode so jot down the values then edit them in the script afterward.
 

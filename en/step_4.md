@@ -63,11 +63,20 @@ With the Dog GameObject selected, add a new Script component and name it `Patrol
 
 Open the 'PatrolController' script and create a patrolSpeed variable. Create another two public variables for the minPosition and maxPosition of the patrol space.
 
-```
+--- code ---
+---
+language: cs
+filename: DogController.cs
+line_numbers: true
+line_number_start: 5
+line_highlights: 7-9
+---
+public class DogController : MonoBehaviour
+{
     public float patrolSpeed = 3.0f;
     public float minPosition = -4.0f;
     public float maxPosition = 4.0f;
-```
+--- /code ---
 
 --- /task ---
 
@@ -75,7 +84,14 @@ Open the 'PatrolController' script and create a patrolSpeed variable. Create ano
 
 Add code to the `Update` method so the Dog moves foward until the maxPosition is reached then turns `180` degrees and moves forward again until the minimum positon is reached. 
 
-```
+--- code ---
+---
+language: cs
+filename: DogController.cs
+line_numbers: true
+line_number_start: 17
+line_highlights: 19-31
+---
 void Update()
     {
         CharacterController controller = GetComponent<CharacterController>();
@@ -93,7 +109,7 @@ void Update()
             transform.position = new Vector3(minPosition, transform.position.y, transform.position.z);
         }
     }
-```
+--- /code ---
 
 Setting the `transform.position` makes sure the Dog isn't still past the limit when they turn around. If you don't do this you might find that the Dog 'glitches' back and forward. 
 

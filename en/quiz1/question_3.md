@@ -11,7 +11,7 @@ The Ally's script has two GameObjects:
 + clover - a child GameObject on the Ally
 + playerClover - a child GameObject on the Player
 
-Which code should be added to the Ally's `OnTriggerEnter` method make the clover appear to move from the Ally to the Player?
+Which code should be added to the Ally's `OnTriggerEnter` method to make the clover appear to move from the Ally to the Player?
 
 --- choices ---
 

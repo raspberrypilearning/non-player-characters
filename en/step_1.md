@@ -16,7 +16,7 @@ You will:
 --- no-print ---
 --- task ---
 ### Try it
-<iframe allowtransparency="true" width="710" height="450" src="https://non-player-character-basic.rpfilt.repl.co" frameborder="0"></iframe>
+<iframe allowtransparency="true" width="710" height="450" src="https://non-player-characters-basic.rpfilt.repl.co" frameborder="0"></iframe>
 --- /task ---
 --- /no-print ---
 

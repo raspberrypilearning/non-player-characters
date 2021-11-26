@@ -15,7 +15,8 @@ You could:
 title: Completed project
 ---
 
-You can view the [completed project here](https://scratch.mit.edu/projects/485673032/){:target="_blank"}.
+<iframe allowtransparency="true" width="710" height="450" src="https://non-player-characters-extended.rpfilt.repl.co" frameborder="0"></iframe>
+
 
 --- /collapse ---
 

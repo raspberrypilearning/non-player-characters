@@ -16,14 +16,7 @@ You will:
 --- no-print ---
 --- task ---
 ### Try it
-<div style="display: flex; flex-wrap: wrap">
-<div style="flex-basis: 175px; flex-grow: 1">  
-Play the minigame below. What are the roles of each NPC? How does their movement differ?
-</div>
-<div class="scratch-preview" style="margin-left: 15px;">
-  <iframe allowtransparency="true" width="485" height="402" src="https://scratch.mit.edu/projects/embed/485673032/?autostart=false" frameborder="0"></iframe>
-</div>
-</div>
+<iframe allowtransparency="true" width="710" height="450" src="https://non-player-character-basic.rpfilt.repl.co" frameborder="0"></iframe>
 --- /task ---
 --- /no-print ---
 

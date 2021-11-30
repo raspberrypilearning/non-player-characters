@@ -7,8 +7,6 @@ You could:
 + Add sound effects to the characters when their events are triggered.
 + Add more allies with child GameObjects that help in other ways such as: destroying enemies, protecting the player, or removing walls.
 
-<mark> Add example images of extended projects here</mark>
-
 --- collapse ---
 
 ---

@@ -17,7 +17,7 @@ You will:
 --- task ---
 ### Try it
 
-Interact with the NPCs:
+Click on the embedded project. Interact with the NPCs:
 + How does the Cat control the game? 
 + What changes are made when you interact with the Rat? 
 + Which movement patterns do the dogs have? How do they differ? 

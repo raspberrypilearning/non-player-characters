@@ -16,6 +16,12 @@ You will:
 --- no-print ---
 --- task ---
 ### Try it
+
+Interact with the NPCs:
++ How does the Cat control the game? 
++ What changes are made when you interact with the Rat? 
++ Which movement patterns do the dogs have? How do they differ? 
+
 <iframe allowtransparency="true" width="710" height="450" src="https://non-player-characters-basic.rpfilt.repl.co" frameborder="0"></iframe>
 --- /task ---
 --- /no-print ---

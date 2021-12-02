@@ -218,7 +218,7 @@ Save your script and return to the Unity editor.
 --- task ---
 **Test:** Play your scene and walk up to the Dog so that you are close enough to trigger the event, then walk away. Check that the Dog follows you. 
 
-![dog follows player once it has entered bounding box](images/dog-follow.gif)
+![dog follows player once it has entered bounding box](images/dog-following.gif)
 
 Exit playmode. 
 

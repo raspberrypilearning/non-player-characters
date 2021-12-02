@@ -192,7 +192,7 @@ From the Hierarchy window, select the 'Button' GameObject then go to the Inspect
 
 Drag the 'Gamemaster' GameObject from the Hierarchy window to the field underneath 'Runtime Only'. In the 'Function' dropdown select 'GamemasterController.PlayerReady' to join your new method to the Button's click event: 
 
-![The OnClick component having the Gamemaster dragged into it and the PlayerReady function chosen(images/on-click-inspector.gif)
+![The OnClick component having the Gamemaster dragged into it and the PlayerReady function chosen](images/on-click-inspector.gif)
 
 ![The OnClick component for the Button in the Inspector window with values 'Runtime Only' , 'Gamemaster' and 'GamemasterController.PlayerReady' in the 3 fields.](images/on-click-inspector.png)
 
@@ -272,6 +272,7 @@ Select the 'Player' and go to the 'Star Player (script)' component. Click on the
 **Test:** Play your minigame. Check that the time doesn't start until the button has been pressed. What happens if you go back to the Gamemaster a second time? 
 
 Exit playmode. 
+
 --- /task ---
 
 --- task ---

@@ -23,7 +23,7 @@ title: I haven't got my Star collector project
 
 If you are not able to open your project you can download, unzip and import this Non-player character assets pack.
 
-[rpf.io/p/en/non-player-characted-go](https://rpf.io/p/en/non-player-character-go)
+[rpf.io/p/en/non-player-characters-go](https://rpf.io/p/en/non-player-characters-go)
 
 --- /collapse ---
 

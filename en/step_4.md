@@ -176,6 +176,10 @@ From the Hierarchy window, select the Dog GameObject then go to the Inspector wi
 
 ![A large dog that is scaled by '2' on each access making it harder to reach the star.](images/huge-dog.png)
 
+**Debug:** If your animation isn't working, in the Inspector, check to make sure that 'Apply Root Motion' has not been checked for your non-player character.
+
+![Apply Root Motion unchecked in Inspector](images/apply-root-motion.png)
+
 Exit playmode. 
 
 --- /task ---

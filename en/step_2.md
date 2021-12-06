@@ -13,7 +13,7 @@ One role an NPC can be programmed to carry out is that of gamemaster. Gamemaster
 
 --- task ---
 
-Launch the Unity hub and open the project you created for [Star collector](https://projects.raspberrypi.org/en/projects/star-collector/0){:target=blank}.
+Launch the Unity hub and open the project you created for [Star collector](https://projects.raspberrypi.org/en/projects/star-collector/0){:target='_blank'}.
 
 --- collapse ---
 

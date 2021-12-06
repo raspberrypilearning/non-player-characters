@@ -1,6 +1,6 @@
 ## What next?
 
-If you are following the [Introduction to Unity](https://projects.raspberrypi.org/en/raspberrypi/unity-intro) pathway, you can move on to the [World Builder](https://projects.raspberrypi.org/en/projects/world-builder) project. In this project, you will design and build you own 3D world for a player to experience.
+If you are following the [Introduction to Unity](https://projects.raspberrypi.org/en/raspberrypi/unity-intro){:target='_blank'} pathway, you can move on to the [World Builder](https://projects.raspberrypi.org/en/projects/world-builder){:target='_blank'} project. In this project, you will design and build you own 3D world for a player to experience.
 
 --- print-only ---
 

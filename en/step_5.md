@@ -2,46 +2,46 @@
 
 <div style="display: flex; flex-wrap: wrap">
 <div style="flex-basis: 200px; flex-grow: 1; margin-right: 15px;">
-An NPC that follows the Player can be an obstacle - and very annoying! 
+An NPC that follows the Player can be an obstacle — and very annoying! 
 </div>
 <div>
-![The Player trying to get past the Dog and the Dog reacting to the collision by then following the player around.](images/dog-following.gif){:width="300px"}
+![The Player trying to get past the Dog and the Dog reacting to the collision by then following the Player around.](images/dog-following.gif){:width="300px"}
 </div>
 </div>
 
 --- task ---
 
-Drag another Dog into the Scene view in a position that would be hard to navigate around. 
+Drag another Dog into the Scene view and into a position that would be hard to navigate around. 
 
-![The scene view showing a second dog. This dog is situated in a small gap between two walls.](images/follower-dog.png)
-
---- /task ---
-
---- task ---
-
-With the Dog selected go to the Inspector window and 'Add Component'. Choose the 'Character Controller'. Position and size the controller so it covers the whole of your Dog.
-
-![The Character Controller component with Center positioned x=0, y=1 and z=0, radius = 1 and Height = 2.](images/char-coll-dog.png)
+![The Scene view showing a second dog. This dog is situated in a small gap between two walls.](images/follower-dog.png)
 
 --- /task ---
 
 --- task ---
 
-Click on 'Add Component' and add a 'Box Collider' to the Dog so that the Player cannot walk through, or climb on top of, the Dog.  Change the Y 'Center' and 'Size':
+With the Dog selected, go to the Inspector window and **Add Component**. Choose the **Character Controller**. Position and size the controller so it covers the whole of your Dog.
 
-![The Box Collider component with change from default to Center Y = 1 and size Y = 2.](images/box-collider.png)
+![The Character Controller component with the Center positioned at x = 0, y = 1, and z = 0, radius = 1, and height = 2.](images/char-coll-dog.png)
 
 --- /task ---
 
 --- task ---
 
-Go to the 'Add Component' button again and add a second 'Box Collider' to the Dog. 
+Click on **Add Component** and add a 'Box Collider' to the Dog so that the Player cannot walk through, or climb on top of, the Dog. Change the y Center and Size:
 
-This Box collider will use 'IsTrigger' to make the Dog  follow the Player if the Player gets close enough to draw the Dog's attention. This Box collider needs to be big enough that the Player can't easily sneak past:
+![The Box Collider component with values changed from defaults to Center y = 1 and Size y = 2.](images/box-collider.png)
 
-![The Box Collider component with 'Is Trigger' ticked, Center Y = 0.5 and Size X=3, Y=1, and Z=3.](images/dog-box-comp.png)
+--- /task ---
 
-![The Scene view showing the dog with Character Collider fitting around it's body and the Box Collider much larger on the X and Y axis.](images/dog-colliders.png)
+--- task ---
+
+Go to the **Add Component** button again and add a second 'Box Collider' to the Dog. 
+
+This Box Collider will use 'IsTrigger' to make the Dog follow the Player if the Player gets close enough to draw the Dog's attention. This Box Collider needs to be big enough that the Player can't easily sneak past:
+
+![The Box Collider component with 'Is Trigger' ticked, Center y = 0.5 and Size x = 3, y = 1, and z = 3.](images/dog-box-comp.png)
+
+![The Scene view showing the dog with a Character Collider fitting around its body and the Box Collider much larger on the x- and y-axis.](images/dog-colliders.png)
 
 --- /task ---
 
@@ -53,7 +53,7 @@ With the new Dog GameObject selected, add a new Script component and name it `Fo
 
 --- task ---
 
-Double-click on the 'FollowController' script and create a public GameObject variable. Add code so that the script can access the 'Player' attributes
+Double-click on the **FollowController** script and create a public GameObject variable. Add code so that the script can access the 'Player' attributes:
 
 --- code ---
 ---
@@ -73,7 +73,7 @@ public class FollowController : MonoBehaviour
 
 --- task ---
 
-Add a line in the 'Update'method so that the dog will always look at the player:
+Add a line in the Update method so that the dog will always look at the Player:
 
 --- code ---
 ---
@@ -89,7 +89,7 @@ line_highlights: 18
     }
 --- /code ---
 
-Save your script and return to the Unity editor.
+Save your script and return to the Unity Editor.
 
 --- /task ---
 
@@ -97,7 +97,7 @@ Save your script and return to the Unity editor.
 
 Click on your second dog in the Hierarchy and scroll down in the Inspector to see the 'FollowController' script in the window.
 
-Click on the circle next to 'Player' and select the Player GameObject from the menu:
+Click on the circle next to Player and select the Player GameObject from the menu:
 
 ![The Follow Controller script component with Player GameObject.](images/script-comp.png)
 
@@ -107,9 +107,9 @@ Click on the circle next to 'Player' and select the Player GameObject from the m
 
 **Test:** Play your minigame. Make sure you can't walk through the Dog. Check that the Dog continuously rotates to face the Player.
 
-![The Player running past the Dog, the Dog rotates to face the Player. The Player can't walk throguh the Dog.](images/dog-rotate-player.gif)
+![The Player running past the Dog; the Dog rotates to face the Player. The Player can't walk throguh the Dog.](images/dog-rotate-player.gif)
 
-Exit playmode. 
+Exit Play mode. 
 
 --- /task ---
 
@@ -175,7 +175,7 @@ public class FollowController : MonoBehaviour
     public bool isFollowing = false;
     public float followSpeed = 3f;
     public float followDistance = 2f;
-    Vector3 moveDirection = Vector3.zero; // no movement
+    Vector3 moveDirection = Vector3.zero; // No movement
 --- /code ---
 
 --- /task ---
@@ -184,9 +184,9 @@ public class FollowController : MonoBehaviour
 
 Add code to the `Update` method to move the Dog towards the Player using `SimpleMove`. 
 
-Subtracting the Follower's position vector from the Player's position vector  with `Player.transform.position - transform.position` gives the direction and distance between them. The `Vector3.Normalize` Method turns this into a single unit vector which can be used with `SimpleMove`. 
+Subtracting the Follower's position vector from the Player's position vector with `Player.transform.position - transform.position` gives the direction and distance between them. The `Vector3.Normalize` method turns this into a single unit vector, which can be used with `SimpleMove`. 
 
-The Dog should only move if at a distance from the Player so that the Dog doesn't try to move into the same space as the player.
+The Dog should only move at a distance from the Player so that the Dog doesn't try to move into the same space as the Player.
 
 --- code ---
 ---
@@ -211,16 +211,16 @@ line_highlights: 30-39
     }
 --- /code ---
 
-Save your script and return to the Unity editor.
+Save your script and return to the Unity Editor.
 
 --- /task ---
 
 --- task ---
-**Test:** Play your scene and walk up to the Dog so that you are close enough to trigger the event, then walk away. Check that the Dog follows you. 
+**Test:** Play your Scene and walk up to the Dog so that you are close enough to trigger the event, then walk away. Check that the Dog follows you. 
 
-![dog follows player once it has entered bounding box](images/dog-following.gif)
+![The Dog follows the Player once it has entered bounding box.](images/dog-following.gif)
 
-Exit playmode. 
+Exit Play mode. 
 
 --- /task ---
 

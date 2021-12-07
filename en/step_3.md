@@ -2,30 +2,30 @@
 
 <div style="display: flex; flex-wrap: wrap">
 <div style="flex-basis: 200px; flex-grow: 1; margin-right: 15px;">
-It's not fair if the time starts before the player is ready! The button will allow the player to start the time AND activate the stars.
+It's not fair if the time starts before the player is ready! The `Ready` button will allow the player to start the time AND activate the stars.
 </div>
 <div>
-![Image of the Game view showing the NPC, player and text introduction with ready button.](images/control-game.gif){:width="300px"}
+![Image of the Game view showing the NPC, player, and text introduction with ready button.](images/control-game.gif){:width="300px"}
 </div>
 </div>
 
-At the moment the canvas is always visible. It should only be enabled when the Player is interacting with the Gamemaster. 
+At the moment, the canvas is always visible. It should only be enabled when the Player is interacting with the Gamemaster. 
 
 --- task ---
 
-Select your Gamemaster GameObject and click on 'Add Component' in the Inspector window then add a second 'Box Collider'. 
+Select your gamemaster GameObject and click on **Add Component** in the Inspector window then add a second 'Box Collider'. 
 
-This Box collider will trigger the canvas with the message and the button to be shown, so it needs to be bigger than the Box Collider that stops the Player walking into the Gamemaster:
+This Box Collider will trigger the canvas with the message and the button to be shown, so it needs to be bigger than the Box Collider that stops the Player walking into the Gamemaster:
 
-![The Inspector window showing two colliders. The new collider has Is Trigger checked and the size X=2, y=1, z=2 so that it is bigger than the previously added collider.](images/both-colliders-properties.png)
+![The Inspector window showing two colliders. The new collider has 'Is Trigger' checked and the size x = 2, y = 1, z = 2 so that it is bigger than the previously added collider.](images/both-colliders-properties.png)
 
-![The Scene view showing Gamemaster with two box colliders. One bigger than the other.](images/two-colliders.png)
+![The Scene view showing the Gamemaster with two Box Colliders. One bigger than the other.](images/two-colliders.png)
 
 --- /task ---
 
 --- task ---
 
-With the Gamemaster GameObject selected, add a new Script component and name it `GamemasterController`.
+With the gamemaster GameObject selected, add a new Script component and name it `GamemasterController`.
 
 ![The Inspector window with 'GamemasterController' script component.](images/gamemaster-script.png)
 
@@ -33,7 +33,7 @@ With the Gamemaster GameObject selected, add a new Script component and name it 
 
 --- task ---
 
-Double click on the 'GamemasterController' script to open it in your script editor. Add code to use TMPro:
+Double-click on the **GamemasterController** script to open it in your script editor. Add code to use TMPro:
 
 --- code ---
 ---
@@ -53,7 +53,7 @@ using TMPro;
 
 --- task ---
 
-Create a public Canvas variable called `canvas` and add code to make sure the canvas is disabled at the start:
+Create a public canvas variable called `canvas` and add code to make sure the canvas is disabled at the start:
 
 --- code ---
 ---
@@ -109,33 +109,33 @@ line_highlights: 21-35
     }
 --- /code ---
 
-Save your script and return to the Unity editor.
+Save your script and return to the Unity Editor.
 
 --- /task ---
 
 --- task ---
 
-Drag your 'Gamemaster' **Canvas** child GameObject from the Hierarchy window to the 'Canvas' variable field in the Inspector window Script component.
+Drag your Gamemaster Canvas child GameObject from the Hierarchy window to the 'Canvas' variable field in the Inspector window Script component.
 
-![The script component in the Inspector window with the canvas showing in the Canvas variable.](images/canvas-to-script.gif)
+![The Script component in the Inspector window with the canvas showing in the Canvas variable.](images/canvas-to-script.gif)
 
 --- /task ---
 
 --- task ---
 
-**Test:** Play your minigame, walk upto the Gamemaster and move away again. The canvas appears when the Player triggers the Gamemaster collider and disappears with the Player moves away.
+**Test:** Play your minigame, walk up to the Gamemaster and move away again. The canvas appears when the Player triggers the Gamemaster collider and disappears when the Player moves away.
 
-![player moving forward and canvas appearing when close to gamesmaster](images/canvas-appearing.gif)
+![Player moving forward and canvas appearing when close to Gamesmaster.](images/canvas-appearing.gif)
 
 Exit playmode. 
 
 --- /task ---
 
-The button looks great but needs to trigger an event when it is pressed.
+The button looks great, but needs to trigger an event when it is pressed.
 
 --- task ---
 
-Open the 'GamemasterController' script and create two new public variables called 'gameStarted' and 'startTime':
+Open the **GamemasterController** script and create two new public variables called 'gameStarted' and 'startTime':
 
 --- code ---
 ---
@@ -158,7 +158,7 @@ public class GamemasterController : MonoBehaviour
 
 Create a public method called `PlayerReady` to set the game conditions when the Player has clicked the 'Ready' button. 
 
-The time the button was pressed needs to be stored so you can work out how long the game has been in play:
+The time at which the button was pressed needs to be stored so you can work out how long the game has been in play:
 
 --- code ---
 ---
@@ -175,36 +175,36 @@ line_highlights: 12-17
     public void PlayerReady()
     {
         gameStarted = true;
-        startTime = Time.time; // time when the button is pressed
+        startTime = Time.time; // Time when the button is pressed
         canvas.SetActive(false);
     }
 --- /code ---
 
-Save your script and return to the Unity editor.
+Save your script and return to the Unity Editor.
 
 --- /task ---
 
 --- task ---
 
-From the Hierarchy window, select the 'Button' GameObject then go to the Inspector window 'On Click ()' property and click on the '+'. 
+From the Hierarchy window, select the Button GameObject then go to the Inspector window **On Click ()** property and click on the **+**. 
 
 ![The OnClick component for the Button in the Inspector window with '+' icon highlighted in the botton right corner.](images/add-on-click.png)
 
-Drag the 'Gamemaster' GameObject from the Hierarchy window to the field underneath 'Runtime Only'. In the 'Function' dropdown select 'GamemasterController.PlayerReady' to join your new method to the Button's click event: 
+Drag the gamemaster GameObject from the Hierarchy window to the field underneath 'Runtime Only'. In the Function drop-down menu select **GamemasterController.PlayerReady** to join your new method to the button's click event: 
 
-![The OnClick component having the Gamemaster dragged into it and the PlayerReady function chosen](images/on-click-inspector.gif)
+![The OnClick component having the Gamemaster dragged into it and the PlayerReady function chosen.](images/on-click-inspector.gif)
 
-![The OnClick component for the Button in the Inspector window with values 'Runtime Only' , 'Gamemaster' and 'GamemasterController.PlayerReady' in the 3 fields.](images/on-click-inspector.png)
+![The OnClick component for the button in the Inspector window with values 'Runtime Only', 'Gamemaster', and 'GamemasterController.PlayerReady' in the three fields.](images/on-click-inspector.png)
 
 --- /task ---
 
 --- task ---
 
-**Test:** Play your minigame. The button disables the canvas but the time still counts up from the second the game begins. 
+**Test:** Play your minigame. The button disables the canvas, but the time still counts up from the second the game begins. 
 
 Fix any errors that appear. 
 
-Exit playmode. 
+Exit Play mode. 
 
 --- /task ---
 
@@ -223,7 +223,7 @@ line_highlights: 11
 ---
 public class StarPlayer : MonoBehaviour
 {
-    public int stars = 0; // an integer whole number
+    public int stars = 0; // An integer whole number
     public TMP_Text starText;
     public TMP_Text timeText;
     public GamemasterController gamemaster;
@@ -255,13 +255,13 @@ line_highlights: 23, 25
     }
 --- /code ---
 
-Save your script and return to the Unity editor.
+Save your script and return to the Unity Editor.
 
 --- /task ---
 
 --- task ---
 
-Select the 'Player' and go to the 'Star Player (script)' component. Click on the circle next to 'Gamemaster' and choose the 'Gamemaster' GameObject: 
+Select the **Player** and go to the **Star Player (script)** component. Click on the circle next to Gamemaster and choose the gamemaster GameObject: 
 
 ![The Inspector window with 'Gamemaster' showing in the 'Gamemaster' field for the Star Player script.](images/Npc-variable.png)
 
@@ -271,7 +271,7 @@ Select the 'Player' and go to the 'Star Player (script)' component. Click on the
 
 **Test:** Play your minigame. Check that the time doesn't start until the button has been pressed. What happens if you go back to the Gamemaster a second time? 
 
-Exit playmode. 
+Exit Play mode. 
 
 --- /task ---
 
@@ -296,38 +296,38 @@ line_highlights: 33
     }
 --- /code ---
 
-![The Game view with time starting after button has been clicked. The button doesn't appear when the Player returns to the Gamemaster.](images/time-button.gif)
+![The Game view with the time starting after he button has been clicked. The button doesn't appear when the Player returns to the Gamemaster.](images/time-button.gif)
 
 --- /task ---
 
 --- task ---
 
-**Test:** Play your minigame again. Are there any other ways a Player could cheat? 
+**Test:** Play your minigame again. Are there any other ways a player could cheat? 
 
-At the moment the stars are active when the game begins so the Player could collect the stars before going to the Gamemaster - this would mean a very quick time taken to complete the game!
+At the moment the stars are active when the game begins, so the player could collect the stars before going to the Gamemaster — this would mean a very quick time taken to complete the game!
 
-Exit playmode. 
+Exit Play mode. 
 
 --- /task ---
 
 You can use Tags to identify objects that you want to treat in the same way. 
 
 --- task ---
-Select one of your Star GameObjects and click 'Add Tag' in the Inspector.
+Select one of your star GameObjects and click **Add Tag** in the Inspector.
 
-![drop down menu for tags shown with Add Tag highlighted](images/add-tag.png)
+![Drop-down menu for Tags shown with Add Tag highlighted.](images/add-tag.png)
 
-Create a new tag called 'Star' by clicking on the '+' icon.
+Create a new tag called `Star` by clicking on the **+** icon.
 
-![A new tag called star has been created](images/new-tag.png)
+![A new tag called 'star' has been created.](images/new-tag.png)
 
-Save your tag and then select all of the Star GameObjects in the Hierarchy by holding down 'Ctrl' (or 'Cmd) and then clicking on each of them. 
+Save your tag and then select all of the star GameObjects in the Hierarchy window by holding down <kbd>Ctrl</kbd> (or <kbd>Cmd</kbd>) and then clicking on each of them. 
 
-Set the tag to 'Star' in the Inspector to set the tag for all of the Stars.
+Set the tag to 'Star' in the Inspector; this sets the tag for all of the Stars.
 
 --- /task ---
 
-In C#, you can store multiple objects of the same type in an **Array** variable. An array variable has Left and right square brackets `[]` after the type, so `GameObject[] stars;` stores multiple Star GameObjects. 
+In C#, you can store multiple objects of the same type in an **Array** variable. An array variable has left and right square brackets `[]` after the type, so `GameObject[] stars;` stores multiple Star GameObjects. 
 
 --- task ---
 
@@ -376,7 +376,7 @@ line_highlights: 24-28
     }
 --- /code ---
 
-Set the stars to active once the Player has clicked the ready button:
+Set the stars to active once the player has clicked the ready button:
 
 --- code ---
 ---
@@ -389,7 +389,7 @@ line_highlights: 18-21
     public void PlayerReady()
     {
         gameStarted = true;
-        startTime = Time.time; // time when the button is pressed
+        startTime = Time.time; // Time when the button is pressed
         canvas.SetActive(false);
         foreach (var star in stars)
         {
@@ -402,11 +402,11 @@ line_highlights: 18-21
 
 --- task ---
 
-**Test:** Play your minigame again. Notice that the stars do not appear until the Player has clicked on the 'Ready' button. 
+**Test:** Play your minigame again. Notice that the stars do not appear until the player has clicked on the Ready button. 
 
 **Debug:** Make sure every star has the 'Star' tag. 
 
-Exit playmode. 
+Exit Play mode. 
 
 --- /task ---
 

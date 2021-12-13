@@ -1,6 +1,8 @@
 ## Introduction
 
-Create 3D non-player characters to interact with, avoid, and collect from. 
+Create 3D non-player characters to interact with, avoid, and collect from.
+
+This project is brought to you with generous support from [Unity Technologies](https://unity.com/){:target="_blank"}.  These [projects](https://projects.raspberrypi.org/en/pathways/unity-intro){:target="_blank"} offer young people the opportunity to take their first steps in creating virtual worlds using Real-Time 3D.
 
 This project follows on from [Star collector](https://projects.raspberrypi.org/en/projects/star-collector){:target='_blank'}. You can use the Unity scene that you created in that project as the basis for this project. We’ve also provided a starter project that you can use.
 

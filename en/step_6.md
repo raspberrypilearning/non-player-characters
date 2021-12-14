@@ -1,4 +1,4 @@
-## NPC Allies
+## NPC allies
 
 <div style="display: flex; flex-wrap: wrap">
 <div style="flex-basis: 200px; flex-grow: 1; margin-right: 15px;">
@@ -15,25 +15,25 @@ So far the minigame has several enemies but no allies. It would be great to have
 
 Drag a Rat into the Scene view in a position somewhere that is not seen by the Player when the game is started:
 
-![The Scene view showing rat hidden behind a wall.](images/position-rat.png)
+![The Scene view showing the Rat hidden behind a wall.](images/position-rat.png)
 
 --- /task ---
 
 --- task ---
 
-With the Rat selected go to the Inspector window and 'Add Component'. Choose the 'Character Controller'. Position and size the controller so it covers centre of the Rat:
+With the Rat selected, go to the Inspector window and **Add Component**. Choose the **Character Controller**. Position and size the controller so it covers the centre of the Rat:
 
-![The Character controlled with Center Y=0.5 and Height=1.](images/cont-properties.png)
+![The Character Controller with center y = 0.5 and height = 1.](images/cont-properties.png)
 
-![The Rat in Scene view with Character controller covering the body area.](images/char-cont-rat.png)
+![The Rat in Scene view with Character Controller covering the body area.](images/char-cont-rat.png)
 
 --- /task ---
 
 --- task ---
 
-Click on 'Add Component' and add a 'Box Collider' to the Rat so that the Player cannot walk through, or climb on top of, the Rat. Change the Y 'Center' and 'Size':
+Click on **Add Component** and add a 'Box Collider' to the Rat so that the Player cannot walk through, or climb on top of, the Rat. Change the y 'Center' and 'Size':
 
-![The Box Collider component with change from default to Center Y = 1 and size Y = 2.](images/box-collider.png)
+![The Box Collider component with values changed from defaults to center y = 1 and size y = 2.](images/box-collider.png)
 
 --- /task ---
 
@@ -41,13 +41,13 @@ Using animation makes an NPC come to life.
 
 --- task ---
 
-In the Project window, navigate to the 'Animation' folder. Right-click and go to 'Create' then select 'Animation Controller' name your new animation controller 'AllyIdle'.
+In the Project window, navigate to the **Animation** folder. Right-click and go to **Create** then select **Animation Controller** and name your new animation controller 'AllyIdle'.
 
-Double click on the 'AllyIdle' animation controller to open it in the Animator window. 
+Double-click on the **AllyIdle** animation controller to open it in the Animator window. 
 
-From the animation folder in the Project window, drag the 'Cat_IdleHappy' animation up to the Animator window: 
+From the Animation folder in the Project window, drag the 'Cat_IdleHappy' animation up to the Animator window: 
 
-![The animator window with Base Layer open and a black grid showing 'Entry' in green linked by transition arrow to 'Cat_IdleHappy' in orange.](images/rat-idle-animator.png)
+![The Animator window with Base Layer open and a black grid showing 'Entry' in green linked by a transition arrow to 'Cat_IdleHappy' in orange.](images/rat-idle-animator.png)
 
 
 **Tip:** You can use the Cat animations on the Rat and Raccoon because they are designed as 'humanoids'.  
@@ -56,11 +56,11 @@ From the animation folder in the Project window, drag the 'Cat_IdleHappy' animat
 
 --- task ---
 
-From the Hierarchy window, select the Rat then go to the Inspector window 'Animator' component. Click on the circle next to 'Controller' and select 'AllyIdle' to link your animation controller:
+From the Hierarchy window, select the Rat then go to the Inspector window 'Animator' component. Click on the circle next to 'Controller' and select **AllyIdle** to link your Animation Controller:
 
-![The Animator component with circle for top 'Controller' property highlighter. AllyIdle is shown in the field.](images/controller-idle.png)
+![The Animator component with the circle for top 'Controller' property highlighted. AllyIdle is shown in the field.](images/controller-idle.png)
 
-**Tip:** You can also drag the animation controller from the Projects window to the Controller property of the Animator in the Inspector. 
+**Tip:** You can also drag the Animation Controller from the Projects window to the Controller property of the Animator in the Inspector. 
 
 --- /task ---
 
@@ -68,19 +68,19 @@ From the Hierarchy window, select the Rat then go to the Inspector window 'Anima
 
 **Test:** Play your game to see the Rat animate:
 
-![The game view showing Rat animating by swaying back and forth.](images/ally-anim.gif)
+![The Game view showing the Rat animating by swaying back and forth.](images/ally-anim.gif)
 
-Exit playmode. 
+Exit Play mode. 
 
 --- /task ---
 
 A character with the 'Shield' model as a child gameObject would look like they have a special effect or power. In your minigame the shield will represent a turbo speed powerup. 
 
-When the Player has the shield they will move and turn twice as fast - but with the Ally hidden will they manage to find the shield early enough to make a difference?! 
+When the Player has the shield, they will move and turn twice as fast — but with the Ally hidden will they manage to find the shield early enough to make a difference?! 
 
 --- task ---
 
-In the Project window, go to the 'Models' folder and find the 'Shield'. Drag the shield up to the Hierarchy window and position it as a child GameObject of the Player: 
+In the Project window, go to the **Models** folder and find the 'Shield'. Drag the shield up to the Hierarchy window and position it as a child GameObject of the Player: 
 
 ![The Hierarchy window showing the Shield GameObject indented as a child underneath the Player GameObject.](images/shield-child-player.png)
 
@@ -96,7 +96,7 @@ You will use code to hide the shield until the player picks up the turbo power b
 
 Also add a Shield as a child GameObject of the Rat: 
 
-![The Hierarchy window showing the Shield GameObject indented as a childunderneath the Rat GameObject.](images/shield-child.png)
+![The Hierarchy window showing the Shield GameObject indented as a child underneath the Rat GameObject.](images/shield-child.png)
 
 This will automaticaly add the Shield in the same position as the Rat:
 
@@ -110,7 +110,7 @@ Right-click on the Rat in the Hierarchy window and from `UI` select `Text - Text
 
 ![The Hierarchy with new Canvas and Text (TMP) child object of the Rat.](images/rat-tmptext.png)
 
-In the Inspector window for the new 'Text (TMP)' GameObject add 'Text Input' and tick the 'Auto Size' box: 
+In the Inspector window for the new 'Text (TMP)' GameObject, add 'Text Input' and tick the 'Auto Size' box: 
 
 ![The Inspector window showing Text Input 'Hi there! I can help you. Have my turbo to move faster.' and the Auto Size box checked.](images/properties-text.png)
 
@@ -118,32 +118,32 @@ In the Inspector window for the new 'Text (TMP)' GameObject add 'Text Input' and
 
 --- task ---
 
-Use the `Rect Transform` component in the Inspector window to anchor the text to the bottom left then change the Pos X & Pos Y coordinates:
+Use the 'Rect Transform' component in the Inspector window to anchor the text to the bottom left then change the Pos x and Pos y coordinates:
 
-![The Rect Transform component with anchor to the bottom left selected and position X=120, Y=50 and Z=0.](images/rect-trans-rat.png)
+![The Rect Transform component with anchor to the bottom left selected and position x = 120, y = 50, and z = 0.](images/rect-trans-rat.png)
 
-**Tip:** Click on the 'Game' tab to see what the text looks like in Game view.  
+**Tip:** Click on the **Game** tab to see what the text looks like in Game view.  
 
 --- /task ---
 
-The Rat will have the shield visible until the Player collides. The shield will then transfer to the Player and the Rat will disappear.
+The Rat will have the shield visible until the Player collides with it. The shield will then transfer to the Player and the Rat will disappear.
 
 --- task ---
 
-Go to the 'Add Component' button again and add a second 'Box Collider' to the Rat. 
+Go to the **Add Component** button again and add a second 'Box Collider' to the Rat. 
 
 Check 'Is Trigger' and change the size so that it is bigger than the first Box Collider: 
 
-![The Box Collider with Is Trigger ticked and the size X=1.5, Y=1, Z=1.5](images/both-colliders-properties.png)
+![The Box Collider with 'Is Trigger' ticked and the size x = 1.5, y = 1, z = 1.5.](images/both-colliders-properties.png)
 
-![The Scene view with Rat showing a box collider larger than the characher controller.](images/rat-box-scene.png)
+![The Scene view with Rat showing a Box Collider larger than the Character Controller.](images/rat-box-scene.png)
 
 --- /task ---
 
 --- task ---
-With the Ally rat GameObject selected, add a new Script component and name it `AllyController`.
+With the ally Rat GameObject selected, add a new Script component and name it `AllyController`.
 
-Double click on the **AllyController** script to open it in your script editor. Add code to use the TMPro namespace:
+Double-click on the **AllyController** script to open it in your script editor. Add code to use the TMPro namespace:
 
 --- code ---
 ---
@@ -193,7 +193,7 @@ public class AllyController : MonoBehaviour
 
 --- task ---
 
-Add code to enable the canvas and switch the turbo from the Ally to the Player and give the Player the turbo speedup:
+Add code to enable the canvas and switch the turbo from the Ally to the Player and give the Player the turbo speed-up:
 
 --- code ---
 ---
@@ -246,21 +246,21 @@ line_highlights: 25-31
     }
 --- /code ---
 
-Save your script and return to the Unity editor. 
+Save your script and return to the Unity Editor. 
 
 --- /task ---
 
 --- task ---
 
-Click on the Rat in the Hierarchy and find the 'AllyController' script in the Inspector window. 
+Click on the Rat in the Hierarchy window and find the 'AllyController' script in the Inspector window. 
 
 From the Hierarchy window drag:
-+ the Shield child GameObject of the Rat to the 'Turbo' property, 
-+ the Shield child GameObject of the Player to the 'Player Turbo' property
-+ the Player GameObject to the 'Player' property and,
-+ the Canvas child GameObject of the Rat to the 'Canvas' property.
++ The Shield child GameObject of the Rat to the 'Turbo' property 
++ The Shield child GameObject of the Player to the 'Player Turbo' property
++ The Player GameObject to the 'Player' property
++ The Canvas child GameObject of the Rat to the 'Canvas' property
 
-![The script component for Ally Controller showing Turbo populated with the Shield GameObject and Canvas populated with the Canvas GameObject.](images/script-objects.png)
+![The Script component for Ally Controller showing Turbo populated with the Shield GameObject and Canvas populated with the Canvas GameObject.](images/script-objects.png)
 
 --- /task ---
 
@@ -270,15 +270,15 @@ From the Hierarchy window drag:
 
 ![A shield on a Rat ally that disappears when the Player collides and a Player shield activating at the same time.](images/player-shield.gif)
 
-Experiment with the values of Move Speed and Rotate Speed whilst in Playmode until you have the turbo effect you want - remember any changes you make here will not be saved when you exit playmode so jot down the values then edit them in the script afterward.
+Experiment with the values of Move Speed and Rotate Speed whilst in Play mode until you have the turbo effect you want — remember any changes you make here will not be saved when you exit Play mode, so jot down the values then edit them in the script afterward.
 
-**Tip:** If you can't see the difference in speed from the Game view you can watch the variables for the Player in the Inspector view. They will change from 3 to 6 when the turbo has transferred to the Player:
+**Tip:** If you can't see the difference in speed from the Game view, you can watch the variables for the Player in the Inspector view. They will change from 3 to 6 when the turbo has transferred to the Player:
 
 ![Script component in Inspector view showing Move Speed and Rotate Speed as 3.](images/running-3.png)
 
 ![Script component in Inspector view showing Move Speed and Rotate Speed as 6.](images/running-6.png)
 
-Exit playmode. 
+Exit Play mode. 
 --- /task ---
 
 --- save ---

@@ -115,7 +115,7 @@ Save your script and return to the Unity Editor.
 
 --- task ---
 
-Drag your Gamemaster Canvas child GameObject from the Hierarchy window to the 'Canvas' variable field in the Inspector window Script component.
+Find the **Gamemaster Canvas child GameObject** in the Hierarchy window. Drag the Canvas GameObject to the 'Canvas' variable field in the GamemasterController script component in the Inspector.
 
 ![The Script component in the Inspector window with the canvas showing in the Canvas variable.](images/canvas-to-script.gif)
 
@@ -163,7 +163,7 @@ The time at which the button was pressed needs to be stored so you can work out 
 --- code ---
 ---
 language: cs
-filename: GamemasterController
+filename: GamemasterController - PlayerReady()
 line_numbers: true
 line_number_start: 8
 line_highlights: 12-17
@@ -240,7 +240,7 @@ Time.time starts when the game begins. Minus the startTime from Time.time to dis
 --- code ---
 ---
 language: cs
-filename: StarPlayer.cs
+filename: StarPlayer.cs - Update()
 line_numbers: true
 line_number_start: 20
 line_highlights: 23, 25
@@ -282,7 +282,7 @@ Open your 'GamemasterController' script and amend the condition in OnTriggerEnte
 --- code ---
 ---
 language: cs
-filename: GamemasterController.cs
+filename: GamemasterController.cs - OnTriggerEnter(Collider other)
 line_numbers: true
 line_number_start: 31
 line_highlights: 33
@@ -360,7 +360,7 @@ Find the Star GameObjects and set them to inactive when the game starts:
 --- code ---
 ---
 language: cs
-filename: GamemasterController.cs
+filename: GamemasterController.cs - Start()
 line_numbers: true
 line_number_start: 21
 line_highlights: 24-28
@@ -381,7 +381,7 @@ Set the stars to active once the player has clicked the ready button:
 --- code ---
 ---
 language: cs
-filename: GamemasterController.cs
+filename: GamemasterController.cs - PlayerReady()
 line_numbers: true
 line_number_start: 13
 line_highlights: 18-21

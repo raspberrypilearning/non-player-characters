@@ -168,7 +168,7 @@ Create public GameObject and Canvas variables and add code to activate the turbo
 --- code ---
 ---
 language: csharp
-filename: AllyController.cs
+filename: AllyController.cs 
 line_numbers: true
 line_number_start: 6
 line_highlights: 8-11, 16-18
@@ -198,7 +198,7 @@ Add code to enable the canvas and switch the turbo from the Ally to the Player a
 --- code ---
 ---
 language: csharp
-filename: AllyController.cs
+filename: AllyController.cs - OnTriggerEnter(Collider other)
 line_numbers: true
 line_number_start: 6
 line_highlights: 13-23
@@ -227,12 +227,12 @@ public class AllyController : MonoBehaviour
 
 --- task ---
 
-Add code to remove the Rat once the Player moves away to continue the game: 
+Add an `OnTriggerExit` method to remove the Rat once the Player moves away to continue the game: 
 
 --- code ---
 ---
 language: csharp
-filename: AllyController
+filename: AllyController - OnTriggerExit(Collider other)
 line_numbers: true
 line_number_start: 25 
 line_highlights: 25-31
@@ -244,6 +244,10 @@ line_highlights: 25-31
             gameObject.SetActive(false);
         }
     }
+
+    // Start is called before the first frame update
+    void Start()
+    {
 --- /code ---
 
 Save your script and return to the Unity Editor. 
@@ -253,6 +257,17 @@ Save your script and return to the Unity Editor.
 --- task ---
 
 Click on the Rat in the Hierarchy window and find the 'AllyController' script in the Inspector window. 
+
+The component should now have four new properties.
+
+![The Script component for Ally Controller showing four new properties.](images/empty-script-objects.png)
+
+**Debug:** The properties won't appear if your script has errors. Check the Console and fix any errors. 
+
+--- /task ---
+
+--- task ---
+
 
 From the Hierarchy window drag:
 + The Shield child GameObject of the Rat to the 'Turbo' property 
@@ -278,7 +293,9 @@ Experiment with the values of Move Speed and Rotate Speed whilst in Play mode un
 
 ![Script component in Inspector view showing Move Speed and Rotate Speed as 6.](images/running-6.png)
 
-Exit Play mode. 
+**Tip:** If the shield appears on the wrong character then check the `turbo` property has the Rat's Shield and the `playerTurbo` property has the Player's Shield. 
+
+Exit Play mode.
 --- /task ---
 
 --- save ---

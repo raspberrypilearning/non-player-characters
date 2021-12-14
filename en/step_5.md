@@ -78,7 +78,7 @@ Add a line in the Update method so that the dog will always look at the Player:
 --- code ---
 ---
 language: cs
-filename: FollowController.cs
+filename: FollowController.cs - Update()
 line_numbers: true
 line_number_start: 16
 line_highlights: 18
@@ -136,7 +136,7 @@ Add a method that triggers when the Player collides with the Dog. This method wi
 --- code ---
 ---
 language: csharp
-filename: FollowController.cs
+filename: FollowController.cs - OnTriggerEnter(Collider other)
 line_numbers: true
 line_number_start: 5
 line_highlights: 10-16
@@ -191,7 +191,7 @@ The Dog should only move at a distance from the Player so that the Dog doesn't t
 --- code ---
 ---
 language: csharp
-filename: FollowController.cs
+filename: FollowController.cs - Update()
 line_numbers: true
 line_number_start: 27
 line_highlights: 30-39
@@ -307,7 +307,7 @@ Open the 'FollowController' script and create an Animator variable. Add code to 
 --- code ---
 ---
 language: csharp
-filename: FollowerController.cs
+filename: FollowerController.cs - Start()
 line_numbers: true
 line_number_start: 21
 line_highlights: 21, 25-26
@@ -330,7 +330,7 @@ Update the `if (isFollowing)` code to control the animation:
 --- code ---
 ---
 language: csharp
-filename: FollowerController.cs
+filename: FollowerController.cs - Update()
 line_numbers: true
 line_number_start: 30
 line_highlights: 37, 42-45
@@ -368,6 +368,10 @@ Save your script and return to the Unity Editor.
 + Click on the Player in the Hierarchy window and then go to Main Camera child GameObject. In the Inspector window change the z position of the camera to `-10`.
 
 ![Play mode showing the Animator window changing states between idle and run, matching the Game view showing the dog waiting behind the Player and running to catch up.](images/dog-anim-test.gif)
+
+**Tip:** Make sure there are no points in your game where the follower dog can completely trap the player.
+
+![The Player character boxed in by the dog with no way to escape.](images/trapped.png)
 
 Exit Play mode. 
 

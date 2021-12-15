@@ -25,19 +25,19 @@ Use the Transform and Rotation tools or the 'Transform' component to position th
 
 --- task ---
 
-With the Dog selected, go to the Inspector window and **Add Component**. Choose the `CharacterController`. Position and size the controller so it covers the whole of your Dog.
+With the Dog selected, go to the Inspector window and **Add Component**. Choose the `CharacterController`. Position and size the controller.
 
 **Tip:** Select the Dog GameObject in the Hierarchy window and press <kbd>Shift</kbd>+<kbd>F</kbd> to focus on the Dog in the Scene view. 
 
 ![The Character Controller component with center positioned at x = 0, y = 0.5, and z = 0, radius = 0.5 and height = 1.](images/char-coll-dog.png)
 
-![The Scene view showing the Character Controller is the right size to cover the body of the Dog.](images/scene-coll-dog.png)
+![The Scene view showing the Character Controller centered on the body of the Dog.](images/scene-coll-dog.png)
 
 --- /task ---
 
 --- task ---
 
-Click on **Add Component** and add a `Box Collider` to the Dog so that the Player cannot walk through, or climb on top of, the Dog. Change the y Center and Size:
+Click on **Add Component** and add a `Box Collider` to the **Dog** so that the Player cannot walk through, or climb on top of, the Dog. Change the y Center and Size:
 
 ![The Box Collider component with values changed from defaults to Center y = 1 and Size y = 2. The Size x and z values have been changed to 1.5.](images/box-collider.png)
 
@@ -45,7 +45,7 @@ Click on **Add Component** and add a `Box Collider` to the Dog so that the Playe
 
 --- task ---
 
-As both the Dog and the Player will be moving, you will need to add a Box Collider to the Player so that the Dog cannot climb on top of the Player.
+As both the Dog and the Player will be moving, you will need to add a Box Collider to the **Player** so that the Dog cannot climb on top of the Player.
 
 Select the Player GameObject from the Hierarchy window, then click **Add Component** and add a `Box Collider`.  Change the y Center and Size:
 
@@ -87,7 +87,7 @@ Add code to the `Update` method so the Dog moves foward until the maxPosition is
 --- code ---
 ---
 language: cs
-filename: DogController.cs
+filename: DogController.cs - Update()
 line_numbers: true
 line_number_start: 17
 line_highlights: 19-31
@@ -122,6 +122,8 @@ Save your script and return to the Unity Editor.
 **Test:** Play your game and check that the Dog makes it harder to reach a star quickly. 
 
 Track the movement of the Dog. If the patrol length is not right for your scene, you can adjust the 'Min Position' and 'Max Position' in the Inspector whilst the game is playing. 
+
+![The Min Position and Max Position public variables in the Inspector.](images/position-variables.png)
 
 **Tip:** Remember that variables edited in Play mode are not saved after exiting Play mode so make a note of the positions you like best then exit Play mode and go back to your script to update the values in your minPosition and maxPosition variables. Save your script then return to the Unity Editor. 
 

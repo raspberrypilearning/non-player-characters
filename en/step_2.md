@@ -27,9 +27,9 @@ If you are not able to open your project you can download, unzip, and import thi
 
 --- /collapse ---
 
---- /task ---
-
 [[[unity-importing-a-package]]]
+
+--- /task ---
 
 --- task ---
 

@@ -1,10 +1,10 @@
 ## Reflection
 
-Well done, you have learned a lot! 
+Well done, you have learnt a lot! 
 
-Answer the three questions below to reflect on what you've learned.
+Answer the three questions below to reflect on what you've learnt.
 
-After each question, press submit. You will be guided towards the correct answer. You can do this activity as many times as you want to.
+After each question, press submit. You will be guided towards the correct answer. You can do this activity as many times as you want.
 
 --- question ---
 
@@ -16,7 +16,7 @@ Which component do you need to add to an NPC so it can use the `SimpleMove` meth
 
 --- choices ---
 
-- ( ) A 'Script' component
+- ( ) A Script component
 
   --- feedback ---
 
@@ -24,23 +24,23 @@ Which component do you need to add to an NPC so it can use the `SimpleMove` meth
 
   --- /feedback ---
 
-- ( ) A 'Box Collider' component
+- ( ) A Box Collider component
 
   --- feedback ---
 
-  No, Box Colliders are used to control the Physics of a GameObject to prevent collision or as a trigger for a collision event.  
+  No, Box Colliders are used to control the physics of a GameObject to prevent collision or as a trigger for a collision event.  
 
   --- /feedback ---
 
-- (x) A 'Character Controller' component
+- (x) A Character Controller component
 
   --- feedback ---
 
-  That's right, adding the Character Controller component would allow the Player to use the `SimpleMove` method.  
+  That's right, adding the Character Controller component allows the Player to use the `SimpleMove` method.  
 
   --- /feedback ---
 
-- ( ) An 'Animator' component
+- ( ) An Animator component
 
   --- feedback ---
 

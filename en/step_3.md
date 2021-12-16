@@ -5,7 +5,7 @@
 It's not fair if the time starts before the player is ready! The `Ready` button will allow the player to start the time AND activate the stars.
 </div>
 <div>
-![Image of the Game view showing the NPC, player, and text introduction with ready button.](images/control-game.gif){:width="300px"}
+![Image of the Game view showing the NPC, Player, and text introduction with Ready button.](images/control-game.gif){:width="300px"}
 </div>
 </div>
 
@@ -13,7 +13,7 @@ At the moment, the canvas is always visible. It should only be enabled when the 
 
 --- task ---
 
-Select your gamemaster GameObject and click on **Add Component** in the Inspector window then add a second 'Box Collider'. 
+Select your **Gamemaster GameObject** and click on **Add Component** in the Inspector window then add a second **Box Collider**. 
 
 This Box Collider will trigger the canvas with the message and the button to be shown, so it needs to be bigger than the Box Collider that stops the Player walking into the Gamemaster:
 
@@ -25,7 +25,7 @@ This Box Collider will trigger the canvas with the message and the button to be 
 
 --- task ---
 
-With the gamemaster GameObject selected, add a new Script component and name it `GamemasterController`.
+With the Gamemaster GameObject selected, add a new Script component and name it `GamemasterController`.
 
 ![The Inspector window with 'GamemasterController' script component.](images/gamemaster-script.png)
 
@@ -77,7 +77,7 @@ public class GamemasterController : MonoBehaviour
 
 --- task ---
 
-Add two new methods. The first to enable the canvas when the Player is in the collider. The second to disable the canvas when the player has moved away:
+Add two new methods. The first to enable the canvas when the Player is in the collider. The second to disable the canvas when the Player has moved away:
 
 --- code ---
 ---
@@ -115,7 +115,7 @@ Save your script and return to the Unity Editor.
 
 --- task ---
 
-Find the **Gamemaster Canvas child GameObject** in the Hierarchy window. Drag the Canvas GameObject to the 'Canvas' variable field in the GamemasterController script component in the Inspector.
+Find the **Gamemaster Canvas child GameObject** in the Hierarchy window. Drag the Canvas GameObject to the Canvas variable field in the GamemasterController script component in the Inspector.
 
 ![The Script component in the Inspector window with the canvas showing in the Canvas variable.](images/canvas-to-script.gif)
 
@@ -127,7 +127,7 @@ Find the **Gamemaster Canvas child GameObject** in the Hierarchy window. Drag th
 
 ![Player moving forward and canvas appearing when close to Gamesmaster.](images/canvas-appearing.gif)
 
-Exit playmode. 
+Exit Play mode. 
 
 --- /task ---
 
@@ -135,7 +135,7 @@ The button looks great, but needs to trigger an event when it is pressed.
 
 --- task ---
 
-Open the **GamemasterController** script and create two new public variables called 'gameStarted' and 'startTime':
+Open the **GamemasterController** script and create two new public variables called `gameStarted` and `startTime`:
 
 --- code ---
 ---
@@ -186,11 +186,11 @@ Save your script and return to the Unity Editor.
 
 --- task ---
 
-From the Hierarchy window, select the Button GameObject then go to the Inspector window **On Click ()** property and click on the **+**. 
+From the Hierarchy window, select the **Button GameObject**, then go to the Inspector window **On Click ()** property and click on the **+**. 
 
 ![The OnClick component for the Button in the Inspector window with '+' icon highlighted in the botton right corner.](images/add-on-click.png)
 
-Drag the gamemaster GameObject from the Hierarchy window to the field underneath 'Runtime Only'. In the Function drop-down menu select **GamemasterController.PlayerReady** to join your new method to the button's click event: 
+Drag the **Gamemaster GameObject** from the Hierarchy window to the field underneath 'Runtime Only'. In the Function drop-down menu select **GamemasterController.PlayerReady** to join your new method to the button's click event: 
 
 ![The OnClick component having the Gamemaster dragged into it and the PlayerReady function chosen.](images/on-click-inspector.gif)
 
@@ -235,7 +235,7 @@ public class StarPlayer : MonoBehaviour
 
 Change the code in your `Update` method to only update the time if the button has been pressed and stars are less than three.
 
-Time.time starts when the game begins. Minus the startTime from Time.time to display the elapsed time since the button was pressed:
+`Time.time` starts when the game begins. Minus the `startTime` from `Time.time` to display the elapsed time since the button was pressed:
 
 --- code ---
 ---
@@ -261,7 +261,7 @@ Save your script and return to the Unity Editor.
 
 --- task ---
 
-Select the **Player** and go to the **Star Player (script)** component. Click on the circle next to Gamemaster and choose the gamemaster GameObject: 
+Select the **Player** and go to the **Star Player (script)** component. Click on the circle next to Gamemaster and choose the **Gamemaster GameObject**: 
 
 ![The Inspector window with 'Gamemaster' showing in the 'Gamemaster' field for the Star Player script.](images/Npc-variable.png)
 
@@ -277,7 +277,7 @@ Exit Play mode.
 
 --- task ---
 
-Open your 'GamemasterController' script and amend the condition in OnTriggerEnter to only run if the player collides and the button hasn't been pressed: 
+Open your **GamemasterController** script and amend the condition in **OnTriggerEnter** to only run if the Player collides and the button hasn't been pressed: 
 
 --- code ---
 ---
@@ -313,7 +313,7 @@ Exit Play mode.
 You can use Tags to identify objects that you want to treat in the same way. 
 
 --- task ---
-Select one of your star GameObjects and click **Add Tag** in the Inspector.
+Select one of your **Star GameObjects** and click **Add Tag** in the Inspector.
 
 ![Drop-down menu for Tags shown with Add Tag highlighted.](images/add-tag.png)
 
@@ -321,7 +321,7 @@ Create a new tag called `Star` by clicking on the **+** icon.
 
 ![A new tag called 'star' has been created.](images/new-tag.png)
 
-Save your tag and then select all of the star GameObjects in the Hierarchy window by holding down <kbd>Ctrl</kbd> (or <kbd>Cmd</kbd>) and then clicking on each of them. 
+Save your tag and then select all of the **Star GameObjects** in the Hierarchy window by holding down <kbd>Ctrl</kbd> (or <kbd>Cmd</kbd>) and then clicking on each of them. 
 
 Set the tag to 'Star' in the Inspector; this sets the tag for all of the Stars.
 
@@ -331,7 +331,7 @@ In C#, you can store multiple objects of the same type in an **Array** variable.
 
 --- task ---
 
-Open your 'GamemasterController' script and add a new variable to store your Star GameObjects:
+Open your **GamemasterController** script and add a new variable to store your Star GameObjects:
 
 --- code ---
 ---
@@ -376,7 +376,7 @@ line_highlights: 24-28
     }
 --- /code ---
 
-Set the stars to active once the player has clicked the ready button:
+Set the stars to active once the player has clicked the Ready button:
 
 --- code ---
 ---

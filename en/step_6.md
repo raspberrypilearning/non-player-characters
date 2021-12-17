@@ -13,7 +13,7 @@ So far the minigame has several enemies but no allies. It would be great to have
 
 --- task ---
 
-Drag a Rat into the Scene view in a position somewhere that is not seen by the Player when the game is started:
+Drag a Rat into the Scene view and into a position that can't be seen by the Player when the game starts:
 
 ![The Scene view showing the Rat hidden behind a wall.](images/position-rat.png)
 
@@ -31,7 +31,7 @@ With the Rat selected, go to the Inspector window and **Add Component**. Choose 
 
 --- task ---
 
-Click on **Add Component** and add a 'Box Collider' to the Rat so that the Player cannot walk through, or climb on top of, the Rat. Change the y 'Center' and 'Size':
+Click on **Add Component** and add a **Box Collider** to the Rat so that the Player cannot walk through, or climb on top of, the Rat. Change the y Center and Size:
 
 ![The Box Collider component with values changed from defaults to center y = 1 and size y = 2.](images/box-collider.png)
 
@@ -41,22 +41,22 @@ Using animation makes an NPC come to life.
 
 --- task ---
 
-In the Project window, navigate to the **Animation** folder. Right-click and go to **Create** then select **Animation Controller** and name your new animation controller 'AllyIdle'.
+In the Project window, navigate to the **Animation** folder. Right-click and go to **Create** then select **Animation Controller** and name your new animation controller `AllyIdle`.
 
 Double-click on the **AllyIdle** animation controller to open it in the Animator window. 
 
-From the Animation folder in the Project window, drag the 'Cat_IdleHappy' animation up to the Animator window: 
+From the Animation folder in the Project window, drag the **Cat_IdleHappy** animation up to the Animator window: 
 
 ![The Animator window with Base Layer open and a black grid showing 'Entry' in green linked by a transition arrow to 'Cat_IdleHappy' in orange.](images/rat-idle-animator.png)
 
 
-**Tip:** You can use the Cat animations on the Rat and Raccoon because they are designed as 'humanoids'.  
+**Tip:** You can use the Cat animations on the Rat and Raccoon because they are designed as humanoids.  
 
 --- /task ---
 
 --- task ---
 
-From the Hierarchy window, select the Rat then go to the Inspector window 'Animator' component. Click on the circle next to 'Controller' and select **AllyIdle** to link your Animation Controller:
+From the Hierarchy window, select the **Rat** then go to the Inspector window **Animator** component. Click on the circle next to Controller and select **AllyIdle** to link your Animation Controller:
 
 ![The Animator component with the circle for top 'Controller' property highlighted. AllyIdle is shown in the field.](images/controller-idle.png)
 
@@ -74,13 +74,13 @@ Exit Play mode.
 
 --- /task ---
 
-A character with the 'Shield' model as a child gameObject would look like they have a special effect or power. In your minigame the shield will represent a turbo speed powerup. 
+A character with the Shield model as a child GameObject would look like they have a special effect or power. In your minigame the shield will represent a turbo speed powerup. 
 
 When the Player has the shield, they will move and turn twice as fast — but with the Ally hidden will they manage to find the shield early enough to make a difference?! 
 
 --- task ---
 
-In the Project window, go to the **Models** folder and find the 'Shield'. Drag the shield up to the Hierarchy window and position it as a child GameObject of the Player: 
+In the Project window, go to the **Models** folder and find the **Shield**. Drag the shield up to the Hierarchy window and position it as a child GameObject of the Player: 
 
 ![The Hierarchy window showing the Shield GameObject indented as a child underneath the Player GameObject.](images/shield-child-player.png)
 
@@ -106,11 +106,11 @@ This will automaticaly add the Shield in the same position as the Rat:
 
 --- task ---
 
-Right-click on the Rat in the Hierarchy window and from `UI` select `Text - TextMeshPro`: 
+Right-click on the **Rat** in the Hierarchy window and from UI select **Text - TextMeshPro**: 
 
 ![The Hierarchy with new Canvas and Text (TMP) child object of the Rat.](images/rat-tmptext.png)
 
-In the Inspector window for the new 'Text (TMP)' GameObject, add 'Text Input' and tick the 'Auto Size' box: 
+In the Inspector window for the new Text (TMP) GameObject, add **Text Input** and tick the **Auto Size** box: 
 
 ![The Inspector window showing Text Input 'Hi there! I can help you. Have my turbo to move faster.' and the Auto Size box checked.](images/properties-text.png)
 
@@ -118,7 +118,7 @@ In the Inspector window for the new 'Text (TMP)' GameObject, add 'Text Input' an
 
 --- task ---
 
-Use the 'Rect Transform' component in the Inspector window to anchor the text to the bottom left then change the Pos x and Pos y coordinates:
+Use the Rect Transform component in the Inspector window to anchor the text to the bottom left then change the Pos x and Pos y coordinates:
 
 ![The Rect Transform component with anchor to the bottom left selected and position x = 120, y = 50, and z = 0.](images/rect-trans-rat.png)
 
@@ -130,9 +130,9 @@ The Rat will have the shield visible until the Player collides with it. The shie
 
 --- task ---
 
-Go to the **Add Component** button again and add a second 'Box Collider' to the Rat. 
+Go to the **Add Component** button again and add a second **Box Collider** to the Rat. 
 
-Check 'Is Trigger' and change the size so that it is bigger than the first Box Collider: 
+Check `IsTrigger` and change the size so that it is bigger than the first Box Collider: 
 
 ![The Box Collider with 'Is Trigger' ticked and the size x = 1.5, y = 1, z = 1.5.](images/both-colliders-properties.png)
 
@@ -256,7 +256,7 @@ Save your script and return to the Unity Editor.
 
 --- task ---
 
-Click on the Rat in the Hierarchy window and find the 'AllyController' script in the Inspector window. 
+Click on the **Rat** in the Hierarchy window and find the **AllyController** script in the Inspector window. 
 
 The component should now have four new properties.
 
@@ -270,10 +270,10 @@ The component should now have four new properties.
 
 
 From the Hierarchy window drag:
-+ The Shield child GameObject of the Rat to the 'Turbo' property 
-+ The Shield child GameObject of the Player to the 'Player Turbo' property
-+ The Player GameObject to the 'Player' property
-+ The Canvas child GameObject of the Rat to the 'Canvas' property
++ The Shield child GameObject of the Rat to the Turbo property 
++ The Shield child GameObject of the Player to the Player Turbo property
++ The Player GameObject to the Player property
++ The Canvas child GameObject of the Rat to the Canvas property
 
 ![The Script component for Ally Controller showing Turbo populated with the Shield GameObject and Canvas populated with the Canvas GameObject.](images/script-objects.png)
 

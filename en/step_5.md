@@ -27,7 +27,7 @@ With the Dog selected, go to the Inspector window and **Add Component**. Choose 
 
 --- task ---
 
-Click on **Add Component** and add a 'Box Collider' to the Dog so that the Player cannot walk through, or climb on top of, the Dog. Change the y Center and Size:
+Click on **Add Component** and add a **Box Collider** to the Dog so that the Player cannot walk through, or climb on top of, the Dog. Change the y Center and Size:
 
 ![The Box Collider component with values changed from defaults to Center y = 1 and Size y = 2.](images/box-collider.png)
 
@@ -35,9 +35,9 @@ Click on **Add Component** and add a 'Box Collider' to the Dog so that the Playe
 
 --- task ---
 
-Go to the **Add Component** button again and add a second 'Box Collider' to the Dog. 
+Go to the **Add Component** button again and add a second **Box Collide** to the Dog. 
 
-This Box Collider will use 'IsTrigger' to make the Dog follow the Player if the Player gets close enough to draw the Dog's attention. This Box Collider needs to be big enough that the Player can't easily sneak past:
+This Box Collider will use `IsTrigger` to make the Dog follow the Player if the Player gets close enough to draw the Dog's attention. This Box Collider needs to be big enough that the Player can't easily sneak past:
 
 ![The Box Collider component with 'Is Trigger' ticked, Center y = 0.5 and Size x = 3, y = 1, and z = 3.](images/dog-box-comp.png)
 
@@ -53,7 +53,7 @@ With the new Dog GameObject selected, add a new Script component and name it `Fo
 
 --- task ---
 
-Double-click on the **FollowController** script and create a public GameObject variable. Add code so that the script can access the 'Player' attributes:
+Double-click on the **FollowController** script and create a public GameObject variable. Add code so that the script can access the Player attributes:
 
 --- code ---
 ---
@@ -95,9 +95,9 @@ Save your script and return to the Unity Editor.
 
 --- task ---
 
-Click on your second dog in the Hierarchy and scroll down in the Inspector to see the 'FollowController' script in the window.
+Click on your second dog in the Hierarchy and scroll down in the Inspector to see the **FollowController** script in the window.
 
-Click on the circle next to Player and select the Player GameObject from the menu:
+Click on the circle next to Player and select the **Player GameObject** from the menu:
 
 ![The Follow Controller script component with Player GameObject.](images/script-comp.png)
 
@@ -115,7 +115,7 @@ Exit Play mode.
 
 --- task ---
 
-Open the 'FollowController' script and create an IsFollowing variable set to `false`. 
+Open the **FollowController** script and create an `IsFollowing` variable set to `false`. 
 
 --- code ---
 ---
@@ -131,7 +131,7 @@ public class FollowController : MonoBehaviour
     public bool isFollowing = false;
 --- /code ---
 
-Add a method that triggers when the Player collides with the Dog. This method will set 'IsFollowing' to `true`:
+Add a method that triggers when the Player collides with the Dog. This method will set `IsFollowing` to `true`:
 
 --- code ---
 ---
@@ -228,9 +228,9 @@ Animation Controllers can have more than one animation. The Follower Dog will ne
 
 --- task ---
 
-In the Project window, select the **Animation** folder and right-click then create a new Animation Controller called `FollowerMove`. 
+In the Project window, select the **Animation** folder and right-click then create a new **Animation Controller** called `FollowerMove`. 
 
-Click on the Dog and go to the Inspector window. Drag the **FollowerMove** controller to the **Controller** property in the 'Animator' component:
+Click on the **Dog** and go to the Inspector window. Drag the **FollowerMove** controller to the **Controller** property in the Animator component:
 
 ![The Animator component with 'FollowMove' in the Controller property.](images/animator-follow.png)
 
@@ -256,9 +256,9 @@ The Dog needs a different animation for when it is moving.
 
 --- task ---
 
-Drag the **Dog_Run** animation into the Animator window for the 'FollowerMove' controller. 
+Drag the **Dog_Run** animation into the Animator window for the **FollowerMove** controller. 
 
-Right-click on **Dog_Idle** and select **Make Transition** and connect the transition to 'Dog_Run'. Right-click on **Dog_Run** and select **Make Transition** and connect the transition to 'Dog_Idle' so you have transitions in both directions. 
+Right-click on **Dog_Idle** and select **Make Transition** and connect the transition to **Dog_Run**. Right-click on **Dog_Run** and select **Make Transition** and connect the transition to **Dog_Idle** so you have transitions in both directions. 
 
 ![The Animator window with new 'Dog_Run' grey box and arrows going between the idle and run boxes in both directions.](images/idle-run-animator.png)
 
@@ -280,7 +280,7 @@ Go to the Animator window and click on the transition arrow from Dog_Idle to Dog
 
 ![The Animator window with a transiton arrow pointing from Dog_Idle to Dog_Run coloured in blue to show it has been selected.](images/select-transition-out.png)
 
-In the Inspector window for that transition, go to the Conditions component and click on the **+**. The condition should read 'isRunning' `true`:
+In the Inspector window for that transition, go to the Conditions component and click on the **+**. The condition should read `isRunning` is `true`:
 
 ![The Inspector with Conditions showing 'IsRunning' in the left box and 'true' in the right box.](images/condition-istrue.png)
 
@@ -292,7 +292,7 @@ Uncheck the 'Has Exit Time' box so that the animation transitions straight away:
 
 --- task ---
 
-Select the transition arrow from Dog_Run to Dog_Idle and follow the same steps. Uncheck the 'Has Exit Time' box, but this time add the condition 'isRunning' is `false`:
+Select the transition arrow from Dog_Run to Dog_Idle and follow the same steps. Uncheck the 'Has Exit Time' box, but this time add the condition `isRunning` is `false`:
 
 ![The Has Exit Time box unchecked.](images/exit-time.png)
 
@@ -302,7 +302,7 @@ Select the transition arrow from Dog_Run to Dog_Idle and follow the same steps. 
 
 --- task ---
 
-Open the 'FollowController' script and create an Animator variable. Add code to the 'Start' method to set `isRunning` to `false`:
+Open the **FollowController** script and create an **Animator variable**. Add code to the `Start` method to set `isRunning` to `false`:
 
 --- code ---
 ---
@@ -364,7 +364,7 @@ Save your script and return to the Unity Editor.
 **Test:** Play your minigame and watch what happens in the animator as you collide with and run from the Dog. 
 
 **Tip:** To see the animation effect better whilst testing in Play mode: 
-+ Click on the Dog in the Hierarchy window and then go to the Follow Controller script in the Inspector window. Slow the Dog 'Follow Speed' to `0.1`. 
++ Click on the Dog in the Hierarchy window and then go to the Follow Controller script in the Inspector window. Slow the Dog's Follow Speed to `0.1`. 
 + Click on the Player in the Hierarchy window and then go to Main Camera child GameObject. In the Inspector window change the z position of the camera to `-10`.
 
 ![Play mode showing the Animator window changing states between idle and run, matching the Game view showing the dog waiting behind the Player and running to catch up.](images/dog-anim-test.gif)

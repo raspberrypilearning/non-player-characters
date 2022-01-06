@@ -11,9 +11,9 @@ Patrolling NPCs can be used to slow players down. Changing their path, size, pos
 
 --- task ---
 
-Open the **Models** folder in the Project window and add a `Dog` to your Scene. 
+Open the **Models** folder in the Project window and add a **Dog** to your scene. 
 
-Use the Transform and Rotation tools or the 'Transform' component to position the dog in a good position for patrolling — and to obstruct the Player reaching a star! 
+Use the Transform and Rotation tools or the Transform component to position the dog in a good position for patrolling — and to obstruct the Player reaching a star! 
 
 **Tip:** To see your map in a top-down view, right-click where it says **Persp** in the top right of the Scene view and choose **Top**. To return to the normal view, right-click on **Top** and choose **Free**.
 
@@ -25,7 +25,7 @@ Use the Transform and Rotation tools or the 'Transform' component to position th
 
 --- task ---
 
-With the Dog selected, go to the Inspector window and **Add Component**. Choose the `CharacterController`. Position and size the controller.
+With the Dog selected, go to the Inspector window and **Add Component**. Choose the **Character Controller**. Position and size the controller.
 
 **Tip:** Select the Dog GameObject in the Hierarchy window and press <kbd>Shift</kbd>+<kbd>F</kbd> to focus on the Dog in the Scene view. 
 
@@ -37,7 +37,7 @@ With the Dog selected, go to the Inspector window and **Add Component**. Choose 
 
 --- task ---
 
-Click on **Add Component** and add a `Box Collider` to the **Dog** so that the Player cannot walk through, or climb on top of, the Dog. Change the y Center and Size:
+Click on **Add Component** and add a **Box Collider** to the **Dog** so that the Player cannot walk through, or climb on top of, the Dog. Change the y Center and Size:
 
 ![The Box Collider component with values changed from defaults to Center y = 1 and Size y = 2. The Size x and z values have been changed to 1.5.](images/box-collider.png)
 
@@ -47,7 +47,7 @@ Click on **Add Component** and add a `Box Collider` to the **Dog** so that the P
 
 As both the Dog and the Player will be moving, you will need to add a Box Collider to the **Player** so that the Dog cannot climb on top of the Player.
 
-Select the Player GameObject from the Hierarchy window, then click **Add Component** and add a `Box Collider`.  Change the y Center and Size:
+Select the **Player GameObject** from the Hierarchy window, then click **Add Component** and add a **Box Collider**.  Change the y Center and Size:
 
 ![The Box Collider component with values changed from defaults to Center y = 1 and Size y = 2. The Size x and z values have been changed to 1.5.](images/box-collider.png)
 
@@ -61,7 +61,7 @@ With the Dog GameObject selected, add a new Script component and name it `Patrol
 
 --- task ---
 
-Open the 'PatrolController' script and create a patrolSpeed variable. Create another two public variables for the minPosition and maxPosition of the patrol space.
+Open the **PatrolController** script and create a `patrolSpeed` variable. Create another two public variables for the `minPosition` and `maxPosition` of the patrol space.
 
 --- code ---
 ---
@@ -82,7 +82,7 @@ public class DogController : MonoBehaviour
 
 --- task ---
 
-Add code to the `Update` method so the Dog moves foward until the maxPosition is reached, then turns `180` degrees and moves forward again until the minimum positon is reached. 
+Add code to the `Update` method so the Dog moves foward until the `maxPosition` is reached, then turns `180` degrees and moves forward again until the minimum positon is reached. 
 
 --- code ---
 ---
@@ -121,11 +121,11 @@ Save your script and return to the Unity Editor.
 
 **Test:** Play your game and check that the Dog makes it harder to reach a star quickly. 
 
-Track the movement of the Dog. If the patrol length is not right for your scene, you can adjust the 'Min Position' and 'Max Position' in the Inspector whilst the game is playing. 
+Track the movement of the Dog. If the patrol length is not right for your scene, you can adjust the Min Position and Max Position in the Inspector whilst the game is playing. 
 
 ![The Min Position and Max Position public variables in the Inspector.](images/position-variables.png)
 
-**Tip:** Remember that variables edited in Play mode are not saved after exiting Play mode so make a note of the positions you like best then exit Play mode and go back to your script to update the values in your minPosition and maxPosition variables. Save your script then return to the Unity Editor. 
+**Tip:** Remember that variables edited in Play mode are not saved after exiting Play mode so make a note of the positions you like best then exit Play mode and go back to your script to update the values in your `minPosition` and `maxPosition` variables. Save your script then return to the Unity Editor. 
 
 ![Game view showing the Player waiting for the dog to pass before collecting the star then waiting for the dog to pass before exiting the enclosed star hiding place.](images/dog-patrol-game.gif)
 
@@ -145,17 +145,17 @@ In the Project window, navigate to the **Animation** folder. Right-click and go 
 
 Double-click on the **PatrolRun** animation controller to open it in the Animator window. 
 
-The patrol dog will have just one animation that will run repeatedly. From the Animation folder in the Project window, drag the 'Dog_Run' animation up to the Animator window. 
+The patrol dog will have just one animation that will run repeatedly. From the Animation folder in the Project window, drag the **Dog_Run** animation up to the Animator window. 
 
 ![The Animator window with Base Layer open and a black grid showing 'Entry' in green linked by a transition arrow to 'Dog_Run' in orange.](images/dog-run-animator.png)
 
-**Tip:** If you can't see all of the boxes in the Animator window, you can click on the black grid then press the <kbd>a</kbd> key to refocus the window. Then pan left and right using <kbd>Alt<kbd>+left mouse button or zoom in and out using the <kbd>Atl</kbd> key + right mouse button. 
+**Tip:** If you can't see all of the boxes in the Animator window, you can click on the black grid then press the <kbd>a</kbd> key to refocus the window. Then pan left and right using <kbd>Alt</kbd>+left mouse button or zoom in and out using <kbd>Alt</kbd>+right mouse button. 
 
 --- /task ---
 
 --- task ---
 
-From the Hierarchy window, select the Dog GameObject, then go to the Inspector window 'Animator' component. Click on the circle next to 'Controller' and select **PatrolRun** to link your animation controller.
+From the Hierarchy window, select the **Dog GameObject**, then go to the Inspector window **Animator** component. Click on the circle next to Controller and select **PatrolRun** to link your animation controller.
 
 ![The Animator component with the circle for top 'Controller' property highlighted. PatrolRun is shown in the field.](images/dog-animator-component.png)
 
@@ -174,11 +174,11 @@ From the Hierarchy window, select the Dog GameObject, then go to the Inspector w
 
 **Test:** Tweak your patrol dog until you are happy with the path and animation. To change the difficulty level, you can alter the Scale to make a bigger or smaller dog.
 
-![The 'Transform' component for the dog showing x, y, and z valus of 2 each.](images/scale-dog.png)
+![The 'Transform' component for the dog showing x, y, and z values of 2 each.](images/scale-dog.png)
 
-![A large dog that is scaled by '2' on each access, making it harder to reach the star.](images/huge-dog.png)
+![A large dog that is scaled by 2 on each access, making it harder to reach the star.](images/huge-dog.png)
 
-**Debug:** If your animation isn't working, in the Inspector, check to make sure that 'Apply Root Motion' has not been checked for your non-player character.
+**Debug:** If your animation isn't working, in the Inspector, check that **Apply Root Motion** is not selected for your non-player character.
 
 ![Apply Root Motion unchecked in the Inspector window.](images/apply-root-motion.png)
 

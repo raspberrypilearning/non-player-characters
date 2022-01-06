@@ -1,17 +1,17 @@
 title: Non-player characters
 hero_image: images/banner.png
-description: Create 3D non-player characters to interact with, avoid and collect power-ups from. 
+description: Create 3D non-player characters to interact with, avoid, and collect power-ups from 
 version: 4
-listed: false
-copyedit: false
+listed: true
+copyedit: true
 last_tested: "2021-03-26"
 steps:
   - title: Introduction
   - title: Gamemaster NPC
   - title: Controlling the game
-  - title: NPC Patrol 
+  - title: NPC patrol 
   - title: Follower NPC
-  - title: NPC Allies
+  - title: NPC allies
   - title: Reflection
     knowledge_quiz:
       path: quiz1

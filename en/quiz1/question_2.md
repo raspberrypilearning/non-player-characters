@@ -5,25 +5,25 @@
 legend: Question 2 of 3
 ---
 
-Canvases are GameObjects used to add a Graphical User Interface to projects. 
+Canvases are GameObjects that are used to add a graphical User Interface (UI) to projects. 
 
-Which of these GameObjects are user interface (UI) objects?
+Which of these GameObjects are UI objects?
 
 --- choices ---
 
-- (x) Buttons and Text
+- (x) Buttons and text
 
   --- feedback ---
 
-  That's right, Buttons and Text are both examples of UI GameObjects. 
+  That's right, buttons and text are both examples of UI GameObjects. 
 
   --- /feedback ---
 
-- ( ) Cubes and Planes
+- ( ) Cubes and planes
 
   --- feedback ---
 
-  No, Cubes and Planes are examples of 3D GameObjects.
+  No, cubes and planes are examples of 3D GameObjects.
 
   --- /feedback ---
 
@@ -31,7 +31,7 @@ Which of these GameObjects are user interface (UI) objects?
 
   --- feedback ---
 
-  No, Cameras are GameObjects with a Camera component that set the view of a scene.
+  No, cameras are GameObjects with a Camera component that set the view of a scene.
 
   --- /feedback ---
 

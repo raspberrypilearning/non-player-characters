@@ -5,11 +5,11 @@
 legend: Question 3 of 3
 ---
 
-In a project, an Ally gives the Player a 'clover' GameObject. 
+In a project, an Ally gives the Player a Clover GameObject. 
 
 The Ally's script has two GameObjects:
-+ clover - a child GameObject on the Ally
-+ playerClover - a child GameObject on the Player
++ clover — a child GameObject on the Ally
++ playerClover — a child GameObject on the Player
 
 Which code should be added to the Ally's `OnTriggerEnter` method to make the clover appear to move from the Ally to the Player?
 
@@ -57,7 +57,7 @@ playerClover.SetActive(true);
 - ( ) 
 
 ```
-turbo.SetActive(true);
+clover.SetActive(true);
 playerClover.SetActive(true);
 ```
 

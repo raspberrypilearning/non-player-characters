@@ -5,7 +5,7 @@
 The player will talk to a Gamemaster NPC to set the scene and click a button when they are ready to start.
 </div>
 <div>
-![Image of the Game view showing the NPC, player, and text introduction with a ready button.](images/message-and-button.png){:width="300px"}
+![Image of the Game view showing the NPC, Player, and text introduction with a ready button.](images/message-and-button.png){:width="300px"}
 </div>
 </div>
 
@@ -21,7 +21,7 @@ Launch the Unity Hub and open the project you created for [Star collector](https
 title: I haven't got my Star collector project
 ---
 
-If you are not able to open your project you can download, unzip, and import this non-player character assets pack.
+If you are not able to open your project, you can download, unzip, and import this non-player character assets pack.
 
 [rpf.io/p/en/non-player-characters-go](https://rpf.io/p/en/non-player-characters-go)
 
@@ -33,13 +33,13 @@ If you are not able to open your project you can download, unzip, and import thi
 
 --- task ---
 
-In the Project window, go to the **Models** folder and drag a `Cat` or `Raccoon` character into the Scene view. 
+In the Project window, go to the **Models** folder and drag a **Cat** or **Raccoon** character into the Scene view. 
 
 --- /task ---
 
 --- task ---
 
-With your new character GameObject selected, go to the Inspector window and rename it 'Gamemaster':
+With your new character GameObject selected, go to the Inspector window and rename it `Gamemaster`:
 
 ![The Inspector window with the NPC renamed to 'Gamemaster' in the top text box.](images/rename-gamemaster.png)
 
@@ -54,7 +54,7 @@ Position your gamemaster NPC using either:
 
 Your gamemaster NPC character should be close to the Player's starting point and visible at the start of the game.
 
-To make your gamemaster face toward the Player, change the y rotation to `180`:
+To make your Gamemaster face toward the Player, change the y rotation to `180`:
 
 ![The Inspector window with the 'Transform' component of the Gamemaster showing Position x = 0, y = 0, and z = 2, and Rotation y = 180.](images/gamemaster-transform.png)
 
@@ -65,12 +65,12 @@ To make your gamemaster face toward the Player, change the y rotation to `180`:
 --- /task ---
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
-In Unity a **parent GameObject** can have <span style="color: #0faeb0">**child GameObjects**</span> that move, rotate, and scale with it. This is really useful for positioning the child objects in relation to their parent. A parent can have many child GameObjects, but a child can have only one parent. 
+In Unity, a **parent GameObject** can have <span style="color: #0faeb0">**child GameObjects**</span> that move, rotate, and scale with it. This is really useful for positioning the child objects in relation to their parent. A parent can have many child GameObjects, but a child can have only one parent. 
 </p>
 
 --- task ---
 
-The gamemaster GameObject has several child GameObjects enabled that represent costumes for the character. 
+The Gamemaster GameObject has several child GameObjects enabled that represent costumes for the character. 
 
 Choose which costumes to keep enabled and which to disable by unchecking the box in the Inspector window for any you want to remove: 
 
@@ -84,29 +84,29 @@ Choose which costumes to keep enabled and which to disable by unchecking the box
 
 --- task ---
 
-Select the gamemaster GameObject and click on **Add Component**. Add a `Box Collider` so that the Player cannot walk through, or climb on top of, the Gamemaster. Change the y 'Center' and 'Size':
+Select the **Gamemaster GameObject** and click on **Add Component**. Add a **Box Collider** so that the Player cannot walk through, or climb on top of, the Gamemaster. Change the y Center and Size:
 
 ![The Box Collider component with values changed from defaults to Center y = 1 and Size y = 2.](images/box-collider-gamemaster.png)
 
 --- /task ---
 
-The Gamemaster will use `UI` child GameObjects to display the game instructions and a button to press to start the timer. These child GameObjects will only be displayed when the Player is close enough to talk to the Gamemaster and the game is not already in progress.  
+The Gamemaster will use UI child GameObjects to display the game instructions and a button to press to start the timer. These child GameObjects will only be displayed when the Player is close enough to talk to the Gamemaster and the game is not already in progress.  
 
 --- task ---
 
-Right-click on the Gamemaster in the Hierarchy window and from UI select `Text - TextMeshPro` to create text that is a child GameObject of the Gamemaster. This will also automatically create a canvas for the text to sit on: 
+Right-click on the **Gamemaster** in the Hierarchy window and from UI select **Text - TextMeshPro** to create text that is a child GameObject of the Gamemaster. This will also automatically create a canvas for the text to sit on: 
 
 ![The Hierarchy window showing the new text child GameObject. The text GameObject is indented as it has been created as a child object of the Gamemaster.](images/text-child-hierarchy.png)
 
-**Tip:** If you accidentally create the object at the top level, or as a child of the wrong GameObject, you can drag it to the gamemaster GameObject in the Hierarchy window.
+**Tip:** If you accidentally create the object at the top level, or as a child of the wrong GameObject, you can drag it to the Gamemaster GameObject in the Hierarchy window.
 
 --- /task ---
 
 --- task ---
 
-From the Hierarchy window, select the `Text (TMP)` GameObject and rename it to `Message`. In the Text Input component, add a message to explain your minigame. Include the message `Press 'Ready' to start the timer`.  
+From the Hierarchy window, select the **Text (TMP) GameObject** and rename it to `Message`. In the Text Input component, add a message to explain your minigame. Include the message `Press 'Ready' to start the timer`.  
 
-Put a checkmark in the 'Auto Size' property so that the text resizes to fit the message to the screen of the player:
+Put a checkmark in the Auto Size property so that the text resizes to fit the message to the screen of the player:
 
 ![The Inspector window with the Text Input box showing the typed message 'Collect 3 stars to finish the game. How quick will you be? Press 'ready' to start the timer.' and the Main Settings property 'Auto Size' ticked.](images/gamemaster-text-message.png)
 
@@ -114,7 +114,7 @@ Put a checkmark in the 'Auto Size' property so that the text resizes to fit the 
 
 --- task ---
 
-Use the 'Rect Transform' component in the Inspector window to anchor the text to the bottom left, then change the Pos x and Pos y coordinates, and the width and height:
+Use the Rect Transform component in the Inspector window to anchor the text to the bottom left, then change the Pos x and Pos y coordinates, and the width and height:
 
 ![The Inspector window with anchor pop-up menu showing bottom left and Pos x = 200, Pos y = 30, Pos z = 0, Width = 380, and Height = 50.](images/gamemaster-text-transform.png)
 
@@ -125,7 +125,7 @@ Use the 'Rect Transform' component in the Inspector window to anchor the text to
 title: Positioning text with your mouse
 ---
 
-You can position and size your text box using your mouse. Select your 'Text (TMP)' object in the Hierarchy. Then, while in Scene view, click on **2D** in the toolbar.
+You can position and size your text box using your mouse. Select your **Text (TMP)** object in the Hierarchy window. Then, while in Scene view, click on **2D** in the toolbar.
 
 ![Tool bar with 2D selected.](images/change-to-2d.png)
 
@@ -141,7 +141,7 @@ You can now use the mouse to position and resize the text.
 
 --- task ---
 
-From the Hierarchy window, right-click on the Gamemaster's **Canvas** child GameObject and from **UI** select `Button - TextMeshPro`. This creates a second UI GameObject for the Gamemaster.
+From the Hierarchy window, right-click on the Gamemaster's **Canvas** child GameObject and from **UI** select **Button - TextMeshPro**. This creates a second UI GameObject for the Gamemaster.
 
 Click on the drop-down arrow next to the Button GameObject and select the **Text (TMP)** GameObject. This controls the text message shown on the button. Go to the Inspector window and change the **Text Input** property to `Ready`:
 
@@ -151,7 +151,7 @@ Click on the drop-down arrow next to the Button GameObject and select the **Text
 
 --- task ---
 
-**Test:** Experiment with the 'Transform' properties of your message and button until you are happy with how they look in the Game view:
+**Test:** Experiment with the Transform properties of your message and button until you are happy with how they look in the Game view:
 
 ![The Game view showing the message aligned to the bottom left with writing across three lines and the button aligned to the bottom right.](images/message-and-button.png)
 
@@ -164,7 +164,7 @@ Select the Gamemaster's **Canvas** and disable it by unchecking the box in the I
 
 ![The Inspector for the Gamemaster's Canvas showing the enable box unchecked.](images/disabled-canvas.png)
 
-This means that you will still be able to focus on the 'Gamemaster' in the Scene view using <kbd>F</kbd> (or <kbd>Shift</kbd>+<kbd>F</kbd> from the Hierarchy window). Your code will enable the canvas when it is needed. 
+This means that you will still be able to focus on the Gamemaster in the Scene view using <kbd>F</kbd> (or <kbd>Shift</kbd>+<kbd>F</kbd> from the Hierarchy window). Your code will enable the canvas when it is needed. 
 
 --- /task ---
 

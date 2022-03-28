@@ -12,6 +12,7 @@ steps:
   - title: NPC patrol 
   - title: Follower NPC
   - title: NPC allies
+    completion: internal  
   - title: Reflection
     knowledge_quiz:
       path: quiz1
@@ -19,4 +20,5 @@ steps:
       questions: 3
       passing_score: 3
   - title: Upgrade your project
+    completion: external
   - title: What next?

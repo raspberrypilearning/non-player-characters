@@ -1,0 +1,21 @@
+Stars
+
+Time
+
+Collect 3 stars to finish the game. How quick will you be? Press 'ready' to start the timer.
+
+Time when the button is pressed
+
+An integer whole number
+
+Star
+
+Time when the button is pressed
+
+No movement
+
+Hi there! I can help you. Have my turbo to move faster.
+
+Turbo shield on NPC
+
+Turbo shield on Player

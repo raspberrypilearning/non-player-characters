@@ -1,13 +1,12 @@
 ---
 title: Non-player characters
 hero_image: images/banner.png
-description:
-  Create 3D non-player characters to interact with, avoid, and collect
+description: Create 3D non-player characters to interact with, avoid, and collect
   power-ups from
 version: 4
 listed: true
 copyedit: true
-last_tested: "2021-03-26"
+last_tested: '2021-03-26'
 steps:
   - title: You will make
   - title: Gamemaster NPC

@@ -8,23 +8,23 @@ listed: true
 copyedit: true
 last_tested: '2021-03-26'
 steps:
-- title: Introduction
-- title: Gamemaster NPC
-- title: Controlling the game
-  completion:
-  - engaged
-- title: NPC patrol
-- title: Follower NPC
-- title: NPC allies
-  completion:
-  - internal
-- title: Reflection
-  knowledge_quiz:
-    path: quiz1
-    version: 1
-    questions: 3
-    passing_score: 3
-  completion:
-  - external
-- title: Upgrade your project
-- title: What next?
+  - title: You will make
+  - title: Gamemaster NPC
+  - title: Controlling the game
+    completion:
+      - engaged
+  - title: NPC patrol
+  - title: Follower NPC
+  - title: NPC allies
+    completion:
+      - internal
+  - title: Quick quiz
+    knowledge_quiz:
+      path: quiz1
+      version: 1
+      questions: 3
+      passing_score: 3
+    completion:
+      - external
+  - title: Upgrade your project
+  - title: What next?

@@ -1,4 +1,4 @@
-## Introduction
+## You will make
 
 Create 3D non-player characters to interact with, avoid, and collect from.
 
@@ -16,8 +16,10 @@ You will:
 + Use child GameObjects to allow players to hold other GameObjects
 
 --- no-print ---
+
+### Play ▶️
+
 --- task ---
-### Try it
 
 Click on the embedded project. Interact with the NPCs:
 + How does the cat control the game? 

@@ -353,7 +353,7 @@ public class GamemasterController : MonoBehaviour
 
 --- /task ---
 
-You can use a `for` loop to perform the same action on each item in an array. 
+You can use a `foreach` loop to perform the same action on each item in an array. 
 
 --- task ---
 

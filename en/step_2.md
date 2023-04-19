@@ -155,7 +155,7 @@ Click on the drop-down arrow next to the Button GameObject and select the **Text
 
 ![The Game view showing the message aligned to the bottom left with writing across three lines and the button aligned to the bottom right.](images/message-and-button.png)
 
-Exit Play mode. 
+If you entered Play mode for testing make sure you Exit before changing the message and buttons positions. 
 
 --- /task ---
 

@@ -171,7 +171,7 @@ language: csharp
 filename: AllyController.cs 
 line_numbers: true
 line_number_start: 6
-line_highlights: 8-11, 16-18
+line_highlights: 8, 9, 10, 11, 16, 17,18
 ---
 public class AllyController : MonoBehaviour
 {

@@ -66,12 +66,12 @@ Open the **PatrolController** script and create a `patrolSpeed` variable. Create
 --- code ---
 ---
 language: cs
-filename: DogController.cs
+filename: PatrolController.cs
 line_numbers: true
 line_number_start: 5
 line_highlights: 7-9
 ---
-public class DogController : MonoBehaviour
+public class PatrolController : MonoBehaviour
 {
     public float patrolSpeed = 3.0f;
     public float minPosition = -4.0f;
@@ -125,7 +125,7 @@ Track the movement of the Dog. If the patrol length is not right for your scene,
 
 ![The Min Position and Max Position public variables in the Inspector.](images/position-variables.png)
 
-**Tip:** Remember that variables edited in Play mode are not saved after exiting Play mode so make a note of the positions you like best then exit Play mode and go back to your script to update the values in your `minPosition` and `maxPosition` variables. Save your script then return to the Unity Editor. 
+**Tip:** Remember that variables edited in Play mode are not saved after exiting Play mode so make a note of the positions you like best then exit Play mode and set the variables in the Inspector.
 
 ![Game view showing the Player waiting for the dog to pass before collecting the star then waiting for the dog to pass before exiting the enclosed star hiding place.](images/dog-patrol-game.gif)
 
@@ -135,9 +135,9 @@ Now that the position and path of the patrolling dog is decided, it's time to ma
 
 --- task ---
 
-In the Project window, navigate to the **Animation** folder. Right-click and go to **Create** then select **Animation Controller** and name your new animation controller `PatrolRun`.
+In the Project window, navigate to the **Animation** folder and then the **Animator** folder. Right-click and go to **Create** then select **Animation Controller** and name your new animation controller `PatrolRun`.
 
-![The Animation folder in the Project window with the new PatrolRun animator added alongside the IdleWalk animator from Explore a 3D world project.](images/patrol-animator.png)
+![The Animators folder in the Project window with the new PatrolRun animator added alongside the IdleWalk animator from Explore a 3D world project.](images/patrol-animator.png)
 
 --- /task ---
 

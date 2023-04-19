@@ -65,7 +65,7 @@ line_highlights: 7
 ---
 public class FollowController : MonoBehaviour
 {
-    public GameObject Player;
+    public GameObject layer;
 
 --- /code ---
 
@@ -228,7 +228,7 @@ Animation Controllers can have more than one animation. The Follower Dog will ne
 
 --- task ---
 
-In the Project window, select the **Animation** folder and right-click then create a new **Animation Controller** called `FollowerMove`. 
+In the Project window, select the **Animators** folder inside of **Animation**. Right-click then create a new **Animation Controller** called `FollowerMove`. 
 
 Click on the **Dog** and go to the Inspector window. Drag the **FollowerMove** controller to the **Controller** property in the Animator component:
 

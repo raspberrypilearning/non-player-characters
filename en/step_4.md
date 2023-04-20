@@ -61,7 +61,7 @@ With the Dog GameObject selected, add a new Script component and name it `Patrol
 
 --- task ---
 
-Open the **PatrolController** script and create a `patrolSpeed` variable. Create another public variable for the maximum distance you want the Dog to move - call it `maxMovement`. You also need a final variable to store the start position, this will be a `Vector3` called `startPosition`.
+Open the **PatrolController** script and create a public `patrolSpeed` variable. Create another public variable for the maximum distance you want the Dog to move - call it `maxMovement`. You also need a final variable to store the start position, this will be a `Vector3` called `startPosition`.
 
 --- code ---
 ---
@@ -82,13 +82,13 @@ public class PatrolController : MonoBehaviour
 
 --- task ---
 
-Add code to the `Start()` and `Update` methods so the Dog moves forward until the distance from it's start position is **greater than** `maxMovement`.
+Add code to the `Start()` and `Update()` methods so the Dog moves forward until the distance from its start position is **greater than** `maxMovement`.
 
 First the `Start()` method is used to set the `startPosition` when the game starts.
 
-Subtracting the current position vector from the position where the Dog starts `transform.position - startPosition` gives the distance the Dog has travelled.
+`Vector3.Distance()` uses the current position vector and the `startPosition` to calculate the distance the Dog has travelled.
 
-When the max movement is reached the Dog turns `180` degrees and the `startPosition` variable is updated to the current position. The Dog then moves forward again until the maximum has been reached, this process repeats to create the patrol behaviour.
+When the max movement is reached the Dog turns `180` degrees and the `startPosition` variable is updated to the current position. The Dog then moves forward again until the maximum distance has been reached, this process repeats to create the patrol behaviour.
 
 --- code ---
 ---
@@ -96,7 +96,7 @@ language: cs
 filename: DogController.cs
 line_numbers: true
 line_number_start: 12
-line_highlights: 18, 24, 25, 26, 28, 30, 31, 32, 33, 34
+line_highlights: 14, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30
 ---
     void Start()
     {

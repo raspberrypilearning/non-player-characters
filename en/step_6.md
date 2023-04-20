@@ -49,8 +49,7 @@ From the Animation folder in the Project window, drag the **Cat_IdleHappy** anim
 
 ![The Animator window with Base Layer open and a black grid showing 'Entry' in green linked by a transition arrow to 'Cat_IdleHappy' in orange.](images/rat-idle-animator.png)
 
-
-**Tip:** You can use the Cat animations on the Rat and Raccoon because they are designed as humanoids.  
+**Tip:** You can use the Cat animations on the Rat and Raccoon because they are designed as humanoids (standing upright, two arms and two legs).  
 
 --- /task ---
 
@@ -61,6 +60,14 @@ From the Hierarchy window, select the **Rat** then go to the Inspector window **
 ![The Animator component with the circle for top 'Controller' property highlighted. AllyIdle is shown in the field.](images/controller-idle.png)
 
 **Tip:** You can also drag the Animation Controller from the Projects window to the Controller property of the Animator in the Inspector. 
+
+--- /task ---
+
+--- task ---
+
+You can use this same Animator Controller for the Gamemaster to bring them to life!
+
+From the Hierarchy window, select your Gamemaster and drag the **AllyIdle** controller into the Controller field. 
 
 --- /task ---
 
@@ -171,7 +178,7 @@ language: csharp
 filename: AllyController.cs 
 line_numbers: true
 line_number_start: 6
-line_highlights: 8-11, 16-18
+line_highlights: 8, 9, 10, 11, 16, 17,18
 ---
 public class AllyController : MonoBehaviour
 {

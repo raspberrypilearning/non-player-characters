@@ -13,7 +13,7 @@ Patrolling NPCs can be used to slow players down. Changing their path, size, pos
 
 Open the **Models** folder in the Project window and add a **Dog** to your scene. 
 
-Use the Transform and Rotation tools or the Transform component to position the dog in a good position for patrolling — and to obstruct the Player reaching a star! 
+Use the Transform and Rotation tools or the Transform component to position the dog in a good position for patrolling — and to obstruct the Player reaching a star! Place the Dog at the **start** of its patrol.
 
 **Tip:** To see your map in a top-down view, right-click where it says **Persp** in the top right of the Scene view and choose **Top**. To return to the normal view, right-click on **Top** and choose **Free**.
 
@@ -61,57 +61,64 @@ With the Dog GameObject selected, add a new Script component and name it `Patrol
 
 --- task ---
 
-Open the **PatrolController** script and create a `patrolSpeed` variable. Create another two public variables for the `minPosition` and `maxPosition` of the patrol space.
+Open the **PatrolController** script and create a public `patrolSpeed` variable. Create another public variable for the maximum distance you want the Dog to move - call it `maxMovement`. You also need a final variable to store the start position, this will be a `Vector3` called `startPosition`.
 
 --- code ---
 ---
 language: cs
-filename: DogController.cs
+filename: PatrolController.cs
 line_numbers: true
 line_number_start: 5
 line_highlights: 7-9
 ---
-public class DogController : MonoBehaviour
+public class PatrolController : MonoBehaviour
 {
     public float patrolSpeed = 3.0f;
-    public float minPosition = -4.0f;
-    public float maxPosition = 4.0f;
+    public float maxMovement = 4.0f;
+    public Vector3 startPosition;
 --- /code ---
 
 --- /task ---
 
 --- task ---
 
-Add code to the `Update` method so the Dog moves foward until the `maxPosition` is reached, then turns `180` degrees and moves forward again until the minimum positon is reached. 
+Add code to the `Start()` and `Update()` methods so the Dog moves forward until the distance from its start position is **greater than** `maxMovement`.
+
+First the `Start()` method is used to set the `startPosition` when the game starts.
+
+`Vector3.Distance()` uses the current position vector and the `startPosition` to calculate the distance the Dog has travelled.
+
+When the max movement is reached the Dog turns `180` degrees and the `startPosition` variable is updated to the current position. The Dog then moves forward again until the maximum distance has been reached, this process repeats to create the patrol behaviour.
 
 --- code ---
 ---
 language: cs
-filename: DogController.cs - Update()
+filename: DogController.cs
 line_numbers: true
-line_number_start: 17
-line_highlights: 19-31
+line_number_start: 12
+line_highlights: 14, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30
 ---
-void Update()
+    void Start()
+    {
+        startPosition = transform.position;
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         CharacterController controller = GetComponent<CharacterController>();
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         controller.SimpleMove(forward * patrolSpeed);
+        
+        float distance = Vector3.Distance(transform.position, startPosition);
 
-        if (transform.position.x > maxPosition)
+        if (distance > maxMovement)
         {
             transform.Rotate(0, 180, 0);
-            transform.position = new Vector3(maxPosition, transform.position.y, transform.position.z);
-        }
-        else if (transform.position.x < minPosition)
-        {
-            transform.Rotate(0, 180, 0);
-            transform.position = new Vector3(minPosition, transform.position.y, transform.position.z);
+            startPosition = transform.position;
         }
     }
 --- /code ---
-
-Setting the `transform.position` makes sure the Dog isn't past the limit when they turn around. If you don't do this, you might find that the Dog 'glitches' back and forward. 
 
 Save your script and return to the Unity Editor.
 
@@ -121,11 +128,11 @@ Save your script and return to the Unity Editor.
 
 **Test:** Play your game and check that the Dog makes it harder to reach a star quickly. 
 
-Track the movement of the Dog. If the patrol length is not right for your scene, you can adjust the Min Position and Max Position in the Inspector whilst the game is playing. 
+Track the movement of the Dog. If the patrol length is not right for your scene, you can adjust the Max Movement in the Inspector whilst the game is playing. 
 
-![The Min Position and Max Position public variables in the Inspector.](images/position-variables.png)
+![The Max Movement public variable in the Inspector.](images/position-variables.png)
 
-**Tip:** Remember that variables edited in Play mode are not saved after exiting Play mode so make a note of the positions you like best then exit Play mode and go back to your script to update the values in your `minPosition` and `maxPosition` variables. Save your script then return to the Unity Editor. 
+**Tip:** Remember that variables edited in Play mode are not saved after exiting Play mode so make a note of the movement length you like best then exit Play mode and set the variable in the Inspector.
 
 ![Game view showing the Player waiting for the dog to pass before collecting the star then waiting for the dog to pass before exiting the enclosed star hiding place.](images/dog-patrol-game.gif)
 
@@ -135,9 +142,9 @@ Now that the position and path of the patrolling dog is decided, it's time to ma
 
 --- task ---
 
-In the Project window, navigate to the **Animation** folder. Right-click and go to **Create** then select **Animation Controller** and name your new animation controller `PatrolRun`.
+In the Project window, navigate to the **Animation** folder and then the **Animator** folder. Right-click and go to **Create** then select **Animation Controller** and name your new animation controller `PatrolRun`.
 
-![The Animation folder in the Project window with the new PatrolRun animator added alongside the IdleWalk animator from Explore a 3D world project.](images/patrol-animator.png)
+![The Animators folder in the Project window with the new PatrolRun animator added alongside the IdleWalk animator from Explore a 3D world project.](images/patrol-animator.png)
 
 --- /task ---
 

@@ -4,6 +4,10 @@ Time
 
 Collect 3 stars to finish the game. How quick will you be? Press 'ready' to start the timer.
 
+Ready
+
+Start is called before the first frame update
+
 Time when the button is pressed
 
 An integer whole number
@@ -12,6 +16,8 @@ Star
 
 Time when the button is pressed
 
+Update is called once per frame
+
 No movement
 
 Hi there! I can help you. Have my turbo to move faster.
@@ -19,3 +25,4 @@ Hi there! I can help you. Have my turbo to move faster.
 Turbo shield on NPC
 
 Turbo shield on Player
+

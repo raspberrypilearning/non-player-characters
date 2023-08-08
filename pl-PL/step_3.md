@@ -37,7 +37,7 @@ Double-click on the **GamemasterController** script to open it in your script ed
 
 --- code ---
 ---
-language: csharp filename: GamemasterController.cs line_numbers: true line_number_start: 1
+language: cs filename: GamemasterController.cs line_numbers: true line_number_start: 1
 line_highlights: 4
 ---
 using System.Collections; using System.Collections.Generic; using UnityEngine; using TMPro; --- /code ---
@@ -165,7 +165,7 @@ Save your script and return to the Unity Editor.
 
 --- task ---
 
-From the Hierarchy window, select the **Button GameObject**, then go to the Inspector window **On Click ()** property and click on the **+**.
+From the Hierarchy window, select the **Button GameObject** inside of **Gamemaster** and **Canvas**, then go to the Inspector window **On Click ()** property and click on the **+**.
 
 ![The OnClick component for the Button in the Inspector window with '+' icon highlighted in the botton right corner.](images/add-on-click.png)
 
@@ -205,7 +205,7 @@ public class StarPlayer : MonoBehaviour
 
 Change the code in your `Update` method to only update the time if the button has been pressed and stars are less than three.
 
-`Time.time` starts when the game begins. Minus the `startTime` from `Time.time` to display the elapsed time since the button was pressed:
+`Time.time` starts when the game begins. Subtract the `startTime` from `Time.time` to display the elapsed time since the button was pressed:
 
 --- code ---
 ---
@@ -232,6 +232,8 @@ Save your script and return to the Unity Editor.
 Select the **Player** and go to the **Star Player (script)** component. Click on the circle next to Gamemaster and choose the **Gamemaster GameObject**:
 
 ![The Inspector window with 'Gamemaster' showing in the 'Gamemaster' field for the Star Player script.](images/Npc-variable.png)
+
+This will add your Gamemaster's controller script to your player's `StarPlayer` script.
 
 --- /task ---
 
@@ -308,7 +310,7 @@ public class GamemasterController : MonoBehaviour
 
 --- /task ---
 
-You can use a `for` loop to perform the same action on each item in an array.
+You can use a `foreach` loop to perform the same action on each item in an array.
 
 --- task ---
 

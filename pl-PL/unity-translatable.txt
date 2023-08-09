@@ -14,11 +14,21 @@ Time:
 
 patrolSpeed
 
+PatrolController
+
+maxMovement
+
+startPosition
+
 minPosition 
 
 maxPosition
 
 controller
+
+FollowController
+
+layer
 
 isFollowing
 

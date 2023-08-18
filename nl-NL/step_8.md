@@ -1,19 +1,19 @@
-## Upgrade your project
+## Verbeter je project
 
-Well done, you have finished your minigame! Now think about ways you could upgrade your game to change the difficulty, add other collectables and NPCs, or develop the world with extra scenery. You could ask people to play your game and watch them play or ask them for feedback.
+Goed gedaan, je hebt je minigame voltooid! Bedenk nu manieren waarop je je spel kunt upgraden om de moeilijkheidsgraad te veranderen, andere verzamelobjecten en NPC's toe te voegen, of de wereld te ontwikkelen met extra landschappen. Je zou mensen kunnen vragen om je game te spelen en ze te zien spelen of om feedback te vragen.
 
-You could:
-+ Use the Enemy tag to write code that ends the game or adds time penalties if the enemies touch the Player
-+ Add sound effects to the characters when their events are triggered
-+ Add more allies with child GameObjects that help in other ways such as: destroying enemies, protecting the player, or removing walls
+Je kunt:
++ Vijandelijke tag gebruiken om code te schrijven die het spel beëindigt of voeg tijdboetes toe als de vijanden de speler raken
++ Geluidseffecten toevoegen aan de personages wanneer hun gebeurtenissen worden getriggerd
++ Meer bondgenoten toevoegen met onderliggende GameObjects die op andere manieren helpen, zoals: vijanden vernietigen, de speler beschermen of muren verwijderen
 
 --- collapse ---
 
 ---
-title: Completed project
+title: Voltooid project
 ---
 
-You can download the [completed project here](https://rpf.io/p/en/non-player-characters-get){:target="_blank"}.
+Je kunt het [voltooide project hier](https://rpf.io/p/en/non-player-characters-get){:target="_blank"} downloaden.
 
 <iframe allowtransparency="true" width="710" height="450" src="https://non-player-characters-extended.rpfilt.repl.co" frameborder="0"></iframe>
 

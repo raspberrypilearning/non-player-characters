@@ -1,32 +1,32 @@
 ---
-title: Non-player characters
+title: Personages die geen speler zijn (NPC)
 hero_image: images/banner.png
-description: Create 3D non-player characters to interact with, avoid, and collect power-ups from
-meta_title: Learn Unity | Game development  | Non-player characters
-meta_description: Learn Unity game development with the Raspberry Pi Foundation. Create 3D non-player characters in Unity to interact with, avoid, and collect from.
+description: Maak 3D-personages die geen speler zijn om mee te communiceren, te ontwijken en power-ups van te verzamelen
+meta_title: Leer Unity | Spelontwikkeling | personages die geen speler zijn
+meta_description: Leer Unity game development met de Raspberry Pi Foundation. Creëer 3D niet-speler-personages in Unity om mee te communiceren, te ontwijken en van te verzamelen.
 version: 4
 listed: true
 copyedit: true
 last_tested: '2021-03-26'
 steps:
   - 
-    title: You will make
+    title: Wat ga je maken
   - 
-    title: Gamemaster NPC
+    title: Gamemaster-NPC
   - 
-    title: Controlling the game
+    title: Het spel besturen
     completion:
       - engaged
   - 
-    title: NPC patrol
+    title: NPC die patrouilleren
   - 
-    title: Follower NPC
+    title: Volger NPC
   - 
-    title: NPC allies
+    title: NPC bondgenoten
     completion:
       - internal
   - 
-    title: Quick quiz
+    title: Snelle quiz
     knowledge_quiz:
       path: quiz1
       version: 1
@@ -35,6 +35,6 @@ steps:
     completion:
       - external
   - 
-    title: Upgrade your project
+    title: Verbeter je project
   - 
-    title: What next?
+    title: Wat kun je verder nog doen?

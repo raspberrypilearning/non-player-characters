@@ -1,59 +1,59 @@
-## Follower NPC
+## Volger NPC
 
 <div style="display: flex; flex-wrap: wrap">
 <div style="flex-basis: 200px; flex-grow: 1; margin-right: 15px;">
-An NPC that follows the Player can be an obstacle — and very annoying! 
+Een NPC die de speler volgt kan een obstakel zijn - en erg vervelend! 
 </div>
 <div>
-![The Player trying to get past the Dog and the Dog reacting to the collision by then following the Player around.](images/dog-following.gif){:width="300px"}
+![de speler die voorbij de hond probeert te komen en de hond reageert op de botsing door vervolgens de speler te volgen.](images/dog-following.gif){:width="300px"}
 </div>
 </div>
 
 --- task ---
 
-Drag another Dog into the Scene view and into a position that would be hard to navigate around.
+Sleep een andere hond naar de Scene view en naar een positie waar het moeilijk rond navigeren is.
 
-![The Scene view showing a second dog. This dog is situated in a small gap between two walls.](images/follower-dog.png)
-
---- /task ---
-
---- task ---
-
-With the Dog selected, go to the Inspector window and **Add Component**. Choose the **Character Controller**. Position and size the controller so it covers the whole of your Dog.
-
-![The Character Controller component with the Center positioned at x = 0, y = 1, and z = 0, radius = 1, and height = 2.](images/char-coll-dog.png)
+![De Scene View toont een tweede hond. Deze hond bevindt zich in een kleine opening tussen twee muren.](images/follower-dog.png)
 
 --- /task ---
 
 --- task ---
 
-Click on **Add Component** and add a **Box Collider** to the Dog so that the Player cannot walk through, or climb on top of, the Dog. Change the y Center and Size:
+Selecteer de hond en ga naar het venster Inspector en **Add Component**. Kies de **Character Controller**. Bepaal de plaats en grootte van de controller zodat deze je hele hond bedekt.
 
-![The Box Collider component with values changed from defaults to Center y = 1 and Size y = 2.](images/box-collider.png)
-
---- /task ---
-
---- task ---
-
-Go to the **Add Component** button again and add a second **Box Collide** to the Dog.
-
-This Box Collider will use `IsTrigger` to make the Dog follow the Player if the Player gets close enough to draw the Dog's attention. This Box Collider needs to be big enough that the Player can't easily sneak past:
-
-![The Box Collider component with 'Is Trigger' ticked, Center y = 0.5 and Size x = 3, y = 1, and z = 3.](images/dog-box-comp.png)
-
-![The Scene view showing the dog with a Character Collider fitting around its body and the Box Collider much larger on the x- and y-axis.](images/dog-colliders.png)
+![De Character Controller-component met het midden gepositioneerd op x = 0, y = 1 en z = 0, radius = 1 en height = 2.](images/char-coll-dog.png)
 
 --- /task ---
 
 --- task ---
 
-With the new Dog GameObject selected, add a new Script component and name it `FollowController`.
+Klik op **Add Component** en voeg een **Box Collider** toe aan de hond zodat de speler niet door de hond kan lopen of erop kan klimmen. Wijzig het y Center (midden) en Size (grootte):
+
+![De Box Collider component met waarden gewijzigd van default naar Center y = 1 en Size y = 2.](images/box-collider.png)
 
 --- /task ---
 
 --- task ---
 
-Double-click on the **FollowController** script and create a public GameObject variable. Add code so that the script can access the Player attributes:
+Ga opnieuw naar de knop **Add Component** en voeg een tweede **Box Collide** toe aan de hond.
+
+Deze Box Collider gebruikt `IsTrigger` om de hond de speler te laten volgen als de speler dichtbij genoeg komt om de aandacht van de hond te trekken. Deze Box Collider moet groot genoeg zijn zodat de speler er niet gemakkelijk langs kan sluipen:
+
+![De component Box Collider met 'Is Trigger' aangevinkt, midden y = 0,5 en grootte x = 3, y = 1 en z = 3.](images/dog-box-comp.png)
+
+![De Sccene view toont de hond met een Character Collider dicht rond zijn lichaam en de veel grotere Box Collider op de x- en y-as.](images/dog-colliders.png)
+
+--- /task ---
+
+--- task ---
+
+Voeg, met het nieuwe Dog GameObject geselecteerd, een nieuwe scriptcomponent toe en noem deze `FollowController`.
+
+--- /task ---
+
+--- task ---
+
+Dubbelklik op het script **FollowController** en maak een public GameObject-variabele. Voeg code toe zodat het script toegang heeft tot de Player-attributen:
 
 --- code ---
 ---
@@ -69,7 +69,7 @@ public class FollowController : MonoBehaviour
 
 --- task ---
 
-Add a line in the Update method so that the dog will always look at the Player:
+Voeg een regel toe in de Update-methode zodat de hond altijd naar de speler kijkt:
 
 --- code ---
 ---
@@ -83,33 +83,33 @@ line_highlights: 18
     }
 --- /code ---
 
-Save your script and return to the Unity Editor.
+Sla je script op en ga terug naar de Unity Editor.
 
 --- /task ---
 
 --- task ---
 
-Click on your second dog in the Hierarchy and scroll down in the Inspector to see the **FollowController** script in the window.
+Klik op je tweede hond in de Hierarchy en scroll naar beneden in de Inspector om het **FollowController** script in het venster te zien.
 
-Click on the circle next to Player and select the **Player GameObject** from the menu:
+Klik op de cirkel naast Player en selecteer het **Player GameObject** in het menu:
 
-![The Follow Controller script component with Player GameObject.](images/script-comp.png)
-
---- /task ---
-
---- task ---
-
-**Test:** Play your minigame. Make sure you can't walk through the Dog. Check that the Dog continuously rotates to face the Player.
-
-![The Player running past the Dog; the Dog rotates to face the Player. The Player can't walk throguh the Dog.](images/dog-rotate-player.gif)
-
-Exit Play mode.
+![De Follow Controller-scriptcomponent met Player GameObject.](images/script-comp.png)
 
 --- /task ---
 
 --- task ---
 
-Open the **FollowController** script and create an `IsFollowing` variable set to `false`.
+**Test:** Speel je minigame. Zorg ervoor dat je niet door de hond kunt lopen. Controleer of de hond continu draait om naar de speler te kijken.
+
+![De speler die langs de hond rent; de hond draait zich naar de speler toe. De speler kan niet door de hond lopen.](images/dog-rotate-player.gif)
+
+Sluit de afspeelmodus af.
+
+--- /task ---
+
+--- task ---
+
+Open het **FollowController** script en maak een `IsFollowing` variabele ingesteld op `false`.
 
 --- code ---
 ---
@@ -119,7 +119,7 @@ line_highlights: 8
 public class FollowController : MonoBehaviour
 { public GameObject Player; public bool isFollowing = false; --- /code ---
 
-Add a method that triggers when the Player collides with the Dog. This method will set `IsFollowing` to `true`:
+Voeg een methode toe die wordt geactiveerd wanneer de speler in botsing komt met de hond. Deze methode stelt `IsFollowing` in op `true`:
 
 --- code ---
 ---
@@ -142,7 +142,7 @@ public class FollowController : MonoBehaviour
 
 --- task ---
 
-Create three new variables to set the mechanics of the follow action:
+Maak drie nieuwe variabelen om de werking van de volgactie in te stellen:
 
 --- code ---
 ---
@@ -156,11 +156,11 @@ public class FollowController : MonoBehaviour
 
 --- task ---
 
-Add code to the `Update` method to move the Dog towards the Player using `SimpleMove`.
+Voeg code toe aan de `Update` methode om de hond naar de speler te verplaatsen met `SimpleMove`.
 
-Subtracting the Follower's position vector from the Player's position vector with `Player.transform.position - transform.position` gives the direction and distance between them. The `Vector3.Normalize` method turns this into a single unit vector, which can be used with `SimpleMove`.
+Door de positievector van de Volger af te trekken van de positievector van de Speler met `Player.transform.position - transform.position` krijg je de richting en afstand tussen deze twee personages. De methode `Vector3.Normalize` verandert dit in een enkele eenheidsvector, die kan worden gebruikt met `SimpleMove`.
 
-The Dog should only move at a distance from the Player so that the Dog doesn't try to move into the same space as the Player.
+De hond mag zich alleen op een afstand van de speler verplaatsen, zodat de hond niet probeert om naar dezelfde ruimte als de speler te gaan.
 
 --- code ---
 ---
@@ -183,97 +183,97 @@ line_highlights: 30-39
     }
 --- /code ---
 
-Save your script and return to the Unity Editor.
+Sla je script op en ga terug naar de Unity Editor.
 
 --- /task ---
 
---- task --- **Test:** Play your Scene and walk up to the Dog so that you are close enough to trigger the event, then walk away. Check that the Dog follows you.
+--- task --- **Test:** Speel je scène af en loop naar de hond toe zodat je dichtbij genoeg bent om de gebeurtenis te activeren, en loop dan weg. Controleer of de hond je volgt.
 
-![The Dog follows the Player once it has entered bounding box.](images/dog-following.gif)
+![De hond volgt de speler zodra deze in het selectiekader is gekomen.](images/dog-following.gif)
 
-Exit Play mode.
+Sluit de afspeelmodus af.
 
 --- /task ---
 
-Animation Controllers can have more than one animation. The Follower Dog will need animations for when idle and when moving.
+Animation Controllers kunnen meer dan één animatie hebben. De volg hond heeft animaties nodig zowel voor wanneer hij niet actief als wanneer hij beweegt.
 
 --- task ---
 
-In the Project window, select the **Animators** folder inside of **Animation**. Right-click then create a new **Animation Controller** called `FollowerMove`.
+Selecteer in het projectvenster de map **Animators** in **Animation**. Klik met de rechtermuisknop en maak vervolgens een nieuwe **Animation Controller** met de naam `FollowerMove`.
 
-Click on the **Dog** and go to the Inspector window. Drag the **FollowerMove** controller to the **Controller** property in the Animator component:
+Klik op de **Dog** en ga naar het Inspector-venster. Sleep de controller **FollowerMove** naar de eigenschap **Controller** in de component Animator:
 
-![The Animator component with 'FollowMove' in the Controller property.](images/animator-follow.png)
-
---- /task ---
-
---- task ---
-
-Double-click on the **FollowerMove** controller to open it in the Animation window. Drag the **Dog_Idle** animation into the grid and place it near the green box marked 'Entry':
-
-![The Animator showing the green 'Entry' box with orange 'Dog_Idle' box and an arrow transitioning from 'Entry' to 'Dog_Idle'.](images/dog-idle.png)
+![De Animator-component met 'FollowMove' in de eigenschap Controller.](images/animator-follow.png)
 
 --- /task ---
 
 --- task ---
 
-**Test:** Play your minigame and check that the Dog animates when idle.
+Dubbelklik op de controller **FollowerMove** om deze te openen in het animatievenster. Sleep de animatie **Dog_Idle** naar het raster en plaats deze in de buurt van het groene vak 'Entry':
 
-Exit Play mode.
-
---- /task ---
-
-The Dog needs a different animation for when it is moving.
-
---- task ---
-
-Drag the **Dog_Run** animation into the Animator window for the **FollowerMove** controller.
-
-Right-click on **Dog_Idle** and select **Make Transition** and connect the transition to **Dog_Run**. Right-click on **Dog_Run** and select **Make Transition** and connect the transition to **Dog_Idle** so you have transitions in both directions.
-
-![The Animator window with new 'Dog_Run' grey box and arrows going between the idle and run boxes in both directions.](images/idle-run-animator.png)
+![De animator toont het groene vak 'Entry' met het oranje vak 'Dog_Idle' en een pijl die overgaat van 'Entry' naar 'Dog_Idle'.](images/dog-idle.png)
 
 --- /task ---
 
 --- task ---
 
-Go to the **Parameters** tab and click on the drop-down arrow next to the '+'. Choose **bool** and name your new variable `isRunning`.
+**Test:** Speel je minigame en controleer of de hond beweegt als hij inactief is.
 
-![The Animator window with the Parameters tab selected in the top left. The '+' button is extended with optin 'bool' selected.](images/animator-parameters.png)
+Sluit de afspeelmodus af.
 
-![The Animator window with the Parameters tab selected and the new parameter called 'isRunning' appears in the list.](images/isRunning-param.png)
+--- /task ---
+
+De hond heeft een andere animatie nodig wanneer hij beweegt.
+
+--- task ---
+
+Sleep de **Dog_Run** animatie naar het Animator-venster voor de **FollowerMove** controller.
+
+Klik met de rechtermuisknop op **Dog_Idle** en selecteer **Make Transition** en verbind de transitie met **Dog_Run**. Klik met de rechtermuisknop op **Dog_Run** en selecteer **Make Transition** en verbind de overgang met **Dog_Idle** zodat je overgangen in beide richtingen hebt.
+
+![Het Animator-venster met het nieuwe grijze vak 'Dog_Run' en pijlen die in beide richtingen tussen de vakken Idle en Run gaan.](images/idle-run-animator.png)
 
 --- /task ---
 
 --- task ---
 
-Go to the Animator window and click on the transition arrow from Dog_Idle to Dog_Run:
+Ga naar het tabblad **Parameters** en klik op de vervolgkeuzepijl naast de '+'. Kies **bool** en noem je nieuwe variabele `isRunning`.
 
-![The Animator window with a transiton arrow pointing from Dog_Idle to Dog_Run coloured in blue to show it has been selected.](images/select-transition-out.png)
+![Het venster Animator met het tabblad parameters linksboven geselecteerd. De '+' knop is uitgebreid met optie 'bool' geselecteerd.](images/animator-parameters.png)
 
-In the Inspector window for that transition, go to the Conditions component and click on the **+**. The condition should read `isRunning` is `true`:
-
-![The Inspector with Conditions showing 'IsRunning' in the left box and 'true' in the right box.](images/condition-istrue.png)
-
-Uncheck the 'Has Exit Time' box so that the animation transitions straight away:
-
-![The Has Exit Time box unchecked.](images/exit-time.png)
+![Het Animator-venster met het tabblad Parameters geselecteerd en de nieuwe parameter genaamd 'isRunning' verschijnt in de lijst.](images/isRunning-param.png)
 
 --- /task ---
 
 --- task ---
 
-Select the transition arrow from Dog_Run to Dog_Idle and follow the same steps. Uncheck the 'Has Exit Time' box, but this time add the condition `isRunning` is `false`:
+Ga naar het Animator-venster en klik op de overgangspijl van Dog_Idle naar Dog_Run:
 
-![The Has Exit Time box unchecked.](images/exit-time.png)
+![Het Animator-venster met een overgangspijl die wijst van Dog_Idle naar Dog_Run, blauw gekleurd om aan te geven dat deze is geselecteerd.](images/select-transition-out.png)
 
-![The Inspector with Conditions showing 'Is Running' in the left box and 'false' in the right box.](images/condition-isfalse.png)
+Ga in het Inspector venster voor die overgang naar de component Conditions en klik op de **+**. De voorwaarde moet zijn `isRunning` is `true`:
+
+![De Inspector met voorwaarden met 'IsRunning' in het linkervak en 'true' in het rechtervak.](images/condition-istrue.png)
+
+Schakel het selectievakje 'Has Exit Time' uit zodat de animatie meteen overschakelt:
+
+![Het vakje Has Exit Time niet aangevinkt.](images/exit-time.png)
 
 --- /task ---
 
 --- task ---
 
-Open the **FollowController** script and create an **Animator variable**. Add code to the `Start` method to set `isRunning` to `false`:
+Selecteer de overgangspijl van Dog_Run naar Dog_Idle en volg dezelfde stappen. Schakel het selectievakje 'Has Exit Time' uit, maar voeg deze keer de voorwaarde `isRunning ` is `false` toe:
+
+![Het vakje Has Exit Time niet aangevinkt.](images/exit-time.png)
+
+![De Inspector met voorwaarden 'Is Running' in het linkervak en 'false' in het rechtervak weergegeven.](images/condition-isfalse.png)
+
+--- /task ---
+
+--- task ---
+
+Open het **FollowController** script en maak een **Animator-variable** aan. Voeg code toe aan de `Start` -methode om `isRunning` op `false` in te stellen:
 
 --- code ---
 ---
@@ -294,7 +294,7 @@ line_highlights: 21, 25-26
 
 --- task ---
 
-Update the `if (isFollowing)` code to control the animation:
+Werk de `if (isFollowing)` code bij om de animatie te besturen:
 
 --- code ---
 ---
@@ -322,25 +322,25 @@ line_highlights: 37, 42-45
     }
 --- /code ---
 
-Save your script and return to the Unity Editor.
+Sla je script op en ga terug naar de Unity Editor.
 
 --- /task ---
 
 --- task ---
 
-**Test:** Play your minigame and watch what happens in the animator as you collide with and run from the Dog.
+**Test:** Speel je minigame en kijk wat er gebeurt in de animator als je in botsing komt met en wegrent van de hond.
 
-**Tip:** To see the animation effect better whilst testing in Play mode:
-+ Click on the Dog in the Hierarchy window and then go to the Follow Controller script in the Inspector window. Slow the Dog's Follow Speed to `0.1`.
-+ Click on the Player in the Hierarchy window and then go to Main Camera child GameObject. In the Inspector window change the z position of the camera to `-10`.
+**Tip:** Om het animatie-effect beter te zien tijdens het testen in de afspeelmodus:
++ Klik op de hond in het Hierarchy venster en ga vervolgens naar het Follow Controller script in het Inspector venster. Vertraag de volgsnelheid van de hond naar `0.1`.
++ Klik op de speler in het Hierarchy venster en ga vervolgens naar Main Camera child GameObject. Verander in het Inspector venster de z-positie van de camera naar `-10`.
 
-![Play mode showing the Animator window changing states between idle and run, matching the Game view showing the dog waiting behind the Player and running to catch up.](images/dog-anim-test.gif)
+![De afspeelmodus toont het venster Animator die de status verandert tussen Idle en Run, en komt overeen met de spelweergave die de hond laat zien die wacht en achter de speler aan loopt om hem in te halen.](images/dog-anim-test.gif)
 
-**Tip:** Make sure there are no points in your game where the follower dog can completely trap the player.
+**Tip:** Zorg ervoor dat er geen punten in je spel zijn waar de volghond de speler volledig in de val kan lokken.
 
-![The Player character boxed in by the dog with no way to escape.](images/trapped.png)
+![Het Player-personage dat door de hond is ingesloten en niet kan ontsnappen.](images/trapped.png)
 
-Exit Play mode.
+Sluit de afspeelmodus af.
 
 --- /task ---
 

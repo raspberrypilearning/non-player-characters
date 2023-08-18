@@ -1,10 +1,10 @@
-## What next?
+## Wat nu?
 
-If you are following the [Introduction to Unity](https://projects.raspberrypi.org/en/raspberrypi/unity-intro){:target='_blank'} pathway, you can move on to the [World builder](https://projects.raspberrypi.org/en/projects/world-builder){:target='_blank'} project. In this project, you will design and build you own 3D world for a player to experience.
+Als je het [Inleiding tot Unity](https://projects.raspberrypi.org/en/raspberrypi/unity-intro){:target='_blank'}-pad volgt, kun je doorgaan naar het [Bouw een wereld](https://projects.raspberrypi.org/en/projects/world-builder){:target='_blank'}-project. In dit project ontwerp en bouw je je eigen 3D-wereld die een speler kan ervaren.
 
 --- print-only ---
 
-![WorldBuilder project](images/worldbuilder-project.png)
+![Bouw een wereld project](images/worldbuilder-project.png)
 
 --- /print-only ---
 

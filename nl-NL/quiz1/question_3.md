@@ -2,29 +2,29 @@
 --- question ---
 
 ---
-legend: Question 3 of 3
+legend: Vraag 3 van 3
 ---
 
-In a project, an Ally gives the Player a Clover GameObject.
+In een project geeft een Ally de speler een Clover GameObject.
 
-The Ally's script has two GameObjects:
-+ clover — a child GameObject on the Ally
-+ playerClover — a child GameObject on the Player
+Het script van de Ally bevat twee GameObjects:
++ clover - een child GameObject op de Ally
++ playerClover - een child GameObject op de speler
 
-Which code should be added to the Ally's `OnTriggerEnter` method to make the clover appear to move from the Ally to the Player?
+Welke code zou moeten worden toegevoegd aan de Ally's ` OnTriggerEnter `-methode om het te laten lijken dat de klaver van de Ally naar de speler beweegt?
 
 --- choices ---
 
 - ( )
 
 ```
-clover.SetActive(true);
+clover.SetActive(true); 
 playerClover.SetActive(false);
 ```
 
   --- feedback ---
 
-  No, this code will make the clover appear on Ally and not on the Player.
+  Nee, deze code zorgt ervoor dat de klaver wordt weergegeven op Ally en niet op de speler.
 
   --- /feedback ---
 
@@ -37,7 +37,7 @@ playerClover.SetActive(false);
 
   --- feedback ---
 
-  No, `SetActive(false)` will hide a GameObject, but you don't want both clovers hidden.
+  Nee, ` SetActive(false)` zal een GameObject verbergen, maar je wilt niet dat beide klavers verborgen zijn.
 
   --- /feedback ---
 
@@ -50,7 +50,7 @@ playerClover.SetActive(true);
 
   --- feedback ---
 
-  Yes, this code will hide the clover on the Ally and show the clover that is a child of the Player.
+  Ja, deze code zal de klaver op de Ally verbergen en toont de klaver die een child van de speler is.
 
   --- /feedback ---
 
@@ -63,7 +63,7 @@ playerClover.SetActive(true);
 
   --- feedback ---
 
-  No, `SetActive(true)` will show a GameObject, but you don't want both clovers visible.
+  Nee, ` SetActive(true)` zal een GameObject laten zien, maar je wilt niet dat beide klavers zichtbaar zijn.
 
   --- /feedback ---
 

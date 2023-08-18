@@ -1,30 +1,30 @@
-## You will make
+## Wat ga je maken
 
-Create 3D non-player characters to interact with, avoid, and collect from.
+Maak 3D-personages die geen speler zijn om mee te communiceren, te ontwijken en van te verzamelen.
 
-This project is brought to you with generous support from [Unity Technologies](https://unity.com/){:target="_blank"}.  These [projects](https://projects.raspberrypi.org/en/pathways/unity-intro){:target="_blank"} offer young people the opportunity to take their first steps in creating virtual worlds using Real-Time 3D.
+Dit project wordt je aangeboden met steun van [Unity Technologies](https://unity.com/){:target="_blank"}.  Deze [projecten](https://projects.raspberrypi.org/en/pathways/unity-intro){:target="_blank"} bieden jongeren de kans om hun eerste stappen te zetten in het maken van virtuele werelden met gebruik van Real-Time 3D.
 
-This project follows on from [Star collector](https://projects.raspberrypi.org/en/projects/star-collector){:target='_blank'}. You can use the Unity scene that you created in that project as the basis for this project. We’ve also provided a starter project that you can use.
+Dit project is een vervolg op [Sterren Verzamelaar](https://projects.raspberrypi.org/en/projects/star-collector){:target='_blank'}. Je kunt de Unity-scene die je in dat project hebt gemaakt gebruiken als basis voor dit project. We hebben ook een startersproject dat je kunt gebruiken.
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
-A <span style="color: #0faeb0">**non-player character (NPC)**</span> is a character that is not controlled by the person playing the game. NPCs can be set up for the player to interact with, avoid, compete with, or are simply used to populate the game world.
+Een <span style="color: #0faeb0">**niet-speler personage (NPC)**</span> is een personage dat niet wordt bestuurd door de persoon die het spel speelt. NPC's kunnen worden ingesteld zodat de speler ermee kan communiceren, ze moet proberen te ontwijken, of ermee concurreren, of gewoon worden gebruikt om de spelwereld te bevolken.
 </p>
 
-You will:
-+ Add non-player characters (NPCs) with animation and movement
-+ Interact with NPCs using simple dialog and buttons
-+ Use child GameObjects to allow players to hold other GameObjects
+Je gaat:
++ Voeg niet spelers personages (NPC's) toe met animatie en beweging
++ Interactie met NPC's met behulp van een eenvoudige dialoog en knoppen
++ Gebruik onderliggende GameObjects om spelers andere GameObjects te laten vasthouden
 
 --- no-print ---
 
-### Play ▶️
+### Afspelen ▶️
 
 --- task ---
 
-Click on the embedded project. Interact with the NPCs:
-+ How does the cat control the game?
-+ What changes are made when you interact with the rat?
-+ Which movement patterns do the dogs have? How do they differ?
+Klik op het ingesloten project. Communiceer met de NPC's:
++ Hoe controleert de kat het spel?
++ Welke wijzigingen worden aangebracht wanneer je met de rat communiceert?
++ Welke bewegingspatronen hebben de honden? Hoe verschillen ze?
 
 <iframe allowtransparency="true" width="710" height="450" src="https://non-player-characters-basic.rpfilt.repl.co" frameborder="0"></iframe> --- /task --- --- /no-print ---
 

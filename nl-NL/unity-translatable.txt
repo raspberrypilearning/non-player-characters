@@ -1,18 +1,18 @@
 canvas
 
-Player
+Speler
 
-gameStarted
+spelGestart
 
-startTime
+Starttijd
 
-PlayerReady
+Spelerklaar
 
-Stars:
+Sterren:
 
-Time:
+Tijd:
 
-patrolSpeed
+patrolSnelheid
 
 PatrolController
 
@@ -28,9 +28,9 @@ controller
 
 FollowController
 
-layer
+laag
 
-isFollowing
+IsFollowing
 
 followSpeed
 

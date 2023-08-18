@@ -1,67 +1,67 @@
-## NPC patrol
+## NPC die patrouilleren
 
 <div style="display: flex; flex-wrap: wrap">
 <div style="flex-basis: 200px; flex-grow: 1; margin-right: 15px;">
-Patrolling NPCs can be used to slow players down. Changing their path, size, position, and speed can alter the game difficulty. 
+Patrouillerende NPC's kunnen worden gebruikt om spelers te vertragen. Het veranderen van hun pad, grootte, positie en snelheid kan de moeilijkheid van het spel veranderen. 
 </div>
 <div>
-![A U-shaped set of walls with a star inside and an animated dog patrolling the entrance to make it harder to reach the star quickly.](images/dog-run.gif){:width="300px"}
+![Een U-vormige reeks muren met een ster erin en een geanimeerde hond die de ingang patrouilleert om het moeilijker te maken om de ster snel te bereiken.](images/dog-run.gif){:width="300px"}
 </div>
 </div>
 
 --- task ---
 
-Open the **Models** folder in the Project window and add a **Dog** to your scene.
+Open de map **Models** in het projectvenster en voeg een **Dog** toe aan je scene.
 
-Use the Transform and Rotation tools or the Transform component to position the dog in a good position for patrolling — and to obstruct the Player reaching a star! Place the Dog at the **start** of its patrol.
+Gebruik de Transform en Rotation tools of de Transform component om de hond in een goede positie te plaatsen om te patrouilleren — en om de speler te hinderen bij het bereiken van een ster! Plaats de hond op de **start** van zijn patrouille.
 
-**Tip:** To see your map in a top-down view, right-click where it says **Persp** in the top right of the Scene view and choose **Top**. To return to the normal view, right-click on **Top** and choose **Free**.
+**Tip:** Om jouw kaart van bovenaf te bekijken, klik je met de rechtermuisknop waar **Persp** staat in de rechterbovenhoek van de Scene view en kies je**Top**. Om terug te keren naar de normale weergave, klik met de rechtermuisknop op **Top** en kies **Free**.
 
-![The Inspector's Transform component with position x = -4, y = 0, and z = 9.5. Rotation is set to y = 90.](images/transform-dog.png)
+![De Transform-component van de Inspector met positie x = -4, y = 0, en z = 9.5. Rotation is ingesteld op y = 90.](images/transform-dog.png)
 
-![The top-down Scene view showing a dog positioned near to a star that is enclosed by walls.](images/position-dog.png)
-
---- /task ---
-
---- task ---
-
-With the Dog selected, go to the Inspector window and **Add Component**. Choose the **Character Controller**. Position and size the controller.
-
-**Tip:** Select the Dog GameObject in the Hierarchy window and press <kbd>Shift</kbd>+<kbd>F</kbd> to focus on the Dog in the Scene view.
-
-![The Character Controller component with center positioned at x = 0, y = 0.5, and z = 0, radius = 0.5 and height = 1.](images/char-coll-dog.png)
-
-![The Scene view showing the Character Controller centered on the body of the Dog.](images/scene-coll-dog.png)
+![De bovenaanzicht van de Scene view toont een hond in de buurt van een ster die door muren wordt omsloten.](images/position-dog.png)
 
 --- /task ---
 
 --- task ---
 
-Click on **Add Component** and add a **Box Collider** to the **Dog** so that the Player cannot walk through, or climb on top of, the Dog. Change the y Center and Size:
+Selecteer de Dog en ga naar het Inspector venster en **Add Component**. Kies de **Character Controller**. Plaats en bepaal de grootte van de controller.
 
-![The Box Collider component with values changed from defaults to Center y = 1 and Size y = 2. The Size x and z values have been changed to 1.5.](images/box-collider.png)
+**Tip:** Selecteer het Dog GameObject in het Hierarchy venster en druk op <kbd>Shift</kbd>+<kbd>F</kbd> om te focussen op de Dog in de Scene view.
 
---- /task ---
+![De Character Controller-component met het midden geplaatst op x = 0, y = 0.5, en z = 0, radius = 0.5 en height = 1.](images/char-coll-dog.png)
 
---- task ---
-
-As both the Dog and the Player will be moving, you will need to add a Box Collider to the **Player** so that the Dog cannot climb on top of the Player.
-
-Select the **Player GameObject** from the Hierarchy window, then click **Add Component** and add a **Box Collider**.  Change the y Center and Size:
-
-![The Box Collider component with values changed from defaults to Center y = 1 and Size y = 2. The Size x and z values have been changed to 1.5.](images/box-collider.png)
+![De Scene-weergave met de Character Controller gecentreerd op het lichaam van de hond.](images/scene-coll-dog.png)
 
 --- /task ---
 
 --- task ---
 
-With the Dog GameObject selected, add a new Script component and name it `PatrolController`.
+Klik op **Add Component ** en voeg een **Box Collider ** toe aan de **Dog** zodat de speler niet door de hond kan lopen of er bovenop kan klimmen. Wijzig het y Center (midden) en de Size (grootte):
+
+![De Box Collider component met waarden gewijzigd van default naar Center y = 1 en Size y = 2. De waarden Size (grootte) x en z zijn gewijzigd in 1.5.](images/box-collider.png)
 
 --- /task ---
 
 --- task ---
 
-Open the **PatrolController** script and create a public `patrolSpeed` variable. Create another public variable for the maximum distance you want the Dog to move - call it `maxMovement`. You also need a final variable to store the start position, this will be a `Vector3` called `startPosition`.
+Omdat zowel de hond als de speler beweegt, moet je een Box Collider toevoegen aan de **Player**, zodat de hond niet boven op de speler kan klimmen.
+
+Selecteer het **Player GameObject** in het Hierarchy venster, klik vervolgens op **Add Component** en voeg een **Box Collider** toe.  Wijzig het y Center (midden) en de Size (grootte):
+
+![De Box Collider component met waarden gewijzigd van default naar Center y = 1 en Size y = 2. De waarden Size (grootte) x en z zijn gewijzigd in 1.5.](images/box-collider.png)
+
+--- /task ---
+
+--- task ---
+
+Voeg, met het Dog GameObject geselecteerd, een nieuwe script component toe en noem deze `PatrolController`.
+
+--- /task ---
+
+--- task ---
+
+Open het script **PatrolController** en maak een openbare variabele `patrolSpeed` aan. Maak een andere openbare variabele voor de maximale afstand die je de hond wilt laten afleggen - noem deze `maxMovement`. Je hebt ook een laatste variabele nodig om de startpositie op te slaan, dit is een `Vector3` genaamd `startPosition`.
 
 --- code ---
 ---
@@ -75,13 +75,13 @@ public class PatrolController : MonoBehaviour
 
 --- task ---
 
-Add code to the `Start()` and `Update()` methods so the Dog moves forward until the distance from its start position is **greater than** `maxMovement`.
+Voeg code toe aan de methoden `Start()` en `Update()` zodat de hond vooruit beweegt totdat de afstand vanaf zijn startpositie **groter is dan** `maxMovement`.
 
-First the `Start()` method is used to set the `startPosition` when the game starts.
+Eerst wordt de `Start()` methode gebruikt om de `startPosition` in te stellen wanneer het spel start.
 
-`Vector3.Distance()` uses the current position vector and the `startPosition` to calculate the distance the Dog has travelled.
+`Vector3.Distance()` gebruikt de huidige positievector en de `startPosition` om de afstand te berekenen die de hond heeft afgelegd.
 
-When the max movement is reached the Dog turns `180` degrees and the `startPosition` variable is updated to the current position. The Dog then moves forward again until the maximum distance has been reached, this process repeats to create the patrol behaviour.
+Wanneer de maximale afstand is bereikt, draait de hond `180` graden en wordt de `startPosition` variabele bijgewerkt naar de huidige positie. De hond gaat dan weer vooruit totdat de maximale afstand is bereikt, dit proces herhaalt zich om het patrouillegedrag te creëren.
 
 --- code ---
 ---
@@ -111,76 +111,76 @@ line_highlights: 14, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30
     }
 --- /code ---
 
-Save your script and return to the Unity Editor.
+Sla je script op en ga terug naar de Unity Editor.
 
 --- /task ---
 
 --- task ---
 
-**Test:** Play your game and check that the Dog makes it harder to reach a star quickly.
+**Test:** Speel je spel en controleer of de hond het moeilijker maakt om snel een ster te bereiken.
 
-Track the movement of the Dog. If the patrol length is not right for your scene, you can adjust the Max Movement in the Inspector whilst the game is playing.
+Volg de beweging van de hond. Als de lengte van de patrouille niet geschikt is voor jouw scène, kun je tijdens het spelen van het spel de Max Movement in de Inspector aanpassen.
 
-![The Max Movement public variable in the Inspector.](images/position-variables.png)
+![De MaxMovement public variabele in de Inspector.](images/position-variables.png)
 
-**Tip:** Remember that variables edited in Play mode are not saved after exiting Play mode so make a note of the movement length you like best then exit Play mode and set the variable in the Inspector.
+**Tip:** Onthoud dat variabelen die in de afspeelmodus zijn bewerkt, niet worden opgeslagen na het verlaten van de afspeelmodus, dus noteer de bewegingslengte die je het beste bevalt, verlaat de afspeelmodus en stel de variabele in in de Inspector.
 
-![Game view showing the Player waiting for the dog to pass before collecting the star then waiting for the dog to pass before exiting the enclosed star hiding place.](images/dog-patrol-game.gif)
-
---- /task ---
-
-Now that the position and path of the patrolling dog is decided, it's time to make things more realistic with animation.
-
---- task ---
-
-In the Project window, navigate to the **Animation** folder and then the **Animator** folder. Right-click and go to **Create** then select **Animation Controller** and name your new animation controller `PatrolRun`.
-
-![The Animators folder in the Project window with the new PatrolRun animator added alongside the IdleWalk animator from Explore a 3D world project.](images/patrol-animator.png)
+![Spelweergave waarin de speler wacht tot de hond voorbij is voordat de ster wordt opgehaald en vervolgens wacht tot de hond voorbij is voordat hij de ingesloten ster-schuilplaats verlaat.](images/dog-patrol-game.gif)
 
 --- /task ---
 
+Nu de positie en het pad van de patrouillehond is bepaald, is het tijd om de dingen realistischer te maken met animatie.
+
 --- task ---
 
-Double-click on the **PatrolRun** animation controller to open it in the Animator window.
+Navigeer in het venster Project naar de map **Animation** en vervolgens naar de map **Animator**. Klik met de rechtermuisknop en ga naar **Create** en selecteer vervolgens **Animation Controller** en noem je nieuwe animatiecontroller `PatrolRun`.
 
-The patrol dog will have just one animation that will run repeatedly. From the Animation folder in the Project window, drag the **Dog_Run** animation up to the Animator window.
-
-![The Animator window with Base Layer open and a black grid showing 'Entry' in green linked by a transition arrow to 'Dog_Run' in orange.](images/dog-run-animator.png)
-
-**Tip:** If you can't see all of the boxes in the Animator window, you can click on the black grid then press the <kbd>a</kbd> key to refocus the window. Then pan left and right using <kbd>Alt</kbd>+left mouse button or zoom in and out using <kbd>Alt</kbd>+right mouse button.
+![De map Animators in het venster Project met de nieuwe PatrolRun-animator toegevoegd naast de IdleWalk-animator van een Verken een 3D-wereldproject.](images/patrol-animator.png)
 
 --- /task ---
 
 --- task ---
 
-From the Hierarchy window, select the **Dog GameObject**, then go to the Inspector window **Animator** component. Click on the circle next to Controller and select **PatrolRun** to link your animation controller.
+Dubbelklik op de **PatrolRun** animatiecontroller om deze te openen in het Animator-venster.
 
-![The Animator component with the circle for top 'Controller' property highlighted. PatrolRun is shown in the field.](images/dog-animator-component.png)
+De patrouillehond heeft slechts één animatie die steeds wordt uitgevoerd. Sleep vanuit de map Animation in het Project venster de animatie **Dog_Run** naar het Animator-venster.
+
+![Het Animator-venster met Base Layer open en een zwart raster met 'Entry' in groen, gekoppeld door een orange overgangspijl naar 'Dog_Run'.](images/dog-run-animator.png)
+
+**Tip:** als je niet alle vakken in het venster Animator kunt zien, kun je op het zwarte raster klikken en vervolgens op de <kbd>a </kbd> toets drukken om het venster opnieuw te laten scherpstellen. Beweeg vervolgens naar links en rechts met <kbd>Alt</kbd>+linkermuisknop of zoom in en uit met <kbd>Alt</kbd>+rechtermuisknop.
+
+--- /task ---
+
+--- task ---
+
+Selecteer in het Hierarchy venster het **Dog GameObject**en ga vervolgens naar het onderdeel **Animator** in het Inspector venster. Klik op de cirkel naast Controller en selecteer **PatrolRun** om je animatiecontroller te koppelen.
+
+![De Animator-component met de cirkel voor de bovenste eigenschap 'Controller' gemarkeerd. PatrolRun wordt weergegeven in het veld.](images/dog-animator-component.png)
 
 
 --- /task ---
 
 --- task ---
 
-**Test:** Play your game to see the patrol dog run across the patrol path.
+**Test:** Speel je spel om de patrouillehond over het patrouillepad te zien rennen.
 
-![The Game view showing the Dog with running animation patrolling back and forth.](images/dog-run.gif)
+![De spelweergave toont de hond die heen en weer rent.](images/dog-run.gif)
 
 --- /task ---
 
 --- task ---
 
-**Test:** Tweak your patrol dog until you are happy with the path and animation. To change the difficulty level, you can alter the Scale to make a bigger or smaller dog.
+**Test:** Pas je patrouillehond aan totdat je tevreden bent met het pad en de animatie. Om het moeilijkheidsniveau te veranderen, kun je de Scale aanpassen om een grotere of kleinere hond te maken.
 
-![The 'Transform' component for the dog showing x, y, and z values of 2 each.](images/scale-dog.png)
+![Het onderdeel 'Transform' voor de hond met x-, y- en z-waarden van elk 2.](images/scale-dog.png)
 
-![A large dog that is scaled by 2 on each access, making it harder to reach the star.](images/huge-dog.png)
+![Een grote hond die bij elke toegang twee keer zo groot wordt, waardoor het moeilijker wordt om de ster te bereiken.](images/huge-dog.png)
 
-**Debug:** If your animation isn't working, in the Inspector, check that **Apply Root Motion** is not selected for your non-player character.
+**Debuggen:** Als je animatie niet werkt, controleer dan in de Inspector of **Apply Root Motion** niet is geselecteerd voor je niet-spelerpersonage.
 
-![Apply Root Motion unchecked in the Inspector window.](images/apply-root-motion.png)
+![Apply Root Motion niet aangevinkt in het venster Inspector.](images/apply-root-motion.png)
 
-Exit Play mode.
+Sluit de afspeelmodus af.
 
 --- /task ---
 

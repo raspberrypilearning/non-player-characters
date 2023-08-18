@@ -1,28 +1,28 @@
-Stars
+Sterren
 
-Time
+Tijd
 
-Collect 3 stars to finish the game. How quick will you be? Press 'ready' to start the timer.
+Verzamel 3 sterren om het spel te voltooien. Hoe snel ben jij? Druk op 'klaar' om de timer te starten.
 
-Ready
+Klaar
 
-Start is called before the first frame update
+Start wordt aangeroepen vóór de eerste frame-update
 
-Time when the button is pressed
+Tijd dat de knop wordt ingedrukt
 
-An integer whole number
+Een getal zonder decimalen
 
-Star
+Ster
 
-Time when the button is pressed
+Tijd waarop de knop wordt ingedrukt
 
-Update is called once per frame
+Update wordt één keer per frame aangeroepen
 
-No movement
+Geen beweging
 
-Hi there! I can help you. Have my turbo to move faster.
+Hallo! Ik kan je helpen. Laat mijn turbo sneller bewegen.
 
-Turbo shield on NPC
+Turbo schild op NPC
 
-Turbo shield on Player
+Turbo Shield op speler
 

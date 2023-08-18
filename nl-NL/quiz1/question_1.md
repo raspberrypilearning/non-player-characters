@@ -1,50 +1,50 @@
-## Quick quiz
+## Snelle quiz
 
-Answer the three questions. There are hints to guide you to the correct answer.
+Beantwoord de drie vragen. Er zijn tips om je naar het juiste antwoord te leiden.
 
-When you have answered each question, click on **Check my answer**.
+Klik na het beantwoorden van elke vraag op **Controleer mijn antwoord**.
 
-Have fun!
+Veel plezier!
 
 --- question ---
 
 ---
-legend: Question 1 of 3
+legend: Vraag 1 van 3
 ---
 
-Which component do you need to add to an NPC so it can use the `SimpleMove` method?
+Welk onderdeel moet je toevoegen aan een NPC zodat het de `SimpleMove`-methode kan gebruiken?
 
 --- choices ---
 
-- ( ) A Script component
+- ( ) Een script component
 
   --- feedback ---
 
-  No, the NPC will need a Script component to control its movement, but that will not give it the `SimpleMove` method.
+  Nee, de NPC heeft een scriptcomponent nodig om zijn beweging te besturen, maar dat geeft het niet de `SimpleMove`-methode.
 
   --- /feedback ---
 
-- ( ) A Box Collider component
+- ( ) Een Box Collider component
 
   --- feedback ---
 
-  No, Box Colliders are used to control the physics of a GameObject to prevent collision or as a trigger for a collision event.
+  Nee, Box Colliders worden gebruikt om de fysica van een GameObject te besturen om botsingen te voorkomen of als een trigger voor een botsing.
 
   --- /feedback ---
 
-- (x) A Character Controller component
+- (X) Een Character Controller-component
 
   --- feedback ---
 
-  That's right, adding the Character Controller component allows the Player to use the `SimpleMove` method.
+  Dat klopt, als je de Character Controller-component toevoegt, kan de speler de `SimpleMove`-methode gebruiken.
 
   --- /feedback ---
 
-- ( ) An Animator component
+- ( ) Een Animator-component
 
   --- feedback ---
 
-  An Animator component controls how the GameObject looks. It does not provide a `SimpleMove` method for moving around.
+  Een Animator-component bepaalt hoe het GameObject eruitziet. Het biedt geen `SimpleMove `-methode om te bewegen.
 
   --- /feedback ---
 

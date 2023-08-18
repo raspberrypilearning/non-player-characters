@@ -1,39 +1,39 @@
-## Controlling the game
+## Het spel besturen
 
 <div style="display: flex; flex-wrap: wrap">
 <div style="flex-basis: 200px; flex-grow: 1; margin-right: 15px;">
-It's not fair if the time starts before the player is ready! The `Ready` button will allow the player to start the time AND activate the stars.
+Het is niet eerlijk als de tijd begint voordat de speler klaar is! Met de knop 'Klaar' kan de speler de tijd starten EN de sterren activeren.
 </div>
 <div>
-![Image of the Game view showing the NPC, Player, and text introduction with Ready button.](images/control-game.gif){:width="300px"}
+![Afbeelding van de spelweergave met de NPC, speler en inleidende tekst met de knop Klaar.](images/control-game.gif){:width="300px"}
 </div>
 </div>
 
-At the moment, the canvas is always visible. It should only be enabled when the Player is interacting with the Gamemaster.
+Op dit moment is het canvas altijd zichtbaar. Het mag alleen worden ingeschakeld wanneer de speler met de Gamemaster communiceert.
 
 --- task ---
 
-Select your **Gamemaster GameObject** and click on **Add Component** in the Inspector window then add a second **Box Collider**.
+Selecteer je **Gamemaster GameObject** en klik op ** Add Component ** in het venster Inspector en voeg vervolgens een tweede **Box Collider** toe.
 
-This Box Collider will trigger the canvas with the message and the button to be shown, so it needs to be bigger than the Box Collider that stops the Player walking into the Gamemaster:
+Deze Box Collider zal het canvas activeren met het bericht en de knop die moet worden weergegeven, dus het moet groter zijn dan de Box Collider die de speler tegenhoudt om tegen de Gamemaster op te lopen:
 
-![The Inspector window showing two colliders. The new collider has 'Is Trigger' checked and the size x = 2, y = 1, z = 2 so that it is bigger than the previously added collider.](images/both-colliders-properties.png)
+![Het Inspector venster met twee colliders. De nieuwe collider heeft 'Is Trigger' aangevinkt en de size x = 2, y = 1, z = 2 zodat deze groter is dan de eerder toegevoegde collider.](images/both-colliders-properties.png)
 
-![The Scene view showing the Gamemaster with two Box Colliders. One bigger than the other.](images/two-colliders.png)
+![De Scene view met de Gamemaster met twee Box Colliders. De ene is groter dan de andere.](images/two-colliders.png)
 
 --- /task ---
 
 --- task ---
 
-With the Gamemaster GameObject selected, add a new Script component and name it `GamemasterController`.
+Voeg, met het Gamemaster GameObject geselecteerd, een nieuwe scriptcomponent toe en noem het ` GamemasterController`.
 
-![The Inspector window with 'GamemasterController' script component.](images/gamemaster-script.png)
+![Het Inspector venster met 'GamemasterController' script component.](images/gamemaster-script.png)
 
 --- /task ---
 
 --- task ---
 
-Double-click on the **GamemasterController** script to open it in your script editor. Add code to use TMPro:
+Dubbelklik op het script **GamemasterController** om het te openen in je script editor. Voeg code toe om TMPro te gebruiken:
 
 --- code ---
 ---
@@ -46,7 +46,7 @@ using System.Collections; using System.Collections.Generic; using UnityEngine; u
 
 --- task ---
 
-Create a public canvas variable called `canvas` and add code to make sure the canvas is disabled at the start:
+Maak een openbare canvas variabele met de naam `canvas` en voeg code toe om ervoor te zorgen dat het canvas aan het begin is uitgeschakeld:
 
 --- code ---
 ---
@@ -67,7 +67,7 @@ public class GamemasterController : MonoBehaviour
 
 --- task ---
 
-Add two new methods. The first to enable the canvas when the Player is in the collider. The second to disable the canvas when the Player has moved away:
+Voeg twee nieuwe methoden toe. De eerste om het canvas in te schakelen wanneer de speler in de collider is. De tweede om het canvas uit te schakelen wanneer de speler is weggegaan:
 
 --- code ---
 ---
@@ -97,33 +97,33 @@ line_highlights: 21-35
     }
 --- /code ---
 
-Save your script and return to the Unity Editor.
+Sla je script op en ga terug naar de Unity Editor.
 
 --- /task ---
 
 --- task ---
 
-Find the **Gamemaster Canvas child GameObject** in the Hierarchy window. Drag the Canvas GameObject to the Canvas variable field in the GamemasterController script component in the Inspector.
+Zoek het **Gamemaster Canvas child Gameobject** in het Hierarchy venster. Sleep het Canvas GameObject naar het Canvas-variabele veld in het GamemasterController-script in de Inspector.
 
-![The Script component in the Inspector window with the canvas showing in the Canvas variable.](images/canvas-to-script.gif)
+![Het Script-onderdeel in het Inspector-venster met het canvas in de Canvas-variabele.](images/canvas-to-script.gif)
 
 --- /task ---
 
 --- task ---
 
-**Test:** Play your minigame, walk up to the Gamemaster and move away again. The canvas appears when the Player triggers the Gamemaster collider and disappears when the Player moves away.
+**Test:** Speel je minigame, loop naar de Gamemaster en ga weer weg. Het canvas wordt weergegeven wanneer de speler de gamemaster-collider activeert en verdwijnt wanneer de speler weggaat.
 
-![Player moving forward and canvas appearing when close to Gamesmaster.](images/canvas-appearing.gif)
+![Speler beweegt vooruit en het canvas verschijnt in de buurt van Gamesmaster.](images/canvas-appearing.gif)
 
-Exit Play mode.
+Sluit de afspeelmodus af.
 
 --- /task ---
 
-The button looks great, but needs to trigger an event when it is pressed.
+De knop ziet er geweldig uit, maar moet een gebeurtenis activeren wanneer deze wordt ingedrukt.
 
 --- task ---
 
-Open the **GamemasterController** script and create two new public variables called `gameStarted` and `startTime`:
+Open het script **GamemasterController** en maak twee nieuwe publieke variabelen met de naam `gameStarted ` en `startTime`:
 
 --- code ---
 ---
@@ -137,9 +137,9 @@ public class GamemasterController : MonoBehaviour
 
 --- task ---
 
-Create a public method called `PlayerReady` to set the game conditions when the Player has clicked the 'Ready' button.
+Maak een openbare methode met de naam `PlayerReady` om de spelvoorwaarden in te stellen wanneer de speler op de knop 'Klaar' heeft geklikt.
 
-The time at which the button was pressed needs to be stored so you can work out how long the game has been in play:
+Het tijdstip waarop de knop werd ingedrukt moet worden opgeslagen, zodat je kunt bepalen hoe lang het spel geduurd heeft:
 
 --- code ---
 ---
@@ -159,37 +159,37 @@ line_highlights: 12-17
     }
 --- /code ---
 
-Save your script and return to the Unity Editor.
+Sla je script op en ga terug naar de Unity Editor.
 
 --- /task ---
 
 --- task ---
 
-From the Hierarchy window, select the **Button GameObject** inside of **Gamemaster** and **Canvas**, then go to the Inspector window **On Click ()** property and click on the **+**.
+Selecteer in het Hierarchy venster de **Button GameObject** binnen de **Gamemaster** en **Canvas**, ga vervolgens in het Inspector venster naar **On Click ()** eigenschap en klik op **+**.
 
-![The OnClick component for the Button in the Inspector window with '+' icon highlighted in the botton right corner.](images/add-on-click.png)
+![De OnClick-component voor de knop in het Inspector-venster met het '+'-pictogram gemarkeerd in de rechterbenedenhoek.](images/add-on-click.png)
 
-Drag the **Gamemaster GameObject** from the Hierarchy window to the field underneath 'Runtime Only'. In the Function drop-down menu select **GamemasterController.PlayerReady** to join your new method to the button's click event:
+Sleep het **Gamemaster GameObject** van het Hierarchy venster naar het veld onder 'Runtime Only'. Selecteer in het Functie drop-down menu **GamemasterController.PlayerReady** om jouw nieuwe methode toe te voegen aan de klikgebeurtenis van de knop:
 
-![The OnClick component having the Gamemaster dragged into it and the PlayerReady function chosen.](images/on-click-inspector.gif)
+![De OnClick-component waarin de Gamemaster is gesleept en de PlayerReady-functie is gekozen.](images/on-click-inspector.gif)
 
-![The OnClick component for the button in the Inspector window with values 'Runtime Only', 'Gamemaster', and 'GamemasterController.PlayerReady' in the three fields.](images/on-click-inspector.png)
+![De OnClick-component voor de knop in het Inspector-venster met de waarden 'Runtime Only', 'Gamemaster' en 'GamemasterController.PlayerReady' in de drie velden.](images/on-click-inspector.png)
 
 --- /task ---
 
 --- task ---
 
-**Test:** Play your minigame. The button disables the canvas, but the time still counts up from the second the game begins.
+**Test:** Speel je minigame. De knop schakelt het canvas uit, maar de tijd telt nog steeds op vanaf het moment dat het spel begint.
 
-Fix any errors that appear.
+Verhelp eventuele fouten die verschijnen.
 
-Exit Play mode.
+Sluit de afspeelmodus af.
 
 --- /task ---
 
---- task --- Open your **StarPlayer** script to see the code that controls the time displayed.
+--- task --- Open je **StarPlayer** script om de code te zien die de weergegeven tijd regelt.
 
-Create a new public variable for your Gamemaster script:
+Maak een nieuwe openbare variabele voor je Gamemaster-script:
 
 --- code ---
 ---
@@ -203,9 +203,9 @@ public class StarPlayer : MonoBehaviour
 
 --- task ---
 
-Change the code in your `Update` method to only update the time if the button has been pressed and stars are less than three.
+Wijzig de code in je methode `Update` om de tijd alleen bij te werken als de knop is ingedrukt en er minder dan drie sterren zijn.
 
-`Time.time` starts when the game begins. Subtract the `startTime` from `Time.time` to display the elapsed time since the button was pressed:
+`Time.time` start wanneer het spel begint. Trek `startTime` af van `Time.time` om de verstreken tijd sinds het indrukken van de knop weer te geven:
 
 --- code ---
 ---
@@ -223,31 +223,31 @@ line_highlights: 23, 25
     }
 --- /code ---
 
-Save your script and return to the Unity Editor.
+Sla je script op en ga terug naar de Unity Editor.
 
 --- /task ---
 
 --- task ---
 
-Select the **Player** and go to the **Star Player (script)** component. Click on the circle next to Gamemaster and choose the **Gamemaster GameObject**:
+Selecteer de **Player** en ga naar de **Star Player (script)** component. Klik op de cirkel naast Gamemaster en kies het **Gamemaster GameObject**:
 
-![The Inspector window with 'Gamemaster' showing in the 'Gamemaster' field for the Star Player script.](images/Npc-variable.png)
+![Het Inspector venster met 'Gamemaster' in het 'Gamemaster' veld voor het Star Player script.](images/Npc-variable.png)
 
-This will add your Gamemaster's controller script to your player's `StarPlayer` script.
-
---- /task ---
-
---- task ---
-
-**Test:** Play your minigame. Check that the time doesn't start until the button has been pressed. What happens if you go back to the Gamemaster a second time?
-
-Exit Play mode.
+Hiermee wordt het controllerscript van je Gamemaster toegevoegd aan het `StarPlayer` script van je speler.
 
 --- /task ---
 
 --- task ---
 
-Open your **GamemasterController** script and amend the condition in **OnTriggerEnter** to only run if the Player collides and the button hasn't been pressed:
+**Test:** Speel je minigame. Controleer of de tijd pas begint nadat de knop is ingedrukt. Wat gebeurt er als je een tweede keer terug gaat naar de Gamemaster?
+
+Sluit de afspeelmodus af.
+
+--- /task ---
+
+--- task ---
+
+Open je **GamemasterController** script en wijzig de voorwaarde in **OnTriggerEnter** zodat deze alleen wordt uitgevoerd als de speler botst en de knop niet is ingedrukt:
 
 --- code ---
 ---
@@ -264,41 +264,41 @@ line_highlights: 33
     }
 --- /code ---
 
-![The Game view with the time starting after he button has been clicked. The button doesn't appear when the Player returns to the Gamemaster.](images/time-button.gif)
+![De spelweergave met de tijd die begint nadat op de knop is geklikt. De knop wordt niet weergegeven wanneer de speler terugkeert naar de Gamemaster.](images/time-button.gif)
 
 --- /task ---
 
 --- task ---
 
-**Test:** Play your minigame again. Are there any other ways a player could cheat?
+**Test:** Speel je minigame opnieuw. Zijn er nog andere manieren waarop een speler vals kan spelen?
 
-At the moment the stars are active when the game begins, so the player could collect the stars before going to the Gamemaster — this would mean a very quick time taken to complete the game!
+Op het moment dat de sterren actief zijn wanneer het spel begint, kan de speler de sterren dus verzamelen voordat hij naar de Gamemaster gaat — dit zou betekenen dat het spel super snel voltooid kan worden!
 
-Exit Play mode.
-
---- /task ---
-
-You can use Tags to identify objects that you want to treat in the same way.
-
---- task --- Select one of your **Star GameObjects** and click **Add Tag** in the Inspector.
-
-![Drop-down menu for Tags shown with Add Tag highlighted.](images/add-tag.png)
-
-Create a new tag called `Star` by clicking on the **+** icon.
-
-![A new tag called 'star' has been created.](images/new-tag.png)
-
-Save your tag and then select all of the **Star GameObjects** in the Hierarchy window by holding down <kbd>Ctrl</kbd> (or <kbd>Cmd</kbd>) and then clicking on each of them.
-
-Set the tag to 'Star' in the Inspector; this sets the tag for all of the Stars.
+Sluit de afspeelmodus af.
 
 --- /task ---
 
-In C#, you can store multiple objects of the same type in an **Array** variable. An array variable has left and right square brackets `[]` after the type, so `GameObject[] stars;` stores multiple Star GameObjects.
+Je kunt Tags gebruiken om objecten te identificeren die je op dezelfde manier wilt behandelen.
+
+--- task --- Selecteer een van je **Star GameObjects** en klik op **Add Tag** in de Inspector.
+
+![Drop-down menu voor Tags die worden weergegeven met Add Tag gemarkeerd.](images/add-tag.png)
+
+Maak een nieuwe tag met de naam `Star` door op het pictogram **+** te klikken.
+
+![Er is een nieuwe tag met de naam 'star' gemaakt.](images/new-tag.png)
+
+Sla je tag op en selecteer vervolgens alle **Star GameObjects** in het Hierarchy venster door <kbd>Ctrl</kbd> (of <kbd>Cmd</kbd>) ingedrukt te houden en vervolgens op elk ervan te klikken.
+
+Zet de tag in de Inspector op 'Star'; hiermee wordt de tag voor alle sterren ingesteld.
+
+--- /task ---
+
+In C# kun je meerdere objecten van hetzelfde type opslaan in een **Array** variabele. Een array variabele heeft linker en rechter vierkante haken `[]` na het type, dus ` GameObject[] stars;` slaat meerdere Star GameObjects op.
 
 --- task ---
 
-Open your **GamemasterController** script and add a new variable to store your Star GameObjects:
+Open je **GamemasterController** script en voeg een nieuwe variabele toe om je Star GameObjects op te slaan:
 
 --- code ---
 ---
@@ -310,11 +310,11 @@ public class GamemasterController : MonoBehaviour
 
 --- /task ---
 
-You can use a `foreach` loop to perform the same action on each item in an array.
+Je kunt een `foreach` lus gebruiken om dezelfde actie uit te voeren op elk item in een array.
 
 --- task ---
 
-Find the Star GameObjects and set them to inactive when the game starts:
+Zoek de Star GameObjects en zet ze op inactief wanneer het spel begint:
 
 --- code ---
 ---
@@ -333,7 +333,7 @@ line_highlights: 24-28
     }
 --- /code ---
 
-Set the stars to active once the player has clicked the Ready button:
+Stel de sterren in op actief nadat de speler op de knop Klaar heeft geklikt:
 
 --- code ---
 ---
@@ -357,11 +357,11 @@ line_highlights: 18-21
 
 --- task ---
 
-**Test:** Play your minigame again. Notice that the stars do not appear until the player has clicked on the Ready button.
+**Test:** Speel je minigame opnieuw. Kijk goed na of de sterren pas verschijnen als de speler op de knop Klaar heeft geklikt.
 
-**Debug:** Make sure every star has the 'Star' tag.
+**Debug:** Zorg ervoor dat elke ster de 'Star'-tag heeft.
 
-Exit Play mode.
+Sluit de afspeelmodus af.
 
 --- /task ---
 

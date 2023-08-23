@@ -11,7 +11,7 @@ Welke van deze GameObjects zijn UI-objecten?
 
 --- choices ---
 
-- (x) knoppen en tekst
+- (x) Knoppen en tekst
 
   --- feedback ---
 

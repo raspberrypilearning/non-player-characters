@@ -1,0 +1,28 @@
+Sterren
+
+Tijd
+
+Verzamel 3 sterren om het spel te voltooien. Hoe snel ben jij? Druk op 'klaar' om de timer te starten.
+
+Klaar
+
+Start wordt aangeroepen vóór de eerste frame-update
+
+Tijd dat de knop wordt ingedrukt
+
+Een getal zonder decimalen
+
+Ster
+
+Tijd waarop de knop wordt ingedrukt
+
+Update wordt één keer per frame aangeroepen
+
+Geen beweging
+
+Hallo! Ik kan je helpen. Laat mijn turbo sneller bewegen.
+
+Turbo schild op NPC
+
+Turbo Shield op speler
+

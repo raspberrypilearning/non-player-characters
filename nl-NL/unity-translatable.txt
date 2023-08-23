@@ -6,7 +6,7 @@ spelGestart
 
 Starttijd
 
-Spelerklaar
+SpelerKlaar
 
 Sterren:
 

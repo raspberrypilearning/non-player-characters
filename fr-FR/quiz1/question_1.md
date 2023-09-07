@@ -1,50 +1,50 @@
-## Quick quiz
+## Questionnaire rapide
 
-Answer the three questions. There are hints to guide you to the correct answer.
+Réponds aux trois questions. Il y a des indices pour te guider vers la bonne réponse.
 
-When you have answered each question, click on **Check my answer**.
+Lorsque tu as répondu à chaque question, clique sur **Vérifier ma réponse**.
 
-Have fun!
+Amuse-toi bien !
 
 --- question ---
 
 ---
-legend: Question 1 of 3
+legend: Question 1 sur 3
 ---
 
-Which component do you need to add to an NPC so it can use the `SimpleMove` method?
+Quel composant dois-tu ajouter à un PNJ pour qu'il puisse utiliser la méthode `SimpleMove` ?
 
 --- choices ---
 
-- ( ) A Script component
+- ( ) Un composant Script
 
   --- feedback ---
 
-  No, the NPC will need a Script component to control its movement, but that will not give it the `SimpleMove` method.
+  Non, le PNJ aura besoin d'un composant Script pour contrôler son mouvement, mais cela ne lui donnera pas la méthode `SimpleMove`.
 
   --- /feedback ---
 
-- ( ) A Box Collider component
+- ( ) Un composant Box Collider
 
   --- feedback ---
 
-  No, Box Colliders are used to control the physics of a GameObject to prevent collision or as a trigger for a collision event.
+  Non, les Box Colliders sont utilisés pour contrôler la physique d'un GameObject afin d'éviter les collisions ou comme déclencheur d'un événement de collision.
 
   --- /feedback ---
 
-- (x) A Character Controller component
+- (x) Un composant Character Controller
 
   --- feedback ---
 
-  That's right, adding the Character Controller component allows the Player to use the `SimpleMove` method.
+  C'est exact, l'ajout du composant Character Controller permet au joueur d'utiliser la méthode `SimpleMove`.
 
   --- /feedback ---
 
-- ( ) An Animator component
+- ( ) Un composant Animator
 
   --- feedback ---
 
-  An Animator component controls how the GameObject looks. It does not provide a `SimpleMove` method for moving around.
+  Un composant Animator contrôle l'apparence du GameObject. Il ne fournit pas de méthode `SimpleMove` pour le déplacement.
 
   --- /feedback ---
 

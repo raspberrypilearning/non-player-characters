@@ -1,10 +1,10 @@
-## What next?
+## Et ensuite ?
 
-If you are following the [Introduction to Unity](https://projects.raspberrypi.org/en/raspberrypi/unity-intro){:target='_blank'} pathway, you can move on to the [World builder](https://projects.raspberrypi.org/en/projects/world-builder){:target='_blank'} project. In this project, you will design and build you own 3D world for a player to experience.
+Si tu suis le parcours [Introduction à Unity](https://projects.raspberrypi.org/en/raspberrypi/unity-intro){:target="_blank"}, tu peux passer au projet [Bâtisseur de mondes](https://projects.raspberrypi.org/en/projects/world-builder){:target="_blank"}. Dans ce projet, tu concevras et construiras ton propre monde en 3D pour qu'un joueur puisse en faire l'expérience.
 
 --- print-only ---
 
-![WorldBuilder project](images/worldbuilder-project.png)
+![Projet Bâtisseur de mondes](images/worldbuilder-project.png)
 
 --- /print-only ---
 

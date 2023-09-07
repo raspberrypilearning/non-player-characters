@@ -1,19 +1,19 @@
-## Upgrade your project
+## Améliorer ton projet
 
-Well done, you have finished your minigame! Now think about ways you could upgrade your game to change the difficulty, add other collectables and NPCs, or develop the world with extra scenery. You could ask people to play your game and watch them play or ask them for feedback.
+Bravo, tu as terminé ton mini-jeu ! Réfléchis maintenant aux façons dont tu pourrais améliorer ton jeu pour modifier la difficulté, ajouter d'autres objets à collecter et PNJ, ou développer le monde avec des décors supplémentaires. Tu pourrais demander à des gens de jouer à ton jeu et les regarder jouer ou leur demander leur avis.
 
-You could:
-+ Use the Enemy tag to write code that ends the game or adds time penalties if the enemies touch the Player
-+ Add sound effects to the characters when their events are triggered
-+ Add more allies with child GameObjects that help in other ways such as: destroying enemies, protecting the player, or removing walls
+Tu pourrais :
++ Utiliser le tag Enemy pour écrire un code qui met fin au jeu ou ajoute des pénalités de temps si les ennemis touchent le joueur
++ Ajouter des effets sonores aux personnages lorsque leurs événements sont déclenchés
++ Ajouter d'autres alliés avec des GameObjects enfants qui aident d'autres façons. Par exemple : en détruisant des ennemis, en protégeant le joueur ou en supprimant des murs
 
 --- collapse ---
 
 ---
-title: Completed project
+title: Le projet terminé
 ---
 
-You can download the [completed project here](https://rpf.io/p/en/non-player-characters-get){:target="_blank"}.
+Tu peux trouver le [projet terminé ici](https://rpf.io/p/en/non-player-characters-get){:target="_blank"}.
 
 <iframe allowtransparency="true" width="710" height="450" src="https://non-player-characters-extended.rpfilt.repl.co" frameborder="0"></iframe>
 

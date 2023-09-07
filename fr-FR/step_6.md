@@ -1,155 +1,155 @@
-## NPC allies
+## Alliés PNJ
 
 <div style="display: flex; flex-wrap: wrap">
 <div style="flex-basis: 200px; flex-grow: 1; margin-right: 15px;">
-Allies are characters that help the Player by giving them clues or items; or by giving them abilities such as turbo speed.
+Les alliés sont des personnages qui aident le joueur en lui donnant des indices ou des objets ; ou en lui donnant des capacités telles que la vitesse turbo.
 </div>
 <div>
-![A shield on a Rat ally that disappears when the Player collides and a Player shield activating at the same time.](images/player-shield.gif){:width="300px"}
+![Un bouclier sur un allié du Rat qui disparaît lorsque le joueur entre en collision et un bouclier du joueur qui s'active en même temps.](images/player-shield.gif){:width="300px"}
 </div>
 </div>
 
-So far the minigame has several enemies but no allies. It would be great to have an ally that gives the Player a turbo charge to make the player move and turn faster to complete the game quicker.
+Pour l'instant, le mini-jeu comporte plusieurs ennemis mais pas d'alliés. Ce serait génial d'avoir un allié qui donne au joueur une charge turbo pour qu'il se déplace et tourne plus vite afin de terminer le jeu plus rapidement.
 
 --- task ---
 
-Drag a Rat into the Scene view and into a position that can't be seen by the Player when the game starts:
+Fais glisser un Rat dans la vue Scene et à une position que le joueur ne peut pas voir lorsque le jeu commence :
 
-![The Scene view showing the Rat hidden behind a wall.](images/position-rat.png)
+![La vue Scene montrant le rat caché derrière un mur.](images/position-rat.png)
 
 --- /task ---
 
 --- task ---
 
-With the Rat selected, go to the Inspector window and **Add Component**. Choose the **Character Controller**. Position and size the controller so it covers the centre of the Rat:
+Le rat étant sélectionné, va dans la fenêtre Inspector et **Add Component**. Choisis le **Character Controller**. Positionne et dimensionne le contrôleur de façon à ce qu'il couvre le centre du Rat :
 
-![The Character Controller with center y = 0.5 and height = 1.](images/cont-properties.png)
+![Le Character Controller avec center y = 0.5 et height = 1.](images/cont-properties.png)
 
-![The Rat in Scene view with Character Controller covering the body area.](images/char-cont-rat.png)
-
---- /task ---
-
---- task ---
-
-Click on **Add Component** and add a **Box Collider** to the Rat so that the Player cannot walk through, or climb on top of, the Rat. Change the y Center and Size:
-
-![The Box Collider component with values changed from defaults to center y = 1 and size y = 2.](images/box-collider.png)
-
---- /task ---
-
-Using animation makes an NPC come to life.
-
---- task ---
-
-In the Project window, navigate to the **Animation** folder. Right-click and go to **Create** then select **Animation Controller** and name your new animation controller `AllyIdle`.
-
-Double-click on the **AllyIdle** animation controller to open it in the Animator window.
-
-From the Animation folder in the Project window, drag the **Cat_IdleHappy** animation up to the Animator window:
-
-![The Animator window with Base Layer open and a black grid showing 'Entry' in green linked by a transition arrow to 'Cat_IdleHappy' in orange.](images/rat-idle-animator.png)
-
-**Tip:** You can use the Cat animations on the Rat and Raccoon because they are designed as humanoids (standing upright, two arms and two legs).
+![Le rat dans la vue Scene avec le Character Controller couvrant la zone du corps.](images/char-cont-rat.png)
 
 --- /task ---
 
 --- task ---
 
-From the Hierarchy window, select the **Rat** then go to the Inspector window **Animator** component. Click on the circle next to Controller and select **AllyIdle** to link your Animation Controller:
+Clique sur **Add Component** et ajoute un **Box Collider** au rat pour que le joueur ne puisse pas passer à travers, ou grimper dessus. Modifie le y Center et Size :
 
-![The Animator component with the circle for top 'Controller' property highlighted. AllyIdle is shown in the field.](images/controller-idle.png)
+![Le composant Box Collider avec des valeurs modifiées par rapport aux valeurs par défaut center y = 1 et size y = 2.](images/box-collider.png)
 
-**Tip:** You can also drag the Animation Controller from the Projects window to the Controller property of the Animator in the Inspector.
+--- /task ---
+
+L'utilisation de l'animation permet de donner vie à un PNJ.
+
+--- task ---
+
+Dans la fenêtre Project, va jusqu'au dossier **Animation**. Fais un clic droit et va sur **Create** puis sélectionne **Animation Controller** et nomme ton nouveau animation controller `AllyIdle`.
+
+Double-clique sur l'animation controller **AllyIdle** pour l'ouvrir dans la fenêtre Animator.
+
+À partir du dossier Animation de la fenêtre Project, fais glisser l'animation **Cat_IdleHappy** vers le haut de la fenêtre Animator :
+
+![La fenêtre Animator avec le Base Layer ouvert et une grille noire montrant « Entry » en vert lié par une flèche de transition à « Cat_IdleHappy » en orange.](images/rat-idle-animator.png)
+
+**Astuce :** tu peux utiliser les animations de chat sur le rat et le raton laveur car ils sont conçus comme des humanoïdes (debout, deux bras et deux jambes).
 
 --- /task ---
 
 --- task ---
 
-You can use this same Animator Controller for the Gamemaster to bring them to life!
+Dans la fenêtre Hierarchy, sélectionne le **Rat** puis va dans le composant **Animator** dans la fenêtre Inspector. Clique sur le cercle à côté de Controller et sélectionne **AllyIdle** pour lier ton Animation Controller :
 
-From the Hierarchy window, select your Gamemaster and drag the **AllyIdle** controller into the Controller field.
+![Le composant Animator avec le cercle de la propriété « Controller » du haut en surbrillance. AllyIdle est affiché dans le champ.](images/controller-idle.png)
 
---- /task ---
-
---- task ---
-
-**Test:** Play your game to see the Rat animate:
-
-![The Game view showing the Rat animating by swaying back and forth.](images/ally-anim.gif)
-
-Exit Play mode.
-
---- /task ---
-
-A character with the Shield model as a child GameObject would look like they have a special effect or power. In your minigame the shield will represent a turbo speed powerup.
-
-When the Player has the shield, they will move and turn twice as fast — but with the Ally hidden will they manage to find the shield early enough to make a difference?!
-
---- task ---
-
-In the Project window, go to the **Models** folder and find the **Shield**. Drag the shield up to the Hierarchy window and position it as a child GameObject of the Player:
-
-![The Hierarchy window showing the Shield GameObject indented as a child underneath the Player GameObject.](images/shield-child-player.png)
-
-This will automaticaly add the Shield in the same position as the Player:
-
-![The Scene view with the Player showing a white shield surrounding it.](images/shield-scene-player.png){:width="300px"}
-
-You will use code to hide the shield until the player picks up the turbo power boost from the Ally NPC.
+**Astuce :** tu peux aussi faire glisser l'Animation Controller de la fenêtre Project vers la propriété Controller de l'Animator dans l'Inspector.
 
 --- /task ---
 
 --- task ---
 
-Also add a Shield as a child GameObject of the Rat:
+Tu peux utiliser ce même Animator Controller pour le Gamemaster afin de leur donner vie !
 
-![The Hierarchy window showing the Shield GameObject indented as a child underneath the Rat GameObject.](images/shield-child.png)
-
-This will automaticaly add the Shield in the same position as the Rat:
-
-![The Scene view with the Rat showing a white shield surrounding it.](images/shield-scene.png){:width="300px"}
+Dans la fenêtre Hierarchy, sélectionne ton Gamemaster et fais glisser le contrôleur **AllyIdle** dans le champ Controller.
 
 --- /task ---
 
 --- task ---
 
-Right-click on the **Rat** in the Hierarchy window and from UI select **Text - TextMeshPro**:
+**Test :** joue à ton jeu pour voir le rat s'animer :
 
-![The Hierarchy with new Canvas and Text (TMP) child object of the Rat.](images/rat-tmptext.png)
+![La vue Game montre le rat qui s'anime en se balançant d'avant en arrière.](images/ally-anim.gif)
 
-In the Inspector window for the new Text (TMP) GameObject, add **Text Input** and tick the **Auto Size** box:
+Quitte le mode Play.
 
-![The Inspector window showing Text Input 'Hi there! I can help you. Have my turbo to move faster.' and the Auto Size box checked.](images/properties-text.png)
+--- /task ---
+
+Un personnage dont le modèle de bouclier est un GameObject enfant aura l'air d'avoir un effet ou un pouvoir spécial. Dans ton mini-jeu, le bouclier représentera un bonus de vitesse turbo.
+
+Si le joueur a le bouclier, il se déplacera et tournera deux fois plus vite mais si l'allié est caché, parviendra-t-il à trouver le bouclier suffisamment tôt pour faire la différence ?!
+
+--- task ---
+
+Dans la fenêtre Project, va dans le dossier **Models** et trouve **Shield**. Fais glisser le bouclier jusqu'à la fenêtre Hierarchy et positionne-le comme GameObject enfant du joueur :
+
+![La fenêtre Hierarchy montre le GameObject Shield en retrait comme un enfant sous le GameObject Joueur.](images/shield-child-player.png)
+
+Cela ajoutera automatiquement le bouclier dans la même position que le joueur :
+
+![La vue Scene avec le joueur montre un bouclier blanc qui l'entoure.](images/shield-scene-player.png){:width="300px"}
+
+Tu utiliseras du code pour cacher le bouclier jusqu'à ce que le joueur récupère l'augmentation de puissance turbo auprès du PNJ allié.
 
 --- /task ---
 
 --- task ---
 
-Use the Rect Transform component in the Inspector window to anchor the text to the bottom left then change the Pos x and Pos y coordinates:
+Ajoute également un bouclier en tant que GameObject enfant du rat :
 
-![The Rect Transform component with anchor to the bottom left selected and position x = 120, y = 50, and z = 0.](images/rect-trans-rat.png)
+![La fenêtre Hierarchy montre le GameObject Shield en retrait en tant qu'enfant sous le GameObject Rat.](images/shield-child.png)
 
-**Tip:** Click on the **Game** tab to see what the text looks like in Game view.
+Cela ajoutera automatiquement le bouclier dans la même position que le rat :
+
+![La vue Scene avec le rat montrant un bouclier blanc qui l'entoure.](images/shield-scene.png){:width="300px"}
 
 --- /task ---
-
-The Rat will have the shield visible until the Player collides with it. The shield will then transfer to the Player and the Rat will disappear.
 
 --- task ---
 
-Go to the **Add Component** button again and add a second **Box Collider** to the Rat.
+Fais un clic droit sur le **Rat** dans la fenêtre Hierarchy et dans UI, sélectionne **Text - TextMeshPro** :
 
-Check `IsTrigger` and change the size so that it is bigger than the first Box Collider:
+![Hierarchy avec le nouvel objet enfant Canvas et Text (TMP) du Rat.](images/rat-tmptext.png)
 
-![The Box Collider with 'Is Trigger' ticked and the size x = 1.5, y = 1, z = 1.5.](images/both-colliders-properties.png)
+Dans la fenêtre Inspector du nouveau GameObject Text (TMP), ajoute **Text Input** et coche la case **Auto Size** :
 
-![The Scene view with Rat showing a Box Collider larger than the Character Controller.](images/rat-box-scene.png)
+![La fenêtre Inspector montre l'entrée de texte « Salut ! Je peux t'aider. Prends mon turbo pour te déplacer plus vite. » Et l'Auto Size coché.](images/properties-text.png)
 
 --- /task ---
 
---- task --- With the ally Rat GameObject selected, add a new Script component and name it `AllyController`.
+--- task ---
 
-Double-click on the **AllyController** script to open it in your script editor. Add code to use the TMPro namespace:
+Utilise le composant Rect Transform dans la fenêtre Inspector pour ancrer le texte en bas à gauche puis modifie les coordonnées Pos x et Pos y :
+
+![Le composant Rect Transform avec l'ancrage en bas à gauche sélectionné et la position x = 120, y = 50, et z = 0.](images/rect-trans-rat.png)
+
+**Astuce :** clique sur l'onglet **Game** pour voir à quoi ressemble le texte en vue Game.
+
+--- /task ---
+
+Le bouclier du rat sera visible jusqu'à ce que le joueur entre en collision avec lui. Le bouclier sera alors transféré au joueur et le rat disparaîtra.
+
+--- task ---
+
+Va de nouveau sur le bouton **Add Component** et ajoute un deuxième **Box Collider** au Rat.
+
+Coche `IsTrigger` et modifie la taille pour qu'elle soit plus grande que le premier Box Collider :
+
+![Le Box Collider avec la case « Is Trigger » cochée et la taille x = 1.5, y = 1, z = 1.5.](images/both-colliders-properties.png)
+
+![La vue Scene avec Rat montre un Box Collider plus grand que le Character Controller.](images/rat-box-scene.png)
+
+--- /task ---
+
+--- task --- Avec le GameObject Rat allié sélectionné, ajoute un nouveau composant Script et nomme-le `AllyController`.
+
+Double-clique sur le script **AllyController** pour l'ouvrir dans ton éditeur de script. Ajoute du code pour utiliser l'espace de noms TMPro :
 
 --- code ---
 ---
@@ -162,7 +162,7 @@ using System.Collections; using System.Collections.Generic; using UnityEngine; u
 
 --- task ---
 
-Create public GameObject and Canvas variables and add code to activate the turbo speed boost on the Ally and not the Player, and disable the canvas at the start:
+Crée des variables publiques GameObject et Canvas et ajoute du code pour activer la vitesse turbo sur l'allié et non sur le joueur, et désactiver le canvas au début :
 
 --- code ---
 ---
@@ -172,7 +172,7 @@ line_highlights: 8, 9, 10, 11, 16, 17,18
 public class AllyController : MonoBehaviour
 { public GameObject turbo; // Turbo shield on NPC public GameObject playerTurbo; // Turbo shield on Player public PlayerController player; public GameObject canvas;
 
-    // Start is called before the first frame update
+    // Start est appelé avant l'update de la première image
     void Start()
     {
         turbo.SetActive(true);
@@ -185,7 +185,7 @@ public class AllyController : MonoBehaviour
 
 --- task ---
 
-Add code to enable the canvas and switch the turbo from the Ally to the Player and give the Player the turbo speed-up:
+Ajoute du code pour activer le canvas et faire passer le turbo de l'allié au joueur et donner au joueur l'accélération du turbo :
 
 --- code ---
 ---
@@ -212,7 +212,7 @@ public class AllyController : MonoBehaviour
 
 --- task ---
 
-Add an `OnTriggerExit` method to remove the Rat once the Player moves away to continue the game:
+Ajoute une méthode `OnTriggerExit` pour supprimer le rat une fois que le joueur s'éloigne pour continuer le partie :
 
 --- code ---
 ---
@@ -233,51 +233,51 @@ line_highlights: 25-31
     {
 --- /code ---
 
-Save your script and return to the Unity Editor.
+Enregistre ton script et reviens à l'éditeur Unity.
 
 --- /task ---
 
 --- task ---
 
-Click on the **Rat** in the Hierarchy window and find the **AllyController** script in the Inspector window.
+Clique sur le **Rat** dans la fenêtre Hierarchy et trouve le script **AllyController** dans la fenêtre Inspector.
 
-The component should now have four new properties.
+Le composant devrait maintenant avoir quatre nouvelles propriétés.
 
-![The Script component for Ally Controller showing four new properties.](images/empty-script-objects.png)
+![Le composant Script pour Ally Controller affiche quatre nouvelles propriétés.](images/empty-script-objects.png)
 
-**Debug:** The properties won't appear if your script has errors. Check the Console and fix any errors.
-
---- /task ---
-
---- task ---
-
-
-From the Hierarchy window drag:
-+ The Shield child GameObject of the Rat to the Turbo property
-+ The Shield child GameObject of the Player to the Player Turbo property
-+ The Player GameObject to the Player property
-+ The Canvas child GameObject of the Rat to the Canvas property
-
-![The Script component for Ally Controller showing Turbo populated with the Shield GameObject and Canvas populated with the Canvas GameObject.](images/script-objects.png)
+**Débogage :** les propriétés n'apparaîtront pas si ton script comporte des erreurs. Vérifie la console et corrige les éventuelles erreurs.
 
 --- /task ---
 
 --- task ---
 
-**Test:** Run your minigame and make sure the Player speeds up when the turbo has been applied.
 
-![A shield on a Rat ally that disappears when the Player collides and a Player shield activating at the same time.](images/player-shield.gif)
+Dans la fenêtre Hierarchy, fais glisser :
++ Le GameObject Shield enfant du Rat à la propriété Turbo
++ Le GameObject Shield enfant du joueur à la propriété joueur Turbo
++ Le GameObject Joueur à la propriété Joueur
++ Le GameObject Canvas enfant du Rat à la propriété Canvas
 
-Experiment with the values of Move Speed and Rotate Speed whilst in Play mode until you have the turbo effect you want — remember any changes you make here will not be saved when you exit Play mode, so jot down the values then edit them in the script afterward.
+![Le composant Script pour Ally Controller montre Turbo rempli avec le GameObject Shield et Canvas rempli avec le GameObject Canvas.](images/script-objects.png)
 
-**Tip:** If you can't see the difference in speed from the Game view, you can watch the variables for the Player in the Inspector view. They will change from 3 to 6 when the turbo has transferred to the Player:
+--- /task ---
 
-![Script component in Inspector view showing Move Speed and Rotate Speed as 3.](images/running-3.png)
+--- task ---
 
-![Script component in Inspector view showing Move Speed and Rotate Speed as 6.](images/running-6.png)
+**Test :** exécute ton mini-jeu et vérifie que le joueur accélère lorsque le turbo a été appliqué.
 
-**Tip:** If the shield appears on the wrong character then check the `turbo` property has the Rat's Shield and the `playerTurbo` property has the Player's Shield.
+![Un bouclier sur un allié Rat qui disparaît lorsque le joueur entre en collision et un bouclier du joueur qui s'active en même temps.](images/player-shield.gif)
 
-Exit Play mode. --- /task ---
+Expérimente les valeurs de Vitesse de déplacement et de Vitesse de rotation en mode Game jusqu'à ce que tu obtiennes l'effet turbo que tu souhaites. N'oublie pas que les changements que tu fais ici ne seront pas enregistrés lorsque tu quitteras le mode Game, alors note les valeurs et modifie-les dans le script par la suite.
+
+**Astuce :** si tu ne peux pas voir la différence de vitesse à partir de la vue Game, tu peux regarder les variables du joueur dans la vue Inspector. Elles passeront de 3 à 6 lorsque le turbo aura été transféré au joueur :
+
+![Dans Inspector, le composant Script indique que la vitesse de déplacement et la vitesse de rotation sont de 3.](images/running-3.png)
+
+![Dans Inspector, le composant Script indique que la vitesse de déplacement et la vitesse de rotation sont de 6.](images/running-6.png)
+
+**Astuce :** si le bouclier apparaît sur le mauvais personnage, vérifie alors que la propriété `turbo` possède le bouclier du rat et que la propriété `playerTurbo` possède le bouclier du joueur.
+
+Quitte le mode Play. --- /task ---
 
 --- save ---

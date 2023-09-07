@@ -1,30 +1,30 @@
-## You will make
+## Ce que tu vas faire
 
-Create 3D non-player characters to interact with, avoid, and collect from.
+Crée des personnages non-joueurs en 3D dans Unity avec lesquels tu pourras interagir, éviter et collecter.
 
-This project is brought to you with generous support from [Unity Technologies](https://unity.com/){:target="_blank"}.  These [projects](https://projects.raspberrypi.org/en/pathways/unity-intro){:target="_blank"} offer young people the opportunity to take their first steps in creating virtual worlds using Real-Time 3D.
+Ce projet t'est présenté grâce au soutien généreux de [Unity Technologies](https://unity.com/){:target="_blank"}.  Ces [projets](https://projects.raspberrypi.org/en/pathways/unity-intro){:target="_blank"} proposent aux jeunes de faire leurs premiers pas dans la création de mondes virtuels en 3D temps réel.
 
-This project follows on from [Star collector](https://projects.raspberrypi.org/en/projects/star-collector){:target='_blank'}. You can use the Unity scene that you created in that project as the basis for this project. We’ve also provided a starter project that you can use.
+Ce projet fait suite à [Collectionneur d'étoiles](https://projects.raspberrypi.org/en/projects/star-collector){:target="_blank'}. Tu peux utiliser la scène Unity que tu as créée dans ce projet comme base pour ce projet. Nous avons également fourni un projet de départ que tu peux utiliser.
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
-A <span style="color: #0faeb0">**non-player character (NPC)**</span> is a character that is not controlled by the person playing the game. NPCs can be set up for the player to interact with, avoid, compete with, or are simply used to populate the game world.
+Un <span style="color: #0faeb0">**personnage non-joueur (PNJ)**</span> est un personnage qui n'est pas contrôlé par la personne qui joue au jeu. Les PNJ peuvent être mis en place pour que le joueur puisse interagir avec eux, les éviter, leur faire concurrence, ou sont simplement utilisés pour peupler l'univers du jeu.
 </p>
 
-You will:
-+ Add non-player characters (NPCs) with animation and movement
-+ Interact with NPCs using simple dialog and buttons
-+ Use child GameObjects to allow players to hold other GameObjects
+Tu vas :
++ Ajouter des personnages non-joueurs (PNJ) avec animation et mouvement
++ Interagir avec les PNJ à l'aide d'un simple dialogue et de boutons
++ Utiliser des GameObjects enfants pour permettre aux joueurs de tenir d'autres GameObjects
 
 --- no-print ---
 
-### Play ▶️
+### Joue ▶️
 
 --- task ---
 
-Click on the embedded project. Interact with the NPCs:
-+ How does the cat control the game?
-+ What changes are made when you interact with the rat?
-+ Which movement patterns do the dogs have? How do they differ?
+Clique sur le projet intégré. Interagir avec les PNJ :
++ Comment le chat contrôle-t-il le jeu ?
++ Quels sont les changements qui se produisent lorsque tu interagis avec le rat ?
++ Quels sont les mouvements des chiens ? En quoi diffèrent-ils ?
 
 <iframe allowtransparency="true" width="710" height="450" src="https://non-player-characters-basic.rpfilt.repl.co" frameborder="0"></iframe> --- /task --- --- /no-print ---
 

@@ -1,28 +1,28 @@
-Stars
+Étoiles
 
-Time
+Temps
 
-Collect 3 stars to finish the game. How quick will you be? Press 'ready' to start the timer.
+Collecte 3 étoiles pour terminer la partie. Seras-tu rapide ? Appuie sur « Prêt » pour démarrer le chronomètre.
 
-Ready
+Prêt
 
-Start is called before the first frame update
+Start est appelé avant l'update de la première image
 
-Time when the button is pressed
+Temps auquel le bouton est enfoncé
 
-An integer whole number
+Un nombre entier
 
-Star
+Etoile
 
-Time when the button is pressed
+Temps auquel le bouton est enfoncé
 
-Update is called once per frame
+Update est appelée une fois par image
 
-No movement
+Aucun mouvement
 
-Hi there! I can help you. Have my turbo to move faster.
+Salut ! Je peux t'aider. Prends mon turbo pour te déplacer plus vite.
 
-Turbo shield on NPC
+Bouclier turbo sur le PNJ
 
-Turbo shield on Player
+Bouclier turbo sur le joueur
 

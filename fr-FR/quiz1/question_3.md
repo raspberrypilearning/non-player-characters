@@ -2,16 +2,16 @@
 --- question ---
 
 ---
-legend: Question 3 of 3
+legend: Question 3 sur 3
 ---
 
-In a project, an Ally gives the Player a Clover GameObject.
+Dans un projet, un Ally donne au joueur un GameObject Clover.
 
-The Ally's script has two GameObjects:
-+ clover — a child GameObject on the Ally
-+ playerClover — a child GameObject on the Player
+Le script d'Ally a deux GameObjects :
++ clover - un GameObject enfant sur l'Ally
++ playerClover - un GameObject enfant sur le joueur
 
-Which code should be added to the Ally's `OnTriggerEnter` method to make the clover appear to move from the Ally to the Player?
+Quel code doit être ajouté à la méthode `OnTriggerEnter ` de l'Ally pour faire croire que le trèfle passe de l'Ally au joueur ?
 
 --- choices ---
 
@@ -24,7 +24,7 @@ playerClover.SetActive(false);
 
   --- feedback ---
 
-  No, this code will make the clover appear on Ally and not on the Player.
+  Non, ce code fera apparaître le trèfle sur Ally et non sur le joueur.
 
   --- /feedback ---
 
@@ -37,7 +37,7 @@ playerClover.SetActive(false);
 
   --- feedback ---
 
-  No, `SetActive(false)` will hide a GameObject, but you don't want both clovers hidden.
+  Non, `SetActive(false)` cachera un GameObject, mais tu ne veux pas que les deux trèfles soient cachés.
 
   --- /feedback ---
 
@@ -50,7 +50,7 @@ playerClover.SetActive(true);
 
   --- feedback ---
 
-  Yes, this code will hide the clover on the Ally and show the clover that is a child of the Player.
+  Oui, ce code cachera le trèfle sur l'Ally et montrera le trèfle qui est un enfant du joueur.
 
   --- /feedback ---
 
@@ -63,7 +63,7 @@ playerClover.SetActive(true);
 
   --- feedback ---
 
-  No, `SetActive(true)` will show a GameObject, but you don't want both clovers visible.
+  Non, `SetActive(true)` affichera un GameObject, mais tu ne veux pas que les deux trèfles soient visibles.
 
   --- /feedback ---
 

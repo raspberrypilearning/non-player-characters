@@ -1,47 +1,47 @@
 canvas
 
-Player
+Joueur
 
-gameStarted
+jeuDemarre
 
-startTime
+demarrageTemps
 
-PlayerReady
+JoueurPret
 
-Stars:
+Étoiles :
 
-Time:
+Temps :
 
-patrolSpeed
+patrouilleurVitesse
 
-PatrolController
+PatrouilleurControleur
 
-maxMovement
+maxMouvement
 
-startPosition
+demarragePosition
 
 minPosition 
 
 maxPosition
 
-controller
+controleur
 
-FollowController
+SuivreControleur
 
-layer
+calque
 
-isFollowing
+suit
 
-followSpeed
+suivreVitesse
 
-followDistance
+suivreDistance
 
-moveDirection
+bougeDirection
 
 anim
 
-isRunning
+court
 
 turbo
 
-playerTurbo
+joueurTurbo

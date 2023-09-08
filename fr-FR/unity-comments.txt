@@ -1,0 +1,28 @@
+Étoiles
+
+Temps
+
+Collecte 3 étoiles pour terminer la partie. Seras-tu rapide ? Appuie sur « Prêt » pour démarrer le chronomètre.
+
+Prêt
+
+Start est appelé avant l'update de la première image
+
+Temps auquel le bouton est enfoncé
+
+Un nombre entier
+
+Etoile
+
+Temps auquel le bouton est enfoncé
+
+Update est appelée une fois par image
+
+Aucun mouvement
+
+Salut ! Je peux t'aider. Prends mon turbo pour te déplacer plus vite.
+
+Bouclier turbo sur le PNJ
+
+Bouclier turbo sur le joueur
+

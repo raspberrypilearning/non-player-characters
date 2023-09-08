@@ -1,0 +1,31 @@
+---
+title: Personnages non-joueurs
+hero_image: images/banner.png
+description: Crée des personnages non-joueurs en 3D avec lesquels tu peux interagir, éviter, et dont tu peux récupérer des bonus
+meta_title: Apprendre Unity | Développement de jeux | Personnages non-joueurs
+meta_description: Apprends à développer des jeux Unity avec Raspberry Pi Foundation. Crée des personnages non-joueurs en 3D dans Unity avec lesquels tu pourras interagir, éviter et collecter.
+version: 4
+listed: true
+copyedit: true
+last_tested: '2021-03-26'
+steps:
+  - title: Ce que tu vas faire
+  - title: Gamemaster PNJ
+  - title: Contrôler le jeu
+    completion:
+      - engaged
+  - title: Patrouilleur PNJ
+  - title: Suiveur PNJ
+  - title: Alliés PNJ
+    completion:
+      - internal
+  - title: Questionnaire rapide
+    knowledge_quiz:
+      path: quiz1
+      version: 1
+      questions: 3
+      passing_score: 3
+    completion:
+      - external
+  - title: Améliorer ton projet
+  - title: Et ensuite ?

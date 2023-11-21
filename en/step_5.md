@@ -65,7 +65,7 @@ line_highlights: 7
 ---
 public class FollowController : MonoBehaviour
 {
-    public GameObject layer;
+    public GameObject Player;
 
 --- /code ---
 

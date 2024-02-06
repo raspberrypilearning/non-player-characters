@@ -1,34 +1,35 @@
-## Quick quiz
+## اختبار سريع
 
-Answer the three questions. There are hints to guide you to the correct answer.
+أجب على ألأسئله الثلاثة. هناك تلميحات لإرشادك إلى الإجابة الصحيحة.
 
-When you have answered each question, click on **Check my answer**.
+عندما تجيب على كل سؤال ، انقر فوق **تحقق من إجابتي**.
 
-Have fun!
+استمتع!
 
 --- question ---
 
 ---
-legend: Question 1 of 3
+legend: السؤال 1 من 3
 ---
 
-Which component do you need to add to an NPC so it can use the `SimpleMove` method?
+ما المكون الذي تحتاج إلى إضافته إلى NPC حتى يتمكن من استخدام طريقة `SimpleMove </0 >؟</p>
 
---- choices ---
+<p spaces-before="0">--- choices ---</p>
 
-- ( ) A Script component
+<ul>
+<li><p spaces-before="0">() مكون البرنامَج النصي</p>
 
-  --- feedback ---
+<p spaces-before="2">--- feedback ---</p>
 
-  No, the NPC will need a Script component to control its movement, but that will not give it the `SimpleMove` method.
+<p spaces-before="2">لا، سيحتاج NPC إلى مكون برنامج نصي للتحكم في حركته، لكن هذا لن يمنحه طريقة <code>SimpleMove`.
 
-  --- /feedback ---
+  --- /feedback ---</li>
 
 - ( ) A Box Collider component
 
   --- feedback ---
 
-  No, Box Colliders are used to control the physics of a GameObject to prevent collision or as a trigger for a collision event.
+  لا، يتم استخدام Box Colliders للتحكم في فيزياء GameObject لمنع الاصطدام أو كمحفز لحدث تصادم.
 
   --- /feedback ---
 
@@ -40,13 +41,13 @@ Which component do you need to add to an NPC so it can use the `SimpleMove` meth
 
   --- /feedback ---
 
-- ( ) An Animator component
+- () مكون الرسوم المتحركة
 
   --- feedback ---
 
-  An Animator component controls how the GameObject looks. It does not provide a `SimpleMove` method for moving around.
+  يتحكم أحد مكونات Animator في كيفية ظهور GameObject. It does not provide a `SimpleMove` method for moving around.
 
-  --- /feedback ---
+  --- /feedback ---</ul>
 
 --- /choices ---
 

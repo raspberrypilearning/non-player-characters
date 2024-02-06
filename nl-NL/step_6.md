@@ -251,7 +251,6 @@ De component zou nu vier nieuwe eigenschappen moeten hebben.
 
 --- task ---
 
-
 Sleep vanuit het Hierarchy venster:
 + Het Shield als onderliggend GameObject van de Rat naar de Turbo-eigenschap
 + Het Shield als onderliggend GameObject van de speler naar de speler Turbo-eigenschap
@@ -277,6 +276,8 @@ Experimenteer met de waarden van Move Speed en Rotate Speed in de afspeelmodus t
 ![Scriptcomponent in de Inspector-weergave met bewegingssnelheid en rotatiesnelheid gelijk aan 6.](images/running-6.png)
 
 **Tip:** Als het schild op het verkeerde personage verschijnt, controleer dan of de eigenschap `turbo` het schild van de rat heeft en `playerTurbo ` het schild van de speler.
+
+**Tip:** If you get any errors that say variables on `PlayerController` are inaccessible, make sure those variables are set to `public` in the `PlayerController` script.
 
 Sluit de afspeelmodus af. --- /task ---
 

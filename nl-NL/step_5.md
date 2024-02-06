@@ -27,7 +27,7 @@ Selecteer de hond en ga naar het venster Inspector en **Add Component**. Kies de
 
 --- task ---
 
-Klik op **Add Component** en voeg een **Box Collider** toe aan de hond zodat de speler niet door de hond kan lopen of erop kan klimmen. Wijzig het y Center (midden) en Size (grootte):
+Klik op **Add Component** en voeg een **Box Collider** toe aan de hond zodat de speler niet door de hond kan lopen of erop kan klimmen. Wijzig het Y Center (midden) en Size (grootte):
 
 ![De Box Collider component met waarden gewijzigd van default naar Center y = 1 en Size y = 2.](images/box-collider.png)
 
@@ -35,7 +35,7 @@ Klik op **Add Component** en voeg een **Box Collider** toe aan de hond zodat de 
 
 --- task ---
 
-Ga opnieuw naar de knop **Add Component** en voeg een tweede **Box Collide** toe aan de hond.
+Ga opnieuw naar de knop **Add Component** en voeg een tweede **Box Collider** toe aan de hond.
 
 Deze Box Collider gebruikt `IsTrigger` om de hond de speler te laten volgen als de speler dichtbij genoeg komt om de aandacht van de hond te trekken. Deze Box Collider moet groot genoeg zijn zodat de speler er niet gemakkelijk langs kan sluipen:
 
@@ -61,7 +61,7 @@ language: cs filename: FollowController.cs line_numbers: true line_number_start:
 line_highlights: 7
 ---
 public class FollowController : MonoBehaviour
-{ public GameObject layer;
+{ public GameObject Player;
 
 --- /code ---
 

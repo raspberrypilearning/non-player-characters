@@ -15,7 +15,7 @@ Open de map **Models** in het projectvenster en voeg een **Dog** toe aan je scen
 
 Gebruik de Transform en Rotation tools of de Transform component om de hond in een goede positie te plaatsen om te patrouilleren — en om de speler te hinderen bij het bereiken van een ster! Plaats de hond op de **start** van zijn patrouille.
 
-**Tip:** Om jouw kaart van bovenaf te bekijken, klik je met de rechtermuisknop waar **Persp** staat in de rechterbovenhoek van de Scene view en kies je**Top**. Om terug te keren naar de normale weergave, klik met de rechtermuisknop op **Top** en kies **Free**.
+**Tip:** Om jouw kaart van bovenaf te bekijken, klik je met de rechtermuisknop waar **Persp** staat in de rechterbovenhoek van de Scene view en kies je **Top**. Om terug te keren naar de normale weergave, klik met de rechtermuisknop op **Top** en kies **Free**.
 
 ![De Transform-component van de Inspector met positie x = -4, y = 0, en z = 9.5. Rotation is ingesteld op y = 90.](images/transform-dog.png)
 
@@ -37,7 +37,7 @@ Selecteer de Dog en ga naar het Inspector venster en **Add Component**. Kies de 
 
 --- task ---
 
-Klik op **Add Component ** en voeg een **Box Collider ** toe aan de **Dog** zodat de speler niet door de hond kan lopen of er bovenop kan klimmen. Wijzig het y Center (midden) en de Size (grootte):
+Klik op **Add Component ** en voeg een **Box Collider ** toe aan de **Dog** zodat de speler niet door de hond kan lopen of er bovenop kan klimmen. Wijzig het Y Center (midden) en de Size (grootte):
 
 ![De Box Collider component met waarden gewijzigd van default naar Center y = 1 en Size y = 2. De waarden Size (grootte) x en z zijn gewijzigd in 1.5.](images/box-collider.png)
 
@@ -47,7 +47,7 @@ Klik op **Add Component ** en voeg een **Box Collider ** toe aan de **Dog** zoda
 
 Omdat zowel de hond als de speler beweegt, moet je een Box Collider toevoegen aan de **Player**, zodat de hond niet boven op de speler kan klimmen.
 
-Selecteer het **Player GameObject** in het Hierarchy venster, klik vervolgens op **Add Component** en voeg een **Box Collider** toe.  Wijzig het y Center (midden) en de Size (grootte):
+Selecteer het **Player GameObject** in het Hierarchy venster, klik vervolgens op **Add Component** en voeg een **Box Collider** toe.  Wijzig het Y Center (midden) en de Size (grootte):
 
 ![De Box Collider component met waarden gewijzigd van default naar Center y = 1 en Size y = 2. De waarden Size (grootte) x en z zijn gewijzigd in 1.5.](images/box-collider.png)
 
@@ -61,7 +61,7 @@ Voeg, met het Dog GameObject geselecteerd, een nieuwe script component toe en no
 
 --- task ---
 
-Open het script **PatrolController** en maak een openbare variabele `patrolSpeed` aan. Maak een andere openbare variabele voor de maximale afstand die je de hond wilt laten afleggen - noem deze `maxMovement`. Je hebt ook een laatste variabele nodig om de startpositie op te slaan, dit is een `Vector3` genaamd `startPosition`.
+Open het script **PatrolController** en maak een public variabele `patrolSpeed` aan. Maak een andere public variabele voor de maximale afstand die je de hond wilt laten afleggen - noem deze `maxMovement`. Je hebt ook een laatste variabele nodig om de startpositie op te slaan, dit is een `Vector3` genaamd `startPosition`.
 
 --- code ---
 ---

@@ -2,12 +2,12 @@
 --- question ---
 
 ---
-legend: Question 2 of 3
+القائمة: السؤال 2 من 3
 ---
 
 Canvases are GameObjects that are used to add a graphical User Interface (UI) to projects.
 
-Which of these GameObjects are UI objects?
+أي من كائنات GameObject هذه هي كائنات واجهة المستخدم؟
 
 --- choices ---
 
@@ -19,15 +19,15 @@ Which of these GameObjects are UI objects?
 
   --- /feedback ---
 
-- ( ) Cubes and planes
+- () المكعبات والطائرات
 
   --- feedback ---
 
-  No, cubes and planes are examples of 3D GameObjects.
+  لا، المكعبات والمستويات هي أمثلة على كائنات الألعاب ثلاثية الأبعاد.
 
   --- /feedback ---
 
-- ( ) Cameras
+- () الكاميرا
 
   --- feedback ---
 
@@ -35,11 +35,11 @@ Which of these GameObjects are UI objects?
 
   --- /feedback ---
 
-- ( ) All the above
+- ( ) كل ما سبق
 
   --- feedback ---
 
-  No, not all of these are UI GameObjects.
+  لا، ليست كل هذه كائنات GameObject لواجهة المستخدم.
 
   --- /feedback ---
 

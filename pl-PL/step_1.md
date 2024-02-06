@@ -26,6 +26,6 @@ Click on the embedded project. Interact with the NPCs:
 + What changes are made when you interact with the rat?
 + Which movement patterns do the dogs have? How do they differ?
 
-<iframe allowtransparency="true" width="710" height="450" src="https://non-player-characters-basic.rpfilt.repl.co" frameborder="0"></iframe> --- /task --- --- /no-print ---
+<iframe allowtransparency="true" width="710" height="450" src="https://raspberrypilearning.github.io/unity-webgl/npc-basic" frameborder="0"></iframe> --- /task --- --- /no-print ---
 
 --- print-only --- ![The Scene view with a top-down angle showing the scene with Player character, Gamemaster, two enemy dogs, and an ally rat. There are wall obstacles and three stars to collect. The Player and rat have shields on them.](images/showcase_static.png) --- /print-only ---

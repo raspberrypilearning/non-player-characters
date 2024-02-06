@@ -9,116 +9,6 @@ Het is niet eerlijk als de tijd begint voordat de speler klaar is! Met de knop '
 </div>
 </div>
 
-Op dit moment is het canvas altijd zichtbaar. Het mag alleen worden ingeschakeld wanneer de speler met de Gamemaster communiceert.
-
---- task ---
-
-Selecteer je **Gamemaster GameObject** en klik op ** Add Component ** in het venster Inspector en voeg vervolgens een tweede **Box Collider** toe.
-
-Deze Box Collider zal het canvas activeren met het bericht en de knop die moet worden weergegeven, dus het moet groter zijn dan de Box Collider die de speler tegenhoudt om tegen de Gamemaster op te lopen:
-
-![Het Inspector venster met twee colliders. De nieuwe collider heeft 'Is Trigger' aangevinkt en de size x = 2, y = 1, z = 2 zodat deze groter is dan de eerder toegevoegde collider.](images/both-colliders-properties.png)
-
-![De Scene view met de Gamemaster met twee Box Colliders. De ene is groter dan de andere.](images/two-colliders.png)
-
---- /task ---
-
---- task ---
-
-Voeg, met het Gamemaster GameObject geselecteerd, een nieuwe scriptcomponent toe en noem het ` GamemasterController`.
-
-![Het Inspector venster met 'GamemasterController' script component.](images/gamemaster-script.png)
-
---- /task ---
-
---- task ---
-
-Dubbelklik op het script **GamemasterController** om het te openen in je script editor. Voeg code toe om TMPro te gebruiken:
-
---- code ---
----
-language: cs filename: GamemasterController.cs line_numbers: true line_number_start: 1
-line_highlights: 4
----
-using System.Collections; using System.Collections.Generic; using UnityEngine; using TMPro; --- /code ---
-
---- /task ---
-
---- task ---
-
-Maak een openbare canvas variabele met de naam `canvas` en voeg code toe om ervoor te zorgen dat het canvas aan het begin is uitgeschakeld:
-
---- code ---
----
-language: cs filename: GamemasterController.cs line_numbers: true line_number_start: 6
-line_highlights: 8, 12
----
-public class GamemasterController : MonoBehaviour
-{
-    public GameObject canvas;
-    // Start is called before the first frame update
-    void Start()
-    {
-        canvas.SetActive(false);
-    }
---- /code ---
-
---- /task ---
-
---- task ---
-
-Voeg twee nieuwe methoden toe. De eerste om het canvas in te schakelen wanneer de speler in de collider is. De tweede om het canvas uit te schakelen wanneer de speler is weggegaan:
-
---- code ---
----
-language: cs filename: GamemasterController.cs line_numbers: true line_number_start: 16
-line_highlights: 21-35
----
-
-    void Update()
-    {
-    
-    }
-    
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            canvas.SetActive(true);
-        }
-    }
-    
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            canvas.SetActive(false);
-        }
-    }
---- /code ---
-
-Sla je script op en ga terug naar de Unity Editor.
-
---- /task ---
-
---- task ---
-
-Zoek het **Gamemaster Canvas child Gameobject** in het Hierarchy venster. Sleep het Canvas GameObject naar het Canvas-variabele veld in het GamemasterController-script in de Inspector.
-
-![Het Script-onderdeel in het Inspector-venster met het canvas in de Canvas-variabele.](images/canvas-to-script.gif)
-
---- /task ---
-
---- task ---
-
-**Test:** Speel je minigame, loop naar de Gamemaster en ga weer weg. Het canvas wordt weergegeven wanneer de speler de gamemaster-collider activeert en verdwijnt wanneer de speler weggaat.
-
-![Speler beweegt vooruit en het canvas verschijnt in de buurt van Gamesmaster.](images/canvas-appearing.gif)
-
-Sluit de afspeelmodus af.
-
---- /task ---
-
 De knop ziet er geweldig uit, maar moet een gebeurtenis activeren wanneer deze wordt ingedrukt.
 
 --- task ---
@@ -137,7 +27,7 @@ public class GamemasterController : MonoBehaviour
 
 --- task ---
 
-Maak een openbare methode met de naam `PlayerReady` om de spelvoorwaarden in te stellen wanneer de speler op de knop 'Klaar' heeft geklikt.
+Maak een public method met de naam `SpelerKlaar` om de spelvoorwaarden in te stellen wanneer de speler op de knop 'Klaar' heeft geklikt.
 
 Het tijdstip waarop de knop werd ingedrukt moet worden opgeslagen, zodat je kunt bepalen hoe lang het spel geduurd heeft:
 
@@ -189,7 +79,7 @@ Sluit de afspeelmodus af.
 
 --- task --- Open je **StarPlayer** script om de code te zien die de weergegeven tijd regelt.
 
-Maak een nieuwe openbare variabele voor je Gamemaster-script:
+Maak een nieuwe public variabele voor je Gamemaster-script:
 
 --- code ---
 ---

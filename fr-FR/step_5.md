@@ -61,7 +61,7 @@ language: cs filename: FollowController.cs line_numbers: true line_number_start:
 line_highlights: 7
 ---
 public class FollowController : MonoBehaviour
-{ public GameObject layer;
+{ public GameObject Player;
 
 --- /code ---
 

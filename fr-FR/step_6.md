@@ -251,7 +251,6 @@ Le composant devrait maintenant avoir quatre nouvelles propriétés.
 
 --- task ---
 
-
 Dans la fenêtre Hierarchy, fais glisser :
 + Le GameObject Shield enfant du Rat à la propriété Turbo
 + Le GameObject Shield enfant du joueur à la propriété joueur Turbo
@@ -277,6 +276,8 @@ Expérimente les valeurs de Vitesse de déplacement et de Vitesse de rotation en
 ![Dans Inspector, le composant Script indique que la vitesse de déplacement et la vitesse de rotation sont de 6.](images/running-6.png)
 
 **Astuce :** si le bouclier apparaît sur le mauvais personnage, vérifie alors que la propriété `turbo` possède le bouclier du rat et que la propriété `playerTurbo` possède le bouclier du joueur.
+
+**Tip:** If you get any errors that say variables on `PlayerController` are inaccessible, make sure those variables are set to `public` in the `PlayerController` script.
 
 Quitte le mode Play. --- /task ---
 

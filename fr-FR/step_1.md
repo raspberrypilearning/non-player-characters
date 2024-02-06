@@ -26,6 +26,6 @@ Clique sur le projet intégré. Interagir avec les PNJ :
 + Quels sont les changements qui se produisent lorsque tu interagis avec le rat ?
 + Quels sont les mouvements des chiens ? En quoi diffèrent-ils ?
 
-<iframe allowtransparency="true" width="710" height="450" src="https://non-player-characters-basic.rpfilt.repl.co" frameborder="0"></iframe> --- /task --- --- /no-print ---
+<iframe allowtransparency="true" width="710" height="450" src="https://raspberrypilearning.github.io/unity-webgl/npc-basic" frameborder="0"></iframe> --- /task --- --- /no-print ---
 
 --- print-only --- ![The Scene view with a top-down angle showing the scene with Player character, Gamemaster, two enemy dogs, and an ally rat. There are wall obstacles and three stars to collect. The Player and rat have shields on them.](images/showcase_static.png) --- /print-only ---

@@ -251,7 +251,6 @@ The component should now have four new properties.
 
 --- task ---
 
-
 From the Hierarchy window drag:
 + The Shield child GameObject of the Rat to the Turbo property
 + The Shield child GameObject of the Player to the Player Turbo property
@@ -277,6 +276,8 @@ Experiment with the values of Move Speed and Rotate Speed whilst in Play mode un
 ![Script component in Inspector view showing Move Speed and Rotate Speed as 6.](images/running-6.png)
 
 **Tip:** If the shield appears on the wrong character then check the `turbo` property has the Rat's Shield and the `playerTurbo` property has the Player's Shield.
+
+**Tip:** If you get any errors that say variables on `PlayerController` are inaccessible, make sure those variables are set to `public` in the `PlayerController` script.
 
 Exit Play mode. --- /task ---
 

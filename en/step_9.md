@@ -8,4 +8,4 @@ If you are following the [Introduction to Unity](https://projects.raspberrypi.or
 
 --- /print-only ---
 
-<iframe allowtransparency="true" width="710" height="450" src="https://world-builder-ms.rpfilt.repl.co" frameborder="0"></iframe>
+<iframe allowtransparency="true" width="710" height="450" src="https://raspberrypilearning.github.io/unity-webgl/world-builder-ms/" frameborder="0"></iframe>
